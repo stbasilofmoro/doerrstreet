@@ -119,6 +119,17 @@ function ContactInfoSection() {
         <p className="contact-info-note">Available for urgent situations outside business hours.</p>
       </div>
       <div className="contact-info-block">
+        <h3 className="contact-info-heading">Email Us</h3>
+        <a href="mailto:info@trackinspections.com" className="contact-info-email">info@trackinspections.com</a>
+      </div>
+      <div className="contact-info-block">
+        <h3 className="contact-info-heading">Corporate Headquarters</h3>
+        <address className="contact-info-address">
+          13700 Providence Road, Suite 200<br />
+          Weddington, NC 28104
+        </address>
+      </div>
+      <div className="contact-info-block">
         <h3 className="contact-info-heading">Service Area</h3>
         <p className="contact-info-note">
           Based in the Carolinas. Operating across the Southeastern United States — NC, SC, GA,

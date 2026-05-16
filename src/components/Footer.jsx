@@ -26,6 +26,11 @@ export function Footer({ onNavigate }) {
 
         <div className="footer-contact-col">
           <a href="tel:+17043210802" className="footer-phone">(704) 321-0802</a>
+          <a href="mailto:info@trackinspections.com" className="footer-email">info@trackinspections.com</a>
+          <address className="footer-address">
+            13700 Providence Road, Suite 200<br />
+            Weddington, NC 28104
+          </address>
           <span className="footer-region">Serving the Southeastern United States</span>
         </div>
       </div>

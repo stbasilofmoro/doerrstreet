@@ -1270,6 +1270,25 @@
 }
 .contact-info-phone:hover { color: var(--olive); }
 
+.contact-info-email {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.contact-info-email:hover { color: var(--olive); }
+
+.contact-info-address {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  line-height: 1.7;
+  color: var(--body);
+}
+
 .contact-info-note {
   font-family: 'Montserrat', sans-serif;
   font-size: 13px;
@@ -1591,6 +1610,23 @@
   transition: color 0.2s;
 }
 .footer-phone:hover { color: var(--cream); }
+
+.footer-email {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: rgba(240,217,168,0.6);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-email:hover { color: var(--cream); }
+
+.footer-address {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  line-height: 1.7;
+  color: rgba(240,217,168,0.5);
+}
 
 .footer-region {
   font-family: 'Montserrat', sans-serif;
