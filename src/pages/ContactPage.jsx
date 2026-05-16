@@ -33,6 +33,9 @@ function ContactForm() {
         }),
       })
       if (res.ok) {
+        if (typeof window.gtag_report_conversion === 'function') {
+          window.gtag_report_conversion()
+        }
         setStatus('success')
       } else {
         setStatus('error')
