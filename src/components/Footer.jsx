@@ -31,6 +31,7 @@ export function Footer({ onNavigate }) {
       </div>
       <div className="footer-bottom">
         <span>&copy; {new Date().getFullYear()} Doerr Street Rail Co. All rights reserved.</span>
+        <button className="footer-privacy-link" onClick={() => go('privacy')}>Privacy Policy</button>
       </div>
     </footer>
   )

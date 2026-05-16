@@ -6,15 +6,17 @@ import { ServicesPage } from './pages/ServicesPage'
 import { TeamPage }     from './pages/TeamPage'
 import { ContactPage }  from './pages/ContactPage'
 import { LoginPage }    from './pages/LoginPage'
+import { PrivacyPage }  from './pages/PrivacyPage'
 import './App.css'
 
 const PATH_TO_PAGE = {
-  '/':         'home',
-  '/about':    'about',
-  '/services': 'services',
-  '/team':     'team',
-  '/contact':  'contact',
-  '/login':    'login',
+  '/':               'home',
+  '/about':          'about',
+  '/services':       'services',
+  '/team':           'team',
+  '/contact':        'contact',
+  '/login':          'login',
+  '/privacy-policy': 'privacy',
 }
 
 const PAGE_TO_PATH = {
@@ -24,6 +26,7 @@ const PAGE_TO_PATH = {
   team:     '/team',
   contact:  '/contact',
   login:    '/login',
+  privacy:  '/privacy-policy',
 }
 
 function getPageFromPath() {
@@ -52,6 +55,7 @@ export default function App() {
     team:     <TeamPage     onNavigate={navigate} />,
     contact:  <ContactPage  onNavigate={navigate} />,
     login:    <LoginPage    onNavigate={navigate} />,
+    privacy:  <PrivacyPage  onNavigate={navigate} />,
   }
 
   return (

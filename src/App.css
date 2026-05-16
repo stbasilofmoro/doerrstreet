@@ -1601,7 +1601,10 @@
 
 .footer-bottom {
   border-top: 1px solid var(--gold-border);
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
   padding: 18px 36px;
 }
 
@@ -1610,6 +1613,97 @@
   font-size: 10.5px;
   letter-spacing: 1px;
   color: rgba(240,217,168,0.35);
+}
+
+.footer-privacy-link {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10.5px;
+  letter-spacing: 1px;
+  color: rgba(240,217,168,0.35);
+  padding: 0;
+  transition: color 0.2s;
+}
+.footer-privacy-link:hover { color: var(--cream); }
+
+/* ── Privacy Policy page ── */
+.privacy-section {
+  background: var(--cream);
+  padding: 72px 24px;
+}
+
+.privacy-content {
+  max-width: 780px;
+  margin: 0 auto;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--dark);
+}
+
+.privacy-effective {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--body);
+  margin-bottom: 28px;
+}
+
+.privacy-intro {
+  font-size: 15px;
+  line-height: 1.75;
+  margin-bottom: 40px;
+  color: var(--body);
+}
+
+.privacy-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--olive-deep);
+  margin: 44px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--gold-border);
+}
+
+.privacy-content h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--dark);
+  margin: 24px 0 8px;
+}
+
+.privacy-content p,
+.privacy-content address {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--body);
+  margin-bottom: 16px;
+  font-style: normal;
+}
+
+.privacy-content ul {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--body);
+  padding-left: 24px;
+  margin-bottom: 16px;
+}
+
+.privacy-content a {
+  color: var(--olive);
+  text-decoration: underline;
+}
+.privacy-content a:hover { color: var(--olive-deep); }
+
+.privacy-address {
+  background: rgba(75,79,56,0.07);
+  border-left: 3px solid var(--gold);
+  padding: 16px 20px;
+  border-radius: 2px;
 }
 
 /* ═══════════════════════════════════════════════════════════════
