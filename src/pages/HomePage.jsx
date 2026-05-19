@@ -137,6 +137,41 @@ function ServicesTeaser({ onNavigate }) {
   )
 }
 
+/* ── Industries Served ── */
+const INDUSTRIES = [
+  'Paper Mills',
+  'Aggregate Facilities',
+  'Chemical Plants',
+  'Transload Facilities',
+  'Manufacturing',
+  'Lumber',
+  'Food Processing',
+  'Short Line Railroads',
+]
+
+function IndustriesSection() {
+  return (
+    <section className="industries-section">
+      <div className="industries-content">
+        <div className="section-header-center">
+          <h2 className="section-heading">Industries Served</h2>
+          <p className="section-subheading-dark">
+            Wherever industrial track meets a Class I railroad, we have the experience to keep it compliant and operational.
+          </p>
+        </div>
+        <div className="industries-grid">
+          {INDUSTRIES.map((name, i) => (
+            <div key={i} className="industry-item">
+              <div className="industry-rule" />
+              <div className="industry-name">{name}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 /* ── CTA band ── */
 function ContactTeaser({ onNavigate }) {
   return (
@@ -162,6 +197,7 @@ export function HomePage({ onNavigate }) {
       <StatsSection />
       <AboutTeaser onNavigate={onNavigate} />
       <ServicesTeaser onNavigate={onNavigate} />
+      <IndustriesSection />
       <ContactTeaser onNavigate={onNavigate} />
       <Footer onNavigate={onNavigate} />
     </>
