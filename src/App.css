@@ -1894,3 +1894,181 @@
   .contact-page-section { padding: 48px 20px; }
   .form-row { grid-template-columns: 1fr; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   LANDING PAGES — shared template styles
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Intro section */
+.lp-intro-section {
+  background: var(--cream);
+  border-bottom: 1px solid var(--gold-border);
+}
+.lp-intro-content {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 72px 32px;
+}
+.lp-intro-content .section-heading { margin-bottom: 28px; }
+
+.lp-body {
+  font-family: 'Apercu', sans-serif;
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--body);
+  margin-bottom: 20px;
+}
+
+/* Features section (dark olive) */
+.lp-features-section { background: var(--olive); }
+.lp-features-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 72px 32px;
+}
+.lp-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 52px;
+}
+.lp-feature-card { }
+.lp-feature-rule {
+  width: 28px;
+  height: 2px;
+  background: var(--gold);
+  margin-bottom: 16px;
+}
+.lp-feature-title {
+  font-family: 'Tiempos Text', Georgia, serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--cream);
+  margin: 0 0 10px;
+}
+.lp-feature-body {
+  font-family: 'Apercu', sans-serif;
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: rgba(240, 217, 168, 0.7);
+}
+
+/* Two-column section */
+.lp-twocol-section {
+  background: var(--cream);
+  border-top: 1px solid var(--gold-border);
+}
+.lp-twocol-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 32px;
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+}
+.lp-twocol-text { flex: 1; }
+.lp-twocol-text .section-heading { margin-bottom: 24px; }
+.lp-twocol-list { flex: 0 0 380px; }
+.lp-list-heading {
+  font-family: 'Apercu', sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 20px;
+}
+.lp-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.lp-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-family: 'Apercu', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--body);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--gold-border);
+}
+.lp-checklist li:last-child { border-bottom: none; }
+.lp-check {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  border: 1.5px solid var(--gold);
+  border-radius: 2px;
+  position: relative;
+}
+.lp-check::after {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 1px;
+  width: 6px;
+  height: 9px;
+  border-right: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  transform: rotate(45deg);
+}
+
+/* Trust / credential strip */
+.lp-trust-section {
+  background: var(--olive-deep);
+  border-top: 1px solid var(--gold-border);
+  border-bottom: 1px solid var(--gold-border);
+}
+.lp-trust-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 32px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+.lp-trust-item { text-align: center; }
+.lp-trust-value {
+  font-family: 'Tiempos Text', Georgia, serif;
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.lp-trust-label {
+  font-family: 'Apercu', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(240, 217, 168, 0.6);
+}
+
+/* Plain text section */
+.lp-text-section {
+  background: var(--cream);
+  border-top: 1px solid var(--gold-border);
+}
+.lp-text-content {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 72px 32px;
+}
+.lp-text-content .section-heading { margin-bottom: 28px; }
+
+/* Responsive */
+@media (max-width: 960px) {
+  .lp-features-grid { grid-template-columns: repeat(2, 1fr); }
+  .lp-twocol-inner { flex-direction: column; gap: 44px; }
+  .lp-twocol-list { flex: none; width: 100%; }
+}
+@media (max-width: 600px) {
+  .lp-features-grid { grid-template-columns: 1fr; }
+  .lp-trust-inner { justify-content: center; }
+}

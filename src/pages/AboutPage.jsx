@@ -1,6 +1,7 @@
 import { PageHero } from '../components/PageHero'
 import { HoundtoothStrip } from '../components/HoundtoothStrip'
 import { Footer } from '../components/Footer'
+import { SEOHead } from '../components/SEOHead'
 
 const TIMELINE = [
   { year: '1940s', heading: 'Roots in Pittsburgh', body: 'The Polivka family emigrates from the Carpathian Rusyn region, settling in Pittsburgh and bringing old-world values of craftsmanship and hard work to American industry.' },
@@ -169,6 +170,11 @@ function AboutCTA({ onNavigate }) {
 export function AboutPage({ onNavigate }) {
   return (
     <>
+      <SEOHead
+        title="About Doerr Street Rail Co | Three Generations of Railroad Experience"
+        description="Doerr Street Rail Co is built on 60 years of railroad heritage — from Pittsburgh roots through Class I operations to FRA-certified industrial track inspection across the Southeastern U.S."
+        canonical="https://doerrstreetrailco.com/about"
+      />
       <PageHero
         title="About Doerr Street Rail Co"
         subtitle="Three generations. Sixty years. One standard of excellence."

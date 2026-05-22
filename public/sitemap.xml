@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core pages -->
+  <url><loc>https://doerrstreetrailco.com/</loc><priority>1.0</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://doerrstreetrailco.com/about</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://doerrstreetrailco.com/services</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://doerrstreetrailco.com/team</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://doerrstreetrailco.com/contact</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://doerrstreetrailco.com/privacy-policy</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+
+  <!-- Service landing pages -->
+  <url><loc>https://doerrstreetrailco.com/railroad-track-inspection</loc><priority>0.95</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://doerrstreetrailco.com/fra-track-inspection</loc><priority>0.95</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://doerrstreetrailco.com/industrial-track-inspection</loc><priority>0.95</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://doerrstreetrailco.com/rail-siding-inspection</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://doerrstreetrailco.com/railroad-track-consulting</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://doerrstreetrailco.com/track-inspection-services</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://doerrstreetrailco.com/industrial-rail-compliance</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Geographic landing pages -->
+  <url><loc>https://doerrstreetrailco.com/track-inspection-north-carolina</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://doerrstreetrailco.com/track-inspection-south-carolina</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://doerrstreetrailco.com/track-inspection-georgia</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://doerrstreetrailco.com/track-inspection-tennessee</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://doerrstreetrailco.com/track-inspection-ohio</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
+
+</urlset>

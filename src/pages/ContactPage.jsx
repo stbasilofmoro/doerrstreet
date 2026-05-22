@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Logo } from '../Logo'
+import { SEOHead } from '../components/SEOHead'
 import { PageHero } from '../components/PageHero'
 import { HoundtoothStrip } from '../components/HoundtoothStrip'
 import { Footer } from '../components/Footer'
@@ -159,6 +160,11 @@ function ContactInfoSection() {
 export function ContactPage({ onNavigate }) {
   return (
     <>
+      <SEOHead
+        title="Contact Us | Request a Railroad Track Inspection"
+        description="Request a railroad track inspection quote, schedule an FRA compliance inspection, or ask a question. We respond within one business day. Call (704) 321-0802."
+        canonical="https://doerrstreetrailco.com/contact"
+      />
       <PageHero
         title="Contact Us"
         subtitle="Request a quote, schedule an inspection, or ask a question."

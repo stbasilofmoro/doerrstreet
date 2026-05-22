@@ -1,6 +1,16 @@
 import { LogoLockup } from '../Logo'
 import { HoundtoothStrip } from '../components/HoundtoothStrip'
 import { Footer } from '../components/Footer'
+import { SEOHead } from '../components/SEOHead'
+
+const HOME_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Doerr Street Rail Co — FRA-Certified Rail Inspection & Maintenance',
+  description: 'FRA-certified railroad track inspection and maintenance for industrial facilities and rail operators across the Southeastern United States.',
+  url: 'https://doerrstreetrailco.com/',
+  breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://doerrstreetrailco.com/' }] },
+}
 
 /* ── Hero ── */
 function HeroSection({ onNavigate }) {
@@ -8,8 +18,8 @@ function HeroSection({ onNavigate }) {
     <section className="hero-section">
       <div className="hero-frame">
         <LogoLockup logoHeight={66} textColor="var(--cream)" />
-        <h1 className="hero-title">Rail Inspection &amp; Maintenance</h1>
-        <p className="hero-subtitle">in Southeastern United States</p>
+        <h1 className="hero-title">Railroad Track Inspection &amp; Maintenance</h1>
+        <p className="hero-subtitle">FRA-Certified — Southeastern United States</p>
         <button className="hero-cta-btn" onClick={() => { onNavigate('contact'); window.scrollTo(0, 0) }}>
           Request a Quote
         </button>
@@ -49,9 +59,10 @@ function StatsSection() {
         </div>
 
         <p className="stats-body">
-          FRA-certified rail inspection and maintenance for industrial leads, sidings, and switches
-          across the Southeastern United States. Our inspectors average 30 years of field experience,
-          with prior careers at Class I railroads and a proven record across 800+ completed projects.
+          FRA-certified railroad track inspection and industrial rail maintenance for plant spurs,
+          private sidings, and interchange tracks across the Southeastern United States. Our inspectors
+          average 30 years of field experience with Class I railroads — and a documented record across
+          800+ completed inspection and maintenance projects.
         </p>
 
         <div className="stats-map-wrap">
@@ -114,8 +125,8 @@ function ServicesTeaser({ onNavigate }) {
       <HoundtoothStrip />
       <div className="services-content">
         <div className="section-header-center">
-          <h2 className="section-heading-light">Our Services</h2>
-          <p className="section-subheading">Built on decades of Class I railroad experience</p>
+          <h2 className="section-heading-light">Railroad Track Inspection &amp; Maintenance Services</h2>
+          <p className="section-subheading">FRA Part 213 certified. Built on decades of Class I railroad experience.</p>
         </div>
         <div className="services-grid">
           {SERVICE_TEASERS.map((s, i) => (
@@ -176,9 +187,9 @@ function IndustriesSection() {
 function ContactTeaser({ onNavigate }) {
   return (
     <section className="cta-band">
-      <h2 className="cta-band-heading">Ready to schedule an inspection?</h2>
+      <h2 className="cta-band-heading">Ready to schedule a railroad track inspection?</h2>
       <p className="cta-band-sub">
-        We serve industrial facilities, short-line railroads, and Class I contractors across the Southeast.
+        We serve industrial facilities, short-line railroads, and Class I contractors across NC, SC, GA, FL, TN, AL, MS, and VA.
       </p>
       <div className="cta-band-actions">
         <button className="btn-primary" onClick={() => { onNavigate('contact'); window.scrollTo(0, 0) }}>
@@ -193,6 +204,11 @@ function ContactTeaser({ onNavigate }) {
 export function HomePage({ onNavigate }) {
   return (
     <>
+      <SEOHead
+        description="FRA-certified railroad track inspection and maintenance for industrial facilities and rail operators across the Southeastern United States. Class I experience. Written reports within 48 hours."
+        canonical="https://doerrstreetrailco.com/"
+        schema={HOME_SCHEMA}
+      />
       <HeroSection onNavigate={onNavigate} />
       <StatsSection />
       <AboutTeaser onNavigate={onNavigate} />

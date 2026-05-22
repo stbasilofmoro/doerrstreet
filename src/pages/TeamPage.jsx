@@ -1,3 +1,4 @@
+import { SEOHead } from '../components/SEOHead'
 import { PageHero } from '../components/PageHero'
 import { HoundtoothStrip } from '../components/HoundtoothStrip'
 import { Footer } from '../components/Footer'
@@ -134,6 +135,11 @@ function TeamCTA({ onNavigate }) {
 export function TeamPage({ onNavigate }) {
   return (
     <>
+      <SEOHead
+        title="Our Team | FRA-Certified Inspectors & Class I Railroad Alumni"
+        description="Meet the Doerr Street Rail Co team — FRA-certified field inspectors, Class I railroad alumni, and operations professionals with 30+ years of combined railroad experience."
+        canonical="https://doerrstreetrailco.com/team"
+      />
       <PageHero
         title="Our Team"
         subtitle="Class I experience. FRA certification. Family values."

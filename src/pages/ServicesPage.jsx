@@ -1,3 +1,4 @@
+import { SEOHead } from '../components/SEOHead'
 import { PageHero } from '../components/PageHero'
 import { HoundtoothStrip } from '../components/HoundtoothStrip'
 import { Footer } from '../components/Footer'
@@ -208,6 +209,11 @@ function ServicesCTA({ onNavigate }) {
 export function ServicesPage({ onNavigate }) {
   return (
     <>
+      <SEOHead
+        title="Rail Inspection & Maintenance Services | FRA-Certified"
+        description="Full-service railroad track inspection and maintenance — FRA compliance inspections, switch maintenance, rail and tie replacement, regulatory audit prep, and emergency response across the Southeastern U.S."
+        canonical="https://doerrstreetrailco.com/services"
+      />
       <PageHero
         title="Rail Inspection &amp; Maintenance Services"
         subtitle="FRA-certified. Class I experience. Built for industrial track."
