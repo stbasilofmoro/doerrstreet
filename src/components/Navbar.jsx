@@ -16,11 +16,7 @@ export function Navbar({ onNavigate, currentPage }) {
     <nav className="navbar">
       <div className="navbar-inner">
         <button className="nav-logo-btn" onClick={() => go('home')} aria-label="Home">
-          <Logo height={40} />
-          <span className="nav-brand">
-            <span className="nav-brand-line">DOERR ST.</span>
-            <span className="nav-brand-line">RAIL CO.</span>
-          </span>
+          <Logo height={50} />
         </button>
 
         <button
