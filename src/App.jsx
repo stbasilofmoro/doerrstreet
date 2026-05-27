@@ -16,6 +16,7 @@ import { RailSidingInspectionPage }     from './pages/landing/RailSidingInspecti
 import { RailroadTrackConsultingPage }  from './pages/landing/RailroadTrackConsulting'
 import { TrackInspectionServicesPage }  from './pages/landing/TrackInspectionServices'
 import { IndustrialRailCompliancePage } from './pages/landing/IndustrialRailCompliance'
+import { TrackMaintenancePage }         from './pages/landing/TrackMaintenance'
 
 // Geographic landing pages
 import { NorthCarolinaPage } from './pages/landing/geo/NorthCarolina'
@@ -41,6 +42,7 @@ const PATH_TO_PAGE = {
   '/railroad-track-consulting':          'lp-railroad-track-consulting',
   '/track-inspection-services':          'lp-track-inspection-services',
   '/industrial-rail-compliance':         'lp-industrial-rail-compliance',
+  '/track-maintenance':                  'lp-track-maintenance',
   '/track-inspection-north-carolina':    'lp-nc',
   '/track-inspection-south-carolina':    'lp-sc',
   '/track-inspection-georgia':           'lp-ga',
@@ -87,6 +89,7 @@ export default function App() {
     'lp-railroad-track-consulting':  <RailroadTrackConsultingPage  onNavigate={navigate} />,
     'lp-track-inspection-services':  <TrackInspectionServicesPage  onNavigate={navigate} />,
     'lp-industrial-rail-compliance': <IndustrialRailCompliancePage onNavigate={navigate} />,
+    'lp-track-maintenance':          <TrackMaintenancePage         onNavigate={navigate} />,
 
     'lp-nc': <NorthCarolinaPage onNavigate={navigate} />,
     'lp-sc': <SouthCarolinaPage onNavigate={navigate} />,
