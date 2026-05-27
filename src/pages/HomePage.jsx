@@ -17,7 +17,6 @@ function HeroSection({ onNavigate }) {
   return (
     <section className="hero-section">
       <div className="hero-frame">
-        <LogoLockup logoHeight={66} textColor="var(--cream)" />
         <h1 className="hero-title">Railroad Track Inspection &amp; Maintenance</h1>
         <p className="hero-subtitle">FRA-Certified — Southeastern United States</p>
         <button className="hero-cta-btn" onClick={() => { onNavigate('contact'); window.scrollTo(0, 0) }}>
