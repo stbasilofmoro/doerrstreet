@@ -99,12 +99,32 @@ function TextSection({ heading, body }) {
   )
 }
 
+/* ── Section: FAQ accordion-free Q&A list ── */
+function FAQSection({ heading, items }) {
+  return (
+    <section className="lp-faq-section">
+      <div className="lp-faq-content">
+        <h2 className="section-heading">{heading || 'Frequently Asked Questions'}</h2>
+        <dl className="lp-faq-list">
+          {items.map((item, i) => (
+            <div key={i} className="lp-faq-item">
+              <dt className="lp-faq-q">{item.q}</dt>
+              <dd className="lp-faq-a">{item.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+  )
+}
+
 const SECTION_MAP = {
   intro: IntroSection,
   features: FeaturesSection,
   'two-col': TwoColSection,
   trust: TrustSection,
   text: TextSection,
+  faq: FAQSection,
 }
 
 /* ── CTA band ── */

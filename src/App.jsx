@@ -16,7 +16,16 @@ import { RailSidingInspectionPage }     from './pages/landing/RailSidingInspecti
 import { RailroadTrackConsultingPage }  from './pages/landing/RailroadTrackConsulting'
 import { TrackInspectionServicesPage }  from './pages/landing/TrackInspectionServices'
 import { IndustrialRailCompliancePage } from './pages/landing/IndustrialRailCompliance'
-import { TrackMaintenancePage }         from './pages/landing/TrackMaintenance'
+import { TrackMaintenancePage }                   from './pages/landing/TrackMaintenance'
+import { PrivateRailroadInspectionsPage }         from './pages/landing/PrivateRailroadInspections'
+import { MonthlyTrackInspectionsPage }            from './pages/landing/MonthlyTrackInspections'
+import { RailroadMaintenanceConsultingPage }      from './pages/landing/RailroadMaintenanceConsulting'
+import { IndustrialRailroadInspectionsPage }      from './pages/landing/IndustrialRailroadInspections'
+import { TransloadTrackInspectionsPage }          from './pages/landing/TransloadTrackInspections'
+import { ManufacturingPlantTrackInspectionsPage } from './pages/landing/ManufacturingPlantTrackInspections'
+import { ShortLineTrackInspectionsPage }          from './pages/landing/ShortLineTrackInspections'
+import { RailServedFacilityInspectionsPage }      from './pages/landing/RailServedFacilityInspections'
+import { PrivateTrackOwnerInspectionsPage }       from './pages/landing/PrivateTrackOwnerInspections'
 
 // Geographic landing pages
 import { NorthCarolinaPage } from './pages/landing/geo/NorthCarolina'
@@ -42,7 +51,16 @@ const PATH_TO_PAGE = {
   '/railroad-track-consulting':          'lp-railroad-track-consulting',
   '/track-inspection-services':          'lp-track-inspection-services',
   '/industrial-rail-compliance':         'lp-industrial-rail-compliance',
-  '/track-maintenance':                  'lp-track-maintenance',
+  '/track-maintenance':                        'lp-track-maintenance',
+  '/private-railroad-inspections':             'lp-private-railroad-inspections',
+  '/monthly-track-inspections':                'lp-monthly-track-inspections',
+  '/railroad-maintenance-consulting':          'lp-railroad-maintenance-consulting',
+  '/industrial-railroad-inspections':          'lp-industrial-railroad-inspections',
+  '/transload-track-inspections':              'lp-transload-track-inspections',
+  '/manufacturing-plant-track-inspections':    'lp-manufacturing-plant-track-inspections',
+  '/short-line-track-inspections':             'lp-short-line-track-inspections',
+  '/rail-served-facility-inspections':         'lp-rail-served-facility-inspections',
+  '/private-track-owner-inspections':          'lp-private-track-owner-inspections',
   '/track-inspection-north-carolina':    'lp-nc',
   '/track-inspection-south-carolina':    'lp-sc',
   '/track-inspection-georgia':           'lp-ga',
@@ -89,7 +107,16 @@ export default function App() {
     'lp-railroad-track-consulting':  <RailroadTrackConsultingPage  onNavigate={navigate} />,
     'lp-track-inspection-services':  <TrackInspectionServicesPage  onNavigate={navigate} />,
     'lp-industrial-rail-compliance': <IndustrialRailCompliancePage onNavigate={navigate} />,
-    'lp-track-maintenance':          <TrackMaintenancePage         onNavigate={navigate} />,
+    'lp-track-maintenance':                      <TrackMaintenancePage                   onNavigate={navigate} />,
+    'lp-private-railroad-inspections':           <PrivateRailroadInspectionsPage         onNavigate={navigate} />,
+    'lp-monthly-track-inspections':              <MonthlyTrackInspectionsPage            onNavigate={navigate} />,
+    'lp-railroad-maintenance-consulting':        <RailroadMaintenanceConsultingPage      onNavigate={navigate} />,
+    'lp-industrial-railroad-inspections':        <IndustrialRailroadInspectionsPage      onNavigate={navigate} />,
+    'lp-transload-track-inspections':            <TransloadTrackInspectionsPage          onNavigate={navigate} />,
+    'lp-manufacturing-plant-track-inspections':  <ManufacturingPlantTrackInspectionsPage onNavigate={navigate} />,
+    'lp-short-line-track-inspections':           <ShortLineTrackInspectionsPage          onNavigate={navigate} />,
+    'lp-rail-served-facility-inspections':       <RailServedFacilityInspectionsPage      onNavigate={navigate} />,
+    'lp-private-track-owner-inspections':        <PrivateTrackOwnerInspectionsPage       onNavigate={navigate} />,
 
     'lp-nc': <NorthCarolinaPage onNavigate={navigate} />,
     'lp-sc': <SouthCarolinaPage onNavigate={navigate} />,
