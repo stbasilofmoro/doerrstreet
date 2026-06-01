@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Test — Doerr Street Rail Co</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    /* ── GRADIENT TEST OVERRIDES ── */
+
+    /* Remove background-color so gradient shows through */
+    .stats-section {
+      background: linear-gradient(170deg, var(--olive-deep) 0%, var(--olive) 100%);
+    }
+    .about-section {
+      background: radial-gradient(ellipse 110% 90% at 85% 15%, rgba(201,164,106,0.38) 0%, var(--cream) 58%);
+    }
+    .services-section {
+      background: linear-gradient(155deg, var(--olive) 0%, var(--olive-deep) 100%);
+    }
+    .industries-section {
+      background: radial-gradient(ellipse 90% 80% at 10% 90%, rgba(201,164,106,0.25) 0%, var(--cream) 55%);
+    }
+    .cta-band {
+      background: radial-gradient(ellipse 80% 100% at 50% 0%, rgba(201,164,106,0.32) 0%, var(--cream) 62%);
+    }
+  </style>
+</head>
+<body>
+<div class="site-root">
+
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="/index.html" class="nav-logo-btn" aria-label="Home">
+        <img src="/logo.png" alt="Doerr Street Rail Co" height="50" style="display:block">
+      </a>
+      <button class="nav-hamburger" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/team.html">Team</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/login.html" class="nav-link-outline">Customer Login</a></li>
+        <li><a href="/contact.html" class="nav-cta">Request a Quote</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-section">
+    <div class="hero-frame">
+      <h1 class="hero-title">Railroad Track Inspection &amp; Maintenance</h1>
+      <p class="hero-subtitle">FRA-Certified — Southeastern United States</p>
+      <a href="/contact.html" class="hero-cta-btn">Request a Quote</a>
+    </div>
+  </section>
+
+  <!-- Stats / Credentials — houndstooth bottom only -->
+  <section class="stats-section">
+    <div class="stats-content">
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="stat-check-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="30" height="30">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="7 12 10.5 15.5 17 9"/>
+            </svg>
+          </div>
+          <div class="stat-label">FRA-certified</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">30+</div>
+          <div class="stat-label">years experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">800+</div>
+          <div class="stat-label">Completed projects</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">Class I</div>
+          <div class="stat-label">Railroad Alumni</div>
+        </div>
+      </div>
+      <p class="stats-body">
+        FRA-certified railroad track inspection and industrial rail maintenance for plant spurs,
+        private sidings, and interchange tracks across the Southeastern United States. Our inspectors
+        average 30 years of field experience with Class I railroads — and a documented record across
+        800+ completed inspection and maintenance projects.
+      </p>
+      <div class="stats-map-wrap">
+        <img src="/map-section.png" alt="Service area map — Southeastern United States highlighted" class="stats-map-img">
+      </div>
+    </div>
+    <div class="houndstooth-strip houndstooth-pattern" style="height:43px" aria-hidden="true"></div>
+  </section>
+
+  <!-- About Teaser -->
+  <section class="about-section">
+    <div class="about-inner">
+      <div class="about-photo-col">
+        <div class="about-photo-frame">
+          <img src="/team-photo.png" alt="Doerr Street Rail Co team" class="team-photo">
+        </div>
+      </div>
+      <div class="about-text-col">
+        <h2 class="section-heading">60 Years of Rail Excellence</h2>
+        <p class="about-body">
+          With roots tracing to the 1940s, the family brought Carpathian Rusyn values of hard
+          work and integrity from Pittsburgh to the rail industry. Basil Sr. founded a
+          contracting business in Ohio. His sons grew it into Polivka International — now
+          serving all seven Class I Railroads.
+        </p>
+        <blockquote class="about-quote">
+          "Hard work was instilled into the bones of the Polivka family. That same ethic drives
+          every inspection we complete today."
+        </blockquote>
+        <a href="/about.html" class="text-link-btn">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Teaser — houndstooth bottom only -->
+  <section class="services-section">
+    <div class="services-content">
+      <div class="section-header-center">
+        <h2 class="section-heading-light">Railroad Track Inspection &amp; Maintenance Services</h2>
+        <p class="section-subheading">FRA Part 213 certified. Built on decades of Class I railroad experience.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-card-number">01</div>
+          <h3 class="service-card-title">Track Inspection</h3>
+          <p class="service-card-body">FRA Part 213-compliant inspection of industrial leads, sidings, and spur tracks with full written and photographic reports.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card-number">02</div>
+          <h3 class="service-card-title">Switch Maintenance</h3>
+          <p class="service-card-body">Inspection, lubrication, and repair of switch stands, points, and machines to keep plant operations running.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card-number">03</div>
+          <h3 class="service-card-title">Rail &amp; Tie Replacement</h3>
+          <p class="service-card-body">Identification and replacement of defective rail, deteriorated ties, and compromised ballast sections.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card-number">04</div>
+          <h3 class="service-card-title">Regulatory Compliance</h3>
+          <p class="service-card-body">Violation remediation and preparation for Class I railroad audits — we know what inspectors look for.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card-number">05</div>
+          <h3 class="service-card-title">Emergency Response</h3>
+          <p class="service-card-body">Rapid mobilization for derailments, storm damage, and urgent track safety events across the southeast.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card-number">06</div>
+          <h3 class="service-card-title">New Construction Review</h3>
+          <p class="service-card-body">Third-party inspection of new industrial track construction before railroad or FRA acceptance.</p>
+        </div>
+      </div>
+      <div class="section-cta-row">
+        <a href="/services.html" class="btn-outline">View All Services</a>
+      </div>
+    </div>
+    <div class="houndstooth-strip houndstooth-pattern" style="height:43px" aria-hidden="true"></div>
+  </section>
+
+  <!-- Industries Served -->
+  <section class="industries-section">
+    <div class="industries-content">
+      <div class="section-header-center">
+        <h2 class="section-heading">Industries Served</h2>
+        <p class="section-subheading-dark">
+          Wherever industrial track meets a Class I railroad, we have the experience to keep it compliant and operational.
+        </p>
+      </div>
+      <div class="industries-grid">
+        <div class="industry-item"><div class="industry-rule"></div><div class="industry-name">Paper Mills</div></div>
+        <div class="industry-item"><div class="industry-rule"></div><div class="industry-name">Aggregate Facilities</div></div>
+        <div class="industry-item"><div class="industry-rule"></div><div class="industry-name">Chemical Plants</div></div>
+        <div class="industry-item"><div class="industry-rule"></div><div class="industry-name">Transload Facilities</div></div>
+        <div class="industry-item"><div class="industry-rule"></div><div class="industry-name">Manufacturing</div></div>
+        <div class="industry-item"><div class="industry-rule"></div><div class="industry-name">Lumber</div></div>
+        <div class="industry-item"><div class="industry-rule"></div><div class="industry-name">Food Processing</div></div>
+        <div class="industry-item"><div class="industry-rule"></div><div class="industry-name">Short Line Railroads</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="lp-faq-section">
+    <div class="lp-faq-content">
+      <h2 class="section-heading">Frequently Asked Questions</h2>
+      <dl class="lp-faq-list">
+        <div class="lp-faq-item">
+          <dt class="lp-faq-q">What areas of the country does Doerr Street Rail Co serve?</dt>
+          <dd class="lp-faq-a">We are based in Weddington, North Carolina and primarily serve the Southeastern United States — North Carolina, South Carolina, Georgia, Florida, Tennessee, Alabama, Mississippi, and Virginia. We will travel for the right project outside that footprint. Contact us to discuss your location.</dd>
+        </div>
+        <div class="lp-faq-item">
+          <dt class="lp-faq-q">What is an FRA Part 213 inspection and do I need one?</dt>
+          <dd class="lp-faq-a">FRA Part 213 is the Federal Railroad Administration's Track Safety Standards regulation. It governs the condition of railroad track that a carrier operates over — including private industrial track that receives Class I car movements. If your facility has a siding, plant spur, or loop track that a railroad uses to deliver or pick up cars, those tracks are likely subject to Part 213 standards. An independent inspection documents your compliance status.</dd>
+        </div>
+        <div class="lp-faq-item">
+          <dt class="lp-faq-q">How quickly can you mobilize for a track inspection?</dt>
+          <dd class="lp-faq-a">For most locations in the Southeast, we can schedule a standard inspection within one to three business days. For urgent situations — a Class I service restriction, a derailment, or a pending audit — same-day or next-day mobilization is often possible. Call us directly at (704) 321-0802 for urgent requests.</dd>
+        </div>
+        <div class="lp-faq-item">
+          <dt class="lp-faq-q">What do I receive with a written inspection report?</dt>
+          <dd class="lp-faq-a">Every inspection produces a written report delivered within 48 hours. The report documents every observed deficiency with its FRA Part 213 classification, precise location, severity, and remediation priority. Photographic documentation accompanies the written findings. The report is organized to be actionable — your maintenance team and your Class I carrier can both work directly from it.</dd>
+        </div>
+        <div class="lp-faq-item">
+          <dt class="lp-faq-q">Do you handle track maintenance as well as inspection?</dt>
+          <dd class="lp-faq-a">Yes. Doerr Street Rail Co is both a certified track inspection firm and a major railroad tie contractor with direct access to ties and Other Track Material at below-market costs. We handle the full range of industrial track maintenance — tie replacement, rail work, ballast, switch maintenance, and FRA defect remediation. Many clients use us for both inspection and the maintenance work that follows.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <section class="cta-band">
+    <h2 class="cta-band-heading">Ready to schedule a railroad track inspection?</h2>
+    <p class="cta-band-sub">We serve industrial facilities, short-line railroads, and Class I contractors across NC, SC, GA, FL, TN, AL, MS, and VA.</p>
+    <div class="cta-band-actions">
+      <a href="/contact.html" class="btn-primary">Request a Quote</a>
+      <a href="tel:+17043210802" class="cta-band-phone">(704) 321-0802</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="/logo.png" alt="Doerr Street Rail Co" height="48" style="display:block">
+        <div>
+          <div class="footer-name">Doerr Street Rail Co</div>
+          <div class="footer-tagline">FRA-Certified Rail Inspection &amp; Maintenance</div>
+        </div>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <ul role="list">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/team.html">Team</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/login.html">Customer Login</a></li>
+        </ul>
+      </nav>
+      <div class="footer-contact-col">
+        <a href="tel:+17043210802" class="footer-phone">(704) 321-0802</a>
+        <a href="mailto:info@trackinspections.com" class="footer-email">info@trackinspections.com</a>
+        <address class="footer-address">13700 Providence Road, Suite 200<br>Weddington, NC 28104</address>
+        <span class="footer-region">Serving the Southeastern United States</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="footer-year">2025</span> Doerr Street Rail Co. All rights reserved.</span>
+      <a href="/privacy-policy.html" class="footer-privacy-link">Privacy Policy</a>
+    </div>
+  </footer>
+
+</div>
+<script src="/site.js"></script>
+</body>
+</html>
