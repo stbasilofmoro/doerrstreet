@@ -333,7 +333,7 @@
 /* ═══════════════════════════════════════════════════════════════
    STATS SECTION
    ═══════════════════════════════════════════════════════════════ */
-.stats-section { background: linear-gradient(170deg, var(--olive-deep) 0%, var(--olive) 100%); }
+.stats-section { background-color: var(--olive); }
 
 .stats-content {
   max-width: 800px;
@@ -404,7 +404,7 @@
    ABOUT SECTION — cream, photo + text
    ═══════════════════════════════════════════════════════════════ */
 .about-section {
-  background: radial-gradient(ellipse 110% 90% at 85% 15%, rgba(201,164,106,0.38) 0%, var(--cream) 58%);
+  background-color: var(--cream);
   padding: 88px 32px;
 }
 
@@ -524,7 +524,7 @@
 /* ═══════════════════════════════════════════════════════════════
    SERVICES SECTION — olive, numbered grid (homepage teaser)
    ═══════════════════════════════════════════════════════════════ */
-.services-section { background: linear-gradient(155deg, var(--olive) 0%, var(--olive-deep) 100%); }
+.services-section { background-color: var(--olive); }
 
 .services-content {
   max-width: 1100px;
@@ -576,7 +576,7 @@
    INDUSTRIES SERVED
    ═══════════════════════════════════════════════════════════════ */
 .industries-section {
-  background: radial-gradient(ellipse 90% 80% at 10% 90%, rgba(201,164,106,0.25) 0%, var(--cream) 55%);
+  background-color: var(--cream);
   border-top: 1px solid var(--gold-border);
   border-bottom: 1px solid var(--gold-border);
 }
@@ -621,7 +621,7 @@
    CTA BAND — cream background, centered call-to-action
    ═══════════════════════════════════════════════════════════════ */
 .cta-band {
-  background: radial-gradient(ellipse 80% 100% at 50% 0%, rgba(201,164,106,0.32) 0%, var(--cream) 62%);
+  background-color: var(--cream);
   padding: 80px 32px;
   text-align: center;
   border-top: 1px solid rgba(90, 86, 64, 0.15);
