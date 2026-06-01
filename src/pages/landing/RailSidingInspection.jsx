@@ -77,6 +77,32 @@ const PAGE = {
         },
       ],
     },
+    {
+      type: 'faq',
+      heading: 'Frequently Asked Questions',
+      items: [
+        {
+          q: 'How often should a private rail siding be inspected?',
+          a: 'For active sidings that receive regular Class I car movements, annual inspection is a minimum; quarterly or monthly programs provide stronger compliance documentation and catch deterioration earlier. For less active sidings, semi-annual inspection is generally appropriate. We recommend discussing your specific siding usage and Class I relationship before settling on a program frequency.',
+        },
+        {
+          q: 'Who is responsible for maintaining a private rail siding?',
+          a: 'The track owner is responsible for the maintenance and compliance of private track. This is true regardless of who uses the siding or how frequently. In some cases, a Class I railroad\'s interchange agreement may define specific maintenance responsibilities, but the underlying ownership obligation remains with the track owner. If your siding is on leased property, your lease terms may define maintenance responsibility between tenant and landlord.',
+        },
+        {
+          q: 'How do Class I interchange requirements differ from FRA standards?',
+          a: 'FRA Part 213 is the federal minimum standard. Class I railroads often impose additional requirements on private track they operate over — stricter tie condition standards, specific switch inspection protocols, or enhanced geometry tolerances beyond the federal minimum. Facilities on certain Class I corridors with high-priority freight may face more demanding interchange requirements than the FRA standard alone would impose. Our inspections evaluate against both frameworks.',
+        },
+        {
+          q: 'Can a siding still be used while deficiencies are being remediated?',
+          a: 'It depends on the severity and classification of the deficiencies. Some defects allow continued operations at restricted speeds; others require suspension of car movements until remediation is complete. Our reports classify every defect against the FRA standard, which determines the appropriate operational response. We provide clear guidance on which findings require immediate operational changes and which can be addressed on a maintenance schedule.',
+        },
+        {
+          q: 'What happens when a pre-acceptance inspection reveals problems with newly constructed track?',
+          a: 'A pre-acceptance inspection finding gives you the opportunity to require the contractor to correct deficiencies before you formally accept the track and before Class I operations commence. This is far preferable to discovering problems after acceptance, when remediation responsibility may be disputed. We document all findings in writing so your project team has a clear, actionable punch list to present to the construction contractor.',
+        },
+      ],
+    },
   ],
   cta: {
     heading: 'Schedule a Rail Siding Inspection',

@@ -77,6 +77,32 @@ const PAGE = {
         },
       ],
     },
+    {
+      type: 'faq',
+      heading: 'Frequently Asked Questions',
+      items: [
+        {
+          q: 'What exactly is 49 CFR Part 213?',
+          a: '49 CFR Part 213 is the Federal Railroad Administration\'s Track Safety Standards regulation. It establishes minimum safety requirements for railroad track, organized by track class. Each class has specific geometric tolerances, tie condition requirements, rail wear limits, and other standards. If a carrier operates over track — including private industrial track — Part 213 applies.',
+        },
+        {
+          q: 'Which FRA track class applies to my industrial siding?',
+          a: 'Most industrial sidings and plant spurs operate as Class 1 or Class 2 track. Class 1 allows speeds up to 10 mph for freight trains; Class 2 allows up to 25 mph. The applicable class depends on the operating speed of car movements on your track. Even Class 1 track has specific tie, rail, gage, and surface standards that must be met.',
+        },
+        {
+          q: 'What are the consequences of an FRA citation on my track?',
+          a: 'An FRA citation for a track safety defect triggers a remediation requirement with a defined deadline. Failure to remediate by the deadline can result in service restriction — meaning the carrier must reduce operating speed or suspend operations over the defective section. Repeat violations or willful non-compliance can result in civil penalties. An independent inspection program reduces the likelihood of citations by identifying and addressing defects before the federal inspector does.',
+        },
+        {
+          q: 'How do I know if my track is currently in violation of FRA standards?',
+          a: 'Without a professional inspection, you may not know. Many track defects are not obvious to non-specialists. Rail wear, tie condition degradation, gage deviation, and ballast fouling all develop gradually and can reach violation thresholds without triggering visible problems. The only reliable way to know your compliance status is a professional inspection conducted by an FRA Part 213 certified inspector.',
+        },
+        {
+          q: 'How frequently does the FRA inspect private industrial track?',
+          a: 'FRA inspectors walk territory on a rotating schedule. Private industrial track may be inspected directly by federal inspectors, or it may be reviewed through the Class I railroad\'s own compliance program. There is no fixed schedule that a private track owner can rely on — the practical answer is that inspection can happen at any time, which is why maintaining a current inspection program on your own schedule is the responsible approach.',
+        },
+      ],
+    },
   ],
   cta: {
     heading: 'Request an FRA Track Inspection',

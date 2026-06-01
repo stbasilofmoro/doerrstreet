@@ -77,6 +77,32 @@ const PAGE = {
         },
       ],
     },
+    {
+      type: 'faq',
+      heading: 'Frequently Asked Questions',
+      items: [
+        {
+          q: 'What is the difference between FRA compliance and Class I compliance?',
+          a: '49 CFR Part 213 is the federal minimum standard enforced by the FRA. Class I railroads layer their own, often more stringent, interchange requirements on top of that federal baseline. A track can technically meet FRA Part 213 minimums and still fail a Class I interchange audit if it does not meet the carrier\'s specific standards. Facilities that focus only on FRA compliance may still face Class I service restrictions.',
+        },
+        {
+          q: 'How quickly must FRA violations be remediated once identified?',
+          a: 'Remediation timelines depend on the severity and classification of the defect under Part 213. Immediate defects — those that pose a direct safety risk — may require suspension of car movements until the defect is corrected. Other defects have prescribed remediation windows that allow continued operations at restricted speeds while repairs are made. Our compliance reports clearly identify each defect\'s classification and the corresponding operational and remediation requirements.',
+        },
+        {
+          q: 'Can we continue rail operations while compliance deficiencies exist?',
+          a: 'In many cases, yes — but at restricted operating speeds or with operational limitations. The FRA standard prescribes specific operational responses for each defect class. Some defects allow continued use at reduced speed; others require a service stop until repaired. We provide precise guidance on the operational status of your track based on actual findings, so you are not guessing about what you can safely continue to do.',
+        },
+        {
+          q: 'What documentation do we need to support a Class I interchange reinstatement?',
+          a: 'Most Class I carriers require written documentation that identified deficiencies have been remediated before they will resume service on restricted track. An independent re-inspection report from a certified inspector — confirming that repairs meet the applicable standard — is typically the most effective documentation you can provide. We conduct pre-reinstatement inspections specifically for this purpose and produce written confirmation that supports your carrier\'s restoration decision.',
+        },
+        {
+          q: 'We have never had a formal compliance program. Where do we start?',
+          a: 'A baseline inspection is the right starting point. It documents current conditions, classifies every deficiency, and establishes the factual foundation for a compliance program. From the baseline, we help you prioritize remediation, design an ongoing inspection schedule, and build the documentation system that demonstrates continuous compliance going forward. Starting with a baseline means you know exactly where you stand from day one of your program.',
+        },
+      ],
+    },
   ],
   cta: {
     heading: 'Get Your Rail Compliance Under Control',

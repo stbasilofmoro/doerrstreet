@@ -77,6 +77,32 @@ const PAGE = {
         },
       ],
     },
+    {
+      type: 'faq',
+      heading: 'Frequently Asked Questions',
+      items: [
+        {
+          q: 'Do you work with facilities served by CSX, NS, and CN in Tennessee?',
+          a: 'Yes. Tennessee is one of the few states served by three Class I carriers — CSX, Norfolk Southern, and CN. Our inspectors have Class I backgrounds that include experience with all three carriers\' interchange requirements and inspection standards. If your facility connects to any of the three Tennessee Class I networks, we can calibrate our inspection to the specific standards your carrier applies.',
+        },
+        {
+          q: 'What track compliance challenges are most common at Tennessee automotive facilities?',
+          a: 'Tennessee\'s automotive facilities — particularly the Volkswagen plant in Chattanooga and the Nissan complex in Smyrna — create high-frequency, high-precision track use patterns. The most common issues we see at automotive and tier supplier facilities are switch maintenance needs from high cycle counts, surface deviation in precision spotting zones, and documentation gaps from inconsistent inspection history. Automotive OEM facilities face frequent Class I audits, making documentation quality critical.',
+        },
+        {
+          q: 'Can you service facilities in Memphis and western Tennessee?',
+          a: 'Yes. Memphis is one of the most active rail hubs in North America, and the concentration of rail-served industrial facilities in the Memphis area creates significant demand for professional inspection services. We serve Memphis-area facilities and can mobilize from our Southeast base. The multi-railroad interchange environment at Memphis — including CN, CSX, NS, and short-line connections — means that Memphis-area facilities often face complex compliance requirements that benefit from our multi-carrier experience.',
+        },
+        {
+          q: 'What are the most common track problems at Tennessee chemical plants?',
+          a: 'Chemical facilities along the Cumberland River and in the Tennessee industrial corridor typically show ballast contamination from spill events, accelerated rail corrosion from atmospheric exposure, and tie degradation from chemical saturation. Switch maintenance is also a frequent finding at these facilities. Our inspectors coordinate with facility safety teams before any field work in chemical environments and document findings with the additional care those environments warrant.',
+        },
+        {
+          q: 'Do you offer recurring inspection programs for Tennessee facilities?',
+          a: 'Yes — monthly, quarterly, and semi-annual inspection programs are available for Tennessee facilities across all industries. Programs are priced on a fixed annual or quarterly fee so you have predictable inspection costs. Each visit produces a written report within 48 hours, and our reports track condition changes from visit to visit so you can see trends in your track\'s condition over time.',
+        },
+      ],
+    },
   ],
   cta: {
     heading: 'Schedule a Track Inspection in Tennessee',

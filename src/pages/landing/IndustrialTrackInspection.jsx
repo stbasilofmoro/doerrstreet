@@ -77,6 +77,32 @@ const PAGE = {
         },
       ],
     },
+    {
+      type: 'faq',
+      heading: 'Frequently Asked Questions',
+      items: [
+        {
+          q: 'How do we schedule an inspection around our production schedule?',
+          a: 'We coordinate all scheduling with your facility before confirming an inspection date. If your track is accessible only during certain shift windows or production pauses, we work within those constraints. For facilities with continuous operations, we can often inspect sections of track in sequence — working around active production areas while the inspection progresses.',
+        },
+        {
+          q: 'What should we expect to find on a typical industrial siding inspection?',
+          a: 'Most industrial sidings we inspect have a mix of immediate and deferred deficiencies. Tie degradation is almost universally present to some degree on older sidings. Ballast fouling, surface deviations, and switch wear are common. Rail defects vary widely. Very few industrial sidings are entirely clean — the value of a professional inspection is not a clean bill of health, but an accurate, classified inventory of what exists and what it means.',
+        },
+        {
+          q: 'Can you inspect track that has not had professional maintenance in several years?',
+          a: 'Yes — and this is often exactly when a professional inspection is most needed. Track with years of deferred maintenance typically has compounding deficiency conditions where one problem has accelerated others. Our reports untangle those conditions, classify every defect, and give your maintenance team a prioritized remediation path rather than an overwhelming list with no clear starting point.',
+        },
+        {
+          q: 'How does having an inspection report change our relationship with the Class I railroad?',
+          a: 'A current professional inspection report demonstrates that you are proactively managing your track — not just responding to railroad complaints. Facilities with documented inspection programs are in a stronger position during Class I audits, deficiency notice negotiations, and interchange reinstatement discussions. The report provides common ground for productive conversations rather than adversarial exchanges about track condition.',
+        },
+        {
+          q: 'What is the difference between your inspection and what our Class I railroad does?',
+          a: 'When a Class I railroad inspects your private track, they are inspecting to protect their operating interests — and their findings become the railroad\'s documentation, not yours. Our inspection is conducted on your behalf, producing documentation that protects your compliance standing, your maintenance record, and your liability position. The technical methodology is equivalent; the ownership of the result is entirely different.',
+        },
+      ],
+    },
   ],
   cta: {
     heading: 'Get Your Industrial Track Inspected',

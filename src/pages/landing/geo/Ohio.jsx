@@ -77,6 +77,32 @@ const PAGE = {
         },
       ],
     },
+    {
+      type: 'faq',
+      heading: 'Frequently Asked Questions',
+      items: [
+        {
+          q: 'What track conditions are most common at Ohio steel mills and heavy industrial facilities?',
+          a: 'Ohio\'s steel mills and heavy industrial operations run some of the most demanding track environments in North America. Extremely high car weights — often at or above 286,000 pounds — combined with repetitive short-distance movements create accelerated rail wear, spike fatigue, and tie deterioration patterns that develop faster than in lighter industrial environments. We document these conditions specifically, with load-context analysis that helps facilities understand not just current conditions but the rate at which deficiencies will compound under their operating loads.',
+        },
+        {
+          q: 'Does your service area include Ohio, given your Southeast base of operations?',
+          a: 'Yes. We serve Ohio industrial facilities as part of our broader service territory. Ohio\'s dense concentration of Class I-connected heavy industrial track creates demand for professional inspection services that the local market does not fully cover. Travel costs for Ohio inspections are factored into our project pricing upfront — there are no hidden travel charges that appear after work begins.',
+        },
+        {
+          q: 'What are the most common Class I compliance issues at Ohio automotive facilities?',
+          a: 'Ohio\'s automotive assembly and supplier plants typically show switch maintenance deficiencies from high cycle counts, ballast deterioration from heavy loading, and documentation gaps where inspection programs have not been consistently maintained. Many Ohio automotive facilities were built on older industrial track infrastructure that has never been formally assessed against current FRA standards — a baseline inspection often surfaces a significant prioritized remediation list.',
+        },
+        {
+          q: 'Can you inspect track at Toledo port and grain elevator operations?',
+          a: 'Yes. The Toledo rail complex — serving Lake Erie port operations, grain elevators, and bulk commodity terminals — is one of the highest-volume private track environments in Ohio. We inspect terminal track, loop tracks, and spot tracks at grain and bulk commodity facilities throughout the Toledo area, with particular attention to the high-wear spotting zones and switch complexes that terminal operations stress most heavily.',
+        },
+        {
+          q: 'How do you handle Ohio facilities with legacy track infrastructure from decades-old construction?',
+          a: 'Legacy infrastructure is a specialty, not a challenge for us. Much of Ohio\'s industrial track was installed decades ago to specifications that predate current FRA Class standards. We assess legacy track accurately — identifying not just current deficiencies but the structural conditions that will drive future maintenance needs. Our reports give facility managers and capital planners a realistic picture of what their legacy track will require over the next several years, which is essential for building a defensible capital budget.',
+        },
+      ],
+    },
   ],
   cta: {
     heading: 'Schedule a Track Inspection in Ohio',

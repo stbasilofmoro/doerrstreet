@@ -77,6 +77,32 @@ const PAGE = {
         },
       ],
     },
+    {
+      type: 'faq',
+      heading: 'Frequently Asked Questions',
+      items: [
+        {
+          q: 'How quickly can you mobilize for a track inspection in North Carolina?',
+          a: 'North Carolina is our home territory — we are headquartered in Weddington, in the Charlotte metro area. For most North Carolina locations, we can mobilize within one to three business days for standard scheduled inspections. For urgent situations such as a Class I restriction, a derailment, or a pending audit, same-day or next-day mobilization is often possible.',
+        },
+        {
+          q: 'Do you work with both CSX and Norfolk Southern-served facilities in North Carolina?',
+          a: 'Yes. Our inspectors are alumni of both CSX and Norfolk Southern, among other Class I carriers. We are familiar with the interchange requirements, audit protocols, and operating standards both railroads apply to private track in North Carolina — which means our inspections are calibrated to what your specific Class I partner will actually expect.',
+        },
+        {
+          q: 'What industries in North Carolina most commonly need track inspection services?',
+          a: 'The facilities we most frequently inspect in North Carolina include manufacturing plants in the Charlotte-Piedmont corridor, chemical facilities along the I-85 corridor, wood products and paper operations in the western and central parts of the state, agricultural processing facilities in eastern NC, and transload terminals throughout the state. Short-line railroad operators serving rural industrial customers also represent a significant portion of our North Carolina work.',
+        },
+        {
+          q: 'What is the most common compliance problem you find on North Carolina industrial track?',
+          a: 'Deferred tie replacement is the most common significant finding on North Carolina industrial track. Tie condition tends to deteriorate gradually and without obvious operational symptoms until the percentage of defective ties in a 39-foot segment exceeds the FRA threshold. Ballast fouling — often accelerated by inadequate drainage — is the second most common problem. Both are entirely addressable with a planned maintenance program once they are properly documented.',
+        },
+        {
+          q: 'Can you support both the inspection and any maintenance work needed on our North Carolina facility track?',
+          a: 'Yes. We inspect and maintain track across North Carolina. Our tie contractor relationships and direct OTM access mean we can often provide maintenance at better material pricing than a local contractor purchasing from a distributor. Moving from inspection findings directly to a maintenance scope — with one company, one contact — eliminates the scheduling gap and re-mobilization cost that separate inspection and maintenance vendors create.',
+        },
+      ],
+    },
   ],
   cta: {
     heading: 'Schedule a Track Inspection in North Carolina',

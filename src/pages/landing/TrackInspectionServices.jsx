@@ -85,6 +85,32 @@ const PAGE = {
         'Re-inspection scheduling support',
       ],
     },
+    {
+      type: 'faq',
+      heading: 'Frequently Asked Questions',
+      items: [
+        {
+          q: 'How do I know which type of inspection is right for my situation?',
+          a: 'The right inspection type depends on what you need to know and why. If you have never had an inspection and want to understand your compliance status, a baseline FRA compliance inspection is the right starting point. If your Class I is scheduling an audit, a pre-audit inspection is the appropriate choice. If an incident has occurred, a post-incident inspection is needed. Contact us and describe your situation — we will recommend the right scope.',
+        },
+        {
+          q: 'What is the difference between a compliance inspection and a pre-audit inspection?',
+          a: 'A compliance inspection documents your track\'s current status against FRA Part 213 standards. A pre-audit inspection is specifically structured to anticipate and identify the deficiencies your Class I auditor is most likely to cite — so you can address them before the audit rather than after. Pre-audit inspections include additional focus on the elements Class I auditors prioritize in their review of private track.',
+        },
+        {
+          q: 'What makes a post-incident inspection different from a routine inspection?',
+          a: 'A post-incident inspection documents track conditions specifically in the context of a reported incident — a derailment, a car damage event, or a slow order. It produces documentation suitable for insurance claims, internal incident investigations, and potential regulatory inquiries. The scope and documentation format is tailored to the specific incident type and may include additional photographic documentation, witness coordination, and condition comparison against prior inspection records.',
+        },
+        {
+          q: 'Can we get both inspection and maintenance done through the same company?',
+          a: 'Yes. Doerr Street Rail Co offers both track inspection and track maintenance services. When our inspection team identifies deficiencies, we can transition directly into remediation work without a re-mobilization delay. We are also a major railroad tie contractor with direct access to OTM materials, which means we bring both the technical oversight and the materials needed to address what the inspection finds.',
+        },
+        {
+          q: 'How do we get started if we have never had a professional track inspection?',
+          a: 'Contact us to describe your track — approximate length, configuration, when it was last maintained, and your Class I connection. We will recommend an appropriate inspection scope, discuss scheduling around your operations, and provide a fixed price before any work begins. After the inspection, your written report gives you a complete documented baseline from which any ongoing compliance program can be built.',
+        },
+      ],
+    },
   ],
   cta: {
     heading: 'Request Track Inspection Services',

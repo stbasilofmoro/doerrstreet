@@ -77,6 +77,32 @@ const PAGE = {
         },
       ],
     },
+    {
+      type: 'faq',
+      heading: 'Frequently Asked Questions',
+      items: [
+        {
+          q: 'Do you serve facilities in metro Atlanta as well as rural Georgia?',
+          a: 'Yes — we serve all of Georgia. Metro Atlanta facilities, the Savannah port corridor, the Augusta-Columbus industrial belt, agricultural operations in south and west Georgia, and short-line-served rural facilities are all within our service area. Georgia is one of our most active states, and we have inspection experience across the full range of facility types operating in the state.',
+        },
+        {
+          q: 'What are the most common track compliance issues at Atlanta-area industrial facilities?',
+          a: 'Atlanta-area industrial facilities often have older track infrastructure that predates current FRA classification requirements. The most common findings are tie deficiency conditions in high-use sections near loading spots, gage deviation from heavy car weights and tight curve radii, and switch wear from high cycle counts. The NS Atlanta hub environment means Class I audits happen regularly, which makes documented inspection programs especially important for Atlanta-corridor facilities.',
+        },
+        {
+          q: 'Can you inspect track at facilities near the Port of Savannah?',
+          a: 'Yes. The Savannah port corridor is one of the highest-volume rail environments in the Southeast and the facilities serving it face significant Class I compliance pressure. We inspect transload terminals, distribution centers, and manufacturing facilities throughout the Savannah area. The Georgia Ports Authority rail operations create a compliance-intensive environment where professional inspection documentation is particularly valuable.',
+        },
+        {
+          q: 'What track issues are most common at Georgia agricultural processing facilities?',
+          a: 'Agricultural processing facilities in Georgia — particularly poultry and grain operations — often have older, lighter-weight infrastructure that has not been upgraded to match current car weight standards. Tie deficiency, inadequate ballast sections, and surface deviation from soft subgrade are the most common findings. Many of these facilities have not had a professional inspection in years, and a baseline inspection often surfaces a significant backlog of deferred maintenance.',
+        },
+        {
+          q: 'How do we set up an ongoing inspection program for our Georgia facility?',
+          a: 'Contact us to discuss your facility\'s track, your Class I connection, and your operational constraints. We will propose an appropriate inspection frequency, provide a fixed program price, and schedule the first inspection at a time that works for your operation. From there, inspections proceed on the agreed calendar with written reports delivered within 48 hours of each visit. Most programs are operational within two to three weeks of the initial conversation.',
+        },
+      ],
+    },
   ],
   cta: {
     heading: 'Schedule a Track Inspection in Georgia',

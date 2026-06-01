@@ -77,6 +77,32 @@ const PAGE = {
         },
       ],
     },
+    {
+      type: 'faq',
+      heading: 'Frequently Asked Questions',
+      items: [
+        {
+          q: 'How quickly can you mobilize for an inspection in South Carolina?',
+          a: 'South Carolina is within our core service territory — we mobilize from our Carolina headquarters and can typically reach any South Carolina location within one to three business days for a scheduled inspection. For urgent situations in the Upstate or along the I-26 corridor, same-day or next-day response is often achievable.',
+        },
+        {
+          q: 'Do you work with automotive OEM and supplier facilities in South Carolina?',
+          a: 'Yes. The South Carolina automotive corridor — including the Upstate BMW, Volvo, and supplier ecosystem — represents a significant portion of our South Carolina work. Automotive OEM facilities require rigorous, well-documented track programs because Class I carriers serving those facilities conduct frequent interchange audits. We are familiar with those requirements and the documentation standards they expect.',
+        },
+        {
+          q: 'What compliance issues are most common at South Carolina port-connected facilities?',
+          a: 'Port-connected and intermodal-adjacent facilities in South Carolina face elevated Class I scrutiny because their track sees high car volumes and Class I operations that are closely monitored. The most common issues we find are switch wear and adjustment needs from the high cycle counts that intermodal-adjacent operations produce, along with ballast deterioration from heavy traffic loading. We document these systematically so facilities can manage them proactively.',
+        },
+        {
+          q: 'Can you inspect chemical plant track safely in South Carolina?',
+          a: 'Yes. We have experience inspecting track in chemical manufacturing and petrochemical environments across the Southeast, including South Carolina. We coordinate with facility safety personnel on access requirements, PPE protocols, and hot work restrictions before any field work begins. Our inspectors are familiar with the track conditions these environments produce and document them accurately.',
+        },
+        {
+          q: 'Do you offer ongoing monthly inspection programs for South Carolina facilities?',
+          a: 'Yes. Monthly and quarterly inspection programs are available for South Carolina facilities and are particularly valuable for high-volume operations, automotive suppliers with Class I audit exposure, and port-connected facilities. We structure programs around your operational calendar and deliver written reports within 48 hours of each visit — giving you a continuous compliance documentation record.',
+        },
+      ],
+    },
   ],
   cta: {
     heading: 'Schedule a Track Inspection in South Carolina',

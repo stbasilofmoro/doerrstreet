@@ -82,6 +82,32 @@ const PAGE = {
       heading: 'Industries We Inspect Railroad Track For',
       body: 'We serve the full range of rail-served industrial operations — paper mills, aggregate facilities, chemical plants, transload terminals, manufacturing facilities, lumber operations, food processing plants, and short-line railroads. If product moves on rail and the track needs to be documented, we are equipped to inspect it.',
     },
+    {
+      type: 'faq',
+      heading: 'Frequently Asked Questions',
+      items: [
+        {
+          q: 'How long does a railroad track inspection typically take?',
+          a: 'Duration depends on the length and complexity of the track. A standard industrial siding of several hundred feet can typically be walked, measured, and documented in two to four hours. Longer or more complex track systems — multiple leads, numerous switches, or extensive yard track — take proportionally longer. We discuss expected time requirements before scheduling every inspection.',
+        },
+        {
+          q: 'What happens after we receive the inspection report?',
+          a: 'Your written report includes a prioritized deficiency list. Immediate safety concerns — defects that pose a risk to safe operations — should be addressed before normal car movements resume. Scheduled maintenance items can be addressed within a planned maintenance window. We remain available after report delivery to answer questions, clarify findings, and support your remediation planning.',
+        },
+        {
+          q: 'Can you inspect track that is actively being used for car movements?',
+          a: 'Inspections are typically conducted when track is accessible and car movements are not actively occurring. We coordinate with your facility and your Class I carrier to schedule inspections during operational windows that minimize disruption. For active yards with multiple tracks, we work section by section to avoid interfering with ongoing operations.',
+        },
+        {
+          q: 'What distinguishes your inspection report from what our Class I railroad produces?',
+          a: 'Our reports use the same FRA classification methodology a Class I inspector would apply, but they are produced for your benefit — not the railroad\'s. Our reports include the priority guidance, remediation context, and maintenance planning information that facilities need to act on findings effectively. Class I inspection reports, when they are shared at all, are produced for the carrier\'s operational purposes.',
+        },
+        {
+          q: 'Do you inspect track for property transactions involving rail-served facilities?',
+          a: 'Yes. Pre-acquisition and pre-sale track inspections are an important service for buyers and sellers of rail-served industrial property. A professional inspection establishes the current condition of the track asset, identifies deferred maintenance obligations, and provides the capital cost context needed for informed transaction negotiations. We recommend scheduling this inspection as early in the due diligence process as practical.',
+        },
+      ],
+    },
   ],
   cta: {
     heading: 'Schedule a Railroad Track Inspection',

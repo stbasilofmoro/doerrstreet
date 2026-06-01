@@ -77,6 +77,32 @@ const PAGE = {
         },
       ],
     },
+    {
+      type: 'faq',
+      heading: 'Frequently Asked Questions',
+      items: [
+        {
+          q: 'When is consulting the right choice versus simply scheduling an inspection?',
+          a: 'An inspection answers the question: what is the current condition of my track? Consulting answers broader questions: what should I do about it, in what order, over what timeline, and with what budget? If you have specific decisions to make — a capital investment, a Class I negotiation, a maintenance program to build from scratch — consulting adds a strategic layer that a standard inspection report does not provide.',
+        },
+        {
+          q: 'How long does a consulting engagement take from start to written report?',
+          a: 'Duration depends on scope. A focused engagement — such as capital prioritization for a single siding — may take one to two weeks. A broader program development engagement covering a multi-track facility or short-line operation may take three to five weeks. We establish timeline expectations before beginning every engagement, so you know when to expect deliverables.',
+        },
+        {
+          q: 'Can you help us respond to a Class I deficiency notice?',
+          a: 'Yes. When a Class I railroad issues a deficiency notice, your response needs to be specific, timely, and documented. We review the notice, inspect the referenced track, confirm the accuracy and classification of cited deficiencies, prioritize remediation, and help prepare the written response your railroad requires. Moving quickly and decisively in response to a Class I notice protects your service relationship.',
+        },
+        {
+          q: 'Do you work with insurance companies or legal counsel on track-related matters?',
+          a: 'Our inspection documentation is used by insurance companies, risk managers, and legal counsel in various contexts — claims, liability assessments, and dispute resolution. We produce reports with the documentation quality those audiences require. We also consult directly with legal teams and insurers when our inspection findings are relevant to a matter. We recommend discussing specific legal or insurance applications with us before an engagement begins.',
+        },
+        {
+          q: 'What does a track safety program look like for a mid-size industrial facility?',
+          a: 'A practical track safety program for a mid-size facility typically includes: a documented inspection schedule (quarterly or semi-annual), a written report for each inspection visit, a deficiency tracking system that records open items and completed remediation, a Class I audit preparation protocol, and an annual capital review that uses cumulative inspection data to plan maintenance expenditures. We design and implement programs like this as part of our ongoing consulting relationships.',
+        },
+      ],
+    },
   ],
   cta: {
     heading: 'Talk to a Railroad Track Consultant',

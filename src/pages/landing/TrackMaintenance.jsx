@@ -82,6 +82,32 @@ const PAGE = {
       heading: 'Who We Work With',
       body: 'We serve industrial track owners across the full range of rail-served operations — manufacturing facilities, paper and lumber mills, chemical and aggregate plants, transload terminals, and short-line railroads. If your operation depends on track being in service and you need a maintenance contractor who shows up with the right materials, gives you a straight price, and finishes when they said they would — that is exactly what we do.',
     },
+    {
+      type: 'faq',
+      heading: 'Frequently Asked Questions',
+      items: [
+        {
+          q: 'What is OTM and why does direct access to it matter for my project?',
+          a: 'OTM stands for Other Track Material — the hardware components of railroad track beyond rail and ties, including rail anchors, tie plates, spikes, joint bars, bolts, and rail clips. Most maintenance contractors purchase OTM through distributors at market rates and pass those costs to their customers. Because we operate as a major tie contractor with established direct supply relationships, we access OTM at a significant discount to standard market prices — and we pass that savings directly to our clients.',
+        },
+        {
+          q: 'How do you price a track maintenance project?',
+          a: 'Every project begins with a field assessment to scope the work — tie counts, rail inventory, switch conditions, and ballast needs. From that assessment we produce a written scope and a fixed price. You know exactly what the project will cost before any work begins. There are no open estimates, no daily rate ambiguity, and no change orders for standard field conditions. If we find something during the work that was not in the original scope, we discuss it with you before proceeding.',
+        },
+        {
+          q: 'What is the typical timeline from project scope to completed work?',
+          a: 'Timeline depends on the scope and material lead times. For projects using our existing OTM inventory, we can often mobilize within one to two weeks of scope approval. Larger tie replacement projects with custom material orders may require three to four weeks of lead time. We discuss timeline requirements upfront and plan crew schedules and material delivery to meet your operational deadlines.',
+        },
+        {
+          q: 'Do you handle both the inspection and the maintenance, or do we need separate vendors?',
+          a: 'We do both. Our inspection team and our maintenance crews are the same organization. When we complete an inspection and identify deficiencies, we can provide a maintenance scope and price directly from the inspection findings without requiring you to manage a second vendor relationship or re-explain the track condition to a new contractor. Many clients find this continuity significantly reduces both cost and scheduling friction.',
+        },
+        {
+          q: 'What tie materials do you typically use for replacement work?',
+          a: 'We work with hardwood crossties — primarily oak and mixed hardwood — as well as treated softwood ties depending on the application and the client\'s preference. For certain environments or performance requirements, we can source concrete or composite ties as well. Our tie contractor relationships give us access to quality material at volume pricing. We recommend the right tie type for your specific track class, loading conditions, and expected service life.',
+        },
+      ],
+    },
   ],
   cta: {
     heading: 'Get a Track Maintenance Quote',
