@@ -2,6 +2,30 @@ import { PageHero } from '../components/PageHero'
 import { HoundtoothStrip } from '../components/HoundtoothStrip'
 import { Footer } from '../components/Footer'
 import { SEOHead } from '../components/SEOHead'
+import { FAQSection } from '../components/FAQSection'
+
+const ABOUT_FAQS = [
+  {
+    q: 'How long has Doerr Street Rail Co been in operation?',
+    a: 'The Polivka family has been in the railroad business since the 1960s, when Basil Sr. founded a railroad contracting operation in Ohio. Through Polivka International, the family built relationships with all seven Class I railroads over decades of track work. Doerr Street Rail Co continues that heritage — bringing 60-plus years of institutional railroad knowledge to every inspection we complete today.',
+  },
+  {
+    q: 'What does "Class I railroad alumni" mean and why does it matter for inspections?',
+    a: 'Class I railroads are the largest freight carriers in the country — CSX, Norfolk Southern, BNSF, Union Pacific, and others. Our inspectors spent careers as track supervisors and roadmasters at these companies before working with industrial clients. That background means they know exactly how Class I track representatives conduct audits, what they prioritize, and what they expect of private track owners. Our inspections are calibrated to that standard.',
+  },
+  {
+    q: 'Are your inspectors currently FRA Part 213 certified?',
+    a: 'Yes. Every inspector on our team holds current FRA Part 213 Track Safety Standards certification covering Classes I through VI track. Certifications are maintained and current — not historical credentials from a prior career. This is the same certification required of track inspectors working on Class I main lines.',
+  },
+  {
+    q: 'How is Doerr Street different from a general railroad contractor?',
+    a: 'Most general railroad contractors offer construction and maintenance services and provide inspection as an add-on. We are built around inspection and compliance documentation — it is the core of what we do. Our inspectors approach every track walk with the documentation discipline and regulatory fluency of people who spent careers on the Class I side of the industry. That orientation produces a different quality of inspection report than a contractor who inspects primarily to scope their own maintenance work.',
+  },
+  {
+    q: 'Does the family still run the company?',
+    a: 'Yes. Basil Polivka II serves as President of Doerr Street Rail Co, continuing the family\'s direct involvement in the railroad industry that began with his grandfather\'s contracting work in Ohio. The values that defined the family\'s approach — hard work, integrity, and genuine accountability for what we document — remain the operational standard today.',
+  },
+]
 
 const TIMELINE = [
   { year: '1940s', heading: 'Roots in Pittsburgh', body: 'The Polivka family emigrates from the Carpathian Rusyn region, settling in Pittsburgh and bringing old-world values of craftsmanship and hard work to American industry.' },
@@ -183,6 +207,7 @@ export function AboutPage({ onNavigate }) {
       <TimelineSection />
       <ValuesSection />
       <CertificationsSection />
+      <FAQSection items={ABOUT_FAQS} />
       <AboutCTA onNavigate={onNavigate} />
       <Footer onNavigate={onNavigate} />
     </>

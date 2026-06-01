@@ -2,6 +2,30 @@ import { SEOHead } from '../components/SEOHead'
 import { PageHero } from '../components/PageHero'
 import { HoundtoothStrip } from '../components/HoundtoothStrip'
 import { Footer } from '../components/Footer'
+import { FAQSection } from '../components/FAQSection'
+
+const TEAM_FAQS = [
+  {
+    q: 'What does FRA Part 213 certification mean for an inspector?',
+    a: 'FRA Part 213 certification means an inspector has completed the training and demonstrated the knowledge required to inspect railroad track against the Federal Railroad Administration\'s Track Safety Standards. It is the same certification required of railroad employees who walk Class I main lines and branch lines. Not all track inspectors hold current Part 213 certification — ours do, for Classes I through VI.',
+  },
+  {
+    q: 'What does it mean that your inspectors are "Class I railroad alumni"?',
+    a: 'It means our inspectors spent their careers — typically 15 to 25 years — as track supervisors, roadmasters, and track maintenance managers at major freight railroads like CSX, Norfolk Southern, and BNSF before joining Doerr Street. They know how Class I carriers conduct interchange audits because they conducted them. They know what deficiencies Class I track representatives prioritize because they prioritized them. That institutional knowledge fundamentally changes the quality of an inspection.',
+  },
+  {
+    q: 'How many inspectors does Doerr Street have available?',
+    a: 'Our team structure allows us to staff multiple simultaneous projects across the Southeast. We do not publish headcount because it fluctuates with project demand — but we have not declined a project due to inspector availability. If you have timing or staffing requirements, discuss them with us when you contact us.',
+  },
+  {
+    q: 'Does the same team handle both inspection and maintenance work?',
+    a: 'Inspection and maintenance are staffed by the same organization and managed by the same leadership. When an inspection identifies deficiencies and a client chooses to use us for remediation, the transition is direct — the inspectors who found the defects brief the maintenance crew on what needs to be done. There is no hand-off to a separate company or re-learning of the track conditions.',
+  },
+  {
+    q: 'What safety protocols does your team follow on industrial sites?',
+    a: 'All field personnel follow FRA Roadway Worker Protection (RWP) protocols on every site, along with OSHA 10/30 safety standards. We coordinate with facility safety personnel before entering any industrial site — reviewing site-specific protocols, PPE requirements, and operational constraints. In chemical, hazmat, and other sensitive industrial environments, we work directly with your safety team to ensure our field work meets your facility\'s requirements.',
+  },
+]
 
 const TEAM = [
   {
@@ -147,6 +171,7 @@ export function TeamPage({ onNavigate }) {
       <TeamGrid />
       <PhilosophySection />
       <CredentialsSection />
+      <FAQSection items={TEAM_FAQS} />
       <TeamCTA onNavigate={onNavigate} />
       <Footer onNavigate={onNavigate} />
     </>

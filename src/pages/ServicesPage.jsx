@@ -2,6 +2,30 @@ import { SEOHead } from '../components/SEOHead'
 import { PageHero } from '../components/PageHero'
 import { HoundtoothStrip } from '../components/HoundtoothStrip'
 import { Footer } from '../components/Footer'
+import { FAQSection } from '../components/FAQSection'
+
+const SERVICES_FAQS = [
+  {
+    q: 'How do I know which service is right for my situation?',
+    a: 'The right service depends on what you need to accomplish. If you have never had a professional inspection, start with an FRA compliance inspection — it establishes your baseline. If your Class I railroad is scheduling an audit, a pre-audit inspection is the appropriate choice. If you have a derailment or track incident, a post-incident inspection provides the documentation you need. Call us and describe your situation — we will recommend the right scope.',
+  },
+  {
+    q: 'What is included in a written inspection report?',
+    a: 'Every inspection report documents track conditions by segment, with each deficiency described in plain language and classified against the FRA Part 213 standard. Reports include photographic documentation of all significant findings, precise location references, FRA defect classification, and a priority ranking that separates immediate safety concerns from scheduled maintenance items. Reports are delivered within 48 hours of the field inspection.',
+  },
+  {
+    q: 'Can you handle an emergency inspection on short notice?',
+    a: 'Yes. We maintain emergency response capability for derailments, Class I service restrictions, storm damage, and other urgent track situations throughout the Southeast. For emergencies, call us directly at (704) 321-0802. We can often mobilize same-day or next-day for urgent situations in our core service territory.',
+  },
+  {
+    q: 'Do you perform the maintenance work identified in your inspections?',
+    a: 'Yes. We offer both inspection and maintenance services. When our inspection identifies deficiencies, we can provide a maintenance scope and fixed price directly from the findings — with no re-mobilization gap and no need to manage a second vendor. As a major tie contractor with direct OTM supply, we bring material cost advantages to maintenance work that most inspection-only firms cannot offer.',
+  },
+  {
+    q: 'How are defects prioritized in your reports?',
+    a: 'Every defect is classified per 49 CFR Part 213, which defines the operational response for each defect type — some require immediate suspension of car movements; others allow continued operation at restricted speed; others can be addressed on a scheduled maintenance timeline. Our reports clearly communicate which category each finding falls into, so your team knows what requires immediate action versus what can go into the next maintenance window.',
+  },
+]
 
 const SERVICES = [
   {
@@ -221,6 +245,7 @@ export function ServicesPage({ onNavigate }) {
       <ServicesList />
       <ProcessSection />
       <CoverageSection />
+      <FAQSection items={SERVICES_FAQS} />
       <ServicesCTA onNavigate={onNavigate} />
       <Footer onNavigate={onNavigate} />
     </>

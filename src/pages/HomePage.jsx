@@ -2,6 +2,30 @@ import { LogoLockup } from '../Logo'
 import { HoundtoothStrip } from '../components/HoundtoothStrip'
 import { Footer } from '../components/Footer'
 import { SEOHead } from '../components/SEOHead'
+import { FAQSection } from '../components/FAQSection'
+
+const HOME_FAQS = [
+  {
+    q: 'What areas of the country does Doerr Street Rail Co serve?',
+    a: 'We are based in Weddington, North Carolina and primarily serve the Southeastern United States — North Carolina, South Carolina, Georgia, Florida, Tennessee, Alabama, Mississippi, and Virginia. We will travel for the right project outside that footprint. Contact us to discuss your location.',
+  },
+  {
+    q: 'What is an FRA Part 213 inspection and do I need one?',
+    a: 'FRA Part 213 is the Federal Railroad Administration\'s Track Safety Standards regulation. It governs the condition of railroad track that a carrier operates over — including private industrial track that receives Class I car movements. If your facility has a siding, plant spur, or loop track that a railroad uses to deliver or pick up cars, those tracks are likely subject to Part 213 standards. An independent inspection documents your compliance status.',
+  },
+  {
+    q: 'How quickly can you mobilize for a track inspection?',
+    a: 'For most locations in the Southeast, we can schedule a standard inspection within one to three business days. For urgent situations — a Class I service restriction, a derailment, or a pending audit — same-day or next-day mobilization is often possible. Call us directly at (704) 321-0802 for urgent requests.',
+  },
+  {
+    q: 'What do I receive with a written inspection report?',
+    a: 'Every inspection produces a written report delivered within 48 hours. The report documents every observed deficiency with its FRA Part 213 classification, precise location, severity, and remediation priority. Photographic documentation accompanies the written findings. The report is organized to be actionable — your maintenance team and your Class I carrier can both work directly from it.',
+  },
+  {
+    q: 'Do you handle track maintenance as well as inspection?',
+    a: 'Yes. Doerr Street Rail Co is both a certified track inspection firm and a major railroad tie contractor with direct access to ties and Other Track Material at below-market costs. We handle the full range of industrial track maintenance — tie replacement, rail work, ballast, switch maintenance, and FRA defect remediation. Many clients use us for both inspection and the maintenance work that follows.',
+  },
+]
 
 const HOME_SCHEMA = {
   '@context': 'https://schema.org',
@@ -213,6 +237,7 @@ export function HomePage({ onNavigate }) {
       <AboutTeaser onNavigate={onNavigate} />
       <ServicesTeaser onNavigate={onNavigate} />
       <IndustriesSection />
+      <FAQSection items={HOME_FAQS} />
       <ContactTeaser onNavigate={onNavigate} />
       <Footer onNavigate={onNavigate} />
     </>

@@ -4,6 +4,30 @@ import { SEOHead } from '../components/SEOHead'
 import { PageHero } from '../components/PageHero'
 import { HoundtoothStrip } from '../components/HoundtoothStrip'
 import { Footer } from '../components/Footer'
+import { FAQSection } from '../components/FAQSection'
+
+const CONTACT_FAQS = [
+  {
+    q: 'How quickly do you respond to quote requests?',
+    a: 'We respond to all inquiries within one business day. For urgent situations — a Class I service restriction, a pending audit, or a derailment — call us directly at (704) 321-0802. We answer urgent calls outside normal business hours.',
+  },
+  {
+    q: 'What information should I have ready when I contact you?',
+    a: 'The more detail you can provide, the faster we can scope your project. Helpful information includes: the approximate length and configuration of your track, your Class I railroad connection, any known deficiencies or recent Class I notices, your preferred inspection timing, and any specific compliance, audit, or incident context. You do not need to have all of this ready — a basic conversation about your facility is enough to get started.',
+  },
+  {
+    q: 'Do you require a long-term contract for inspection services?',
+    a: 'No. We work on a project basis as well as ongoing programs. A single inspection is a completely normal engagement. Clients who want a recurring monthly or quarterly program can commit to one, but there is no requirement to do so before your first inspection. Many clients start with a one-time baseline inspection and decide on a program from there.',
+  },
+  {
+    q: 'What does a track inspection typically cost?',
+    a: 'Cost depends on the length of the track, the complexity of the configuration, travel requirements, and the scope of documentation needed. All pricing is fixed and provided upfront — you know the cost before any work begins. Contact us with a description of your track and we will provide a specific price. We do not publish general rate schedules because every project is different.',
+  },
+  {
+    q: 'Can you work with our Class I railroad directly if needed?',
+    a: 'Yes. Our inspectors speak the language of Class I track departments and can coordinate directly with your railroad\'s track representative when that is helpful — for example, when a reinstatement inspection needs to be accepted by the carrier, or when audit timing needs to be coordinated. We work alongside your Class I relationship, not around it.',
+  },
+]
 
 /* ── Formspree endpoint ─────────────────────────────────────────
    To activate email delivery to basil@tiedisposal.com:
@@ -182,6 +206,8 @@ export function ContactPage({ onNavigate }) {
           <ContactInfoSection />
         </div>
       </section>
+
+      <FAQSection items={CONTACT_FAQS} />
 
       <section className="contact-phone-band">
         <HoundtoothStrip height={22} />
