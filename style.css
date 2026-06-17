@@ -2251,3 +2251,380 @@ a.footer-privacy-link {
 a.nav-active {
   color: var(--gold) !important;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   JOURNAL PAGE
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Masthead ── */
+.journal-masthead {
+  background: var(--rail-black);
+}
+
+.journal-masthead-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 88px 32px 80px;
+  text-align: center;
+}
+
+.journal-pub-label {
+  font-family: 'Apercu', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 32px;
+}
+
+.journal-pub-title {
+  font-family: 'Tiempos Text', Georgia, serif;
+  font-size: clamp(52px, 10vw, 96px);
+  font-weight: 500;
+  color: var(--cream);
+  line-height: 1.0;
+  letter-spacing: -2px;
+  margin: 0 0 32px;
+}
+
+.journal-pub-desc {
+  font-family: 'Apercu', sans-serif;
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: rgba(240, 217, 168, 0.55);
+  letter-spacing: 0.2px;
+  margin: 0 0 40px;
+}
+
+.journal-pub-volume {
+  display: inline-block;
+  font-family: 'Apercu', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(240, 217, 168, 0.3);
+  border-top: 1px solid rgba(201, 164, 106, 0.18);
+  padding-top: 22px;
+  margin: 0;
+}
+
+/* ── Entry list ── */
+.journal-list {
+  background: var(--cream);
+  padding-bottom: 100px;
+}
+
+.journal-list-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ── Individual entry ── */
+.journal-item {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 0 36px;
+  padding: 76px 0;
+}
+
+.journal-item-num {
+  font-family: 'Tiempos Text', Georgia, serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gold);
+  opacity: 0.6;
+  letter-spacing: 1px;
+  padding-top: 2px;
+  text-align: right;
+  user-select: none;
+}
+
+.journal-item-body {
+  min-width: 0;
+}
+
+.journal-item-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Apercu', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+}
+
+.journal-item-cat {
+  color: var(--oxide-red);
+}
+
+.journal-item-meta-dot {
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: var(--body);
+  opacity: 0.35;
+  flex-shrink: 0;
+}
+
+.journal-item-date {
+  color: var(--body);
+  opacity: 0.5;
+}
+
+.journal-item-title {
+  font-family: 'Tiempos Text', Georgia, serif;
+  font-size: clamp(21px, 2.8vw, 29px);
+  font-weight: 500;
+  color: var(--dark);
+  line-height: 1.25;
+  letter-spacing: -0.2px;
+  margin: 0 0 18px;
+  transition: color 0.15s ease;
+}
+
+.journal-item:hover .journal-item-title {
+  color: var(--oxide-red);
+}
+
+.journal-item-excerpt {
+  font-family: 'Apercu', sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--body);
+  margin: 0 0 26px;
+}
+
+.journal-item-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Apercu', sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--dark);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(75, 79, 56, 0.25);
+  padding-bottom: 3px;
+  transition: color 0.15s ease, border-color 0.15s ease, gap 0.2s ease;
+}
+
+.journal-item-link:hover {
+  color: var(--oxide-red);
+  border-color: var(--oxide-red);
+  gap: 14px;
+}
+
+/* ── Divider between entries ── */
+.journal-divider {
+  border: none;
+  border-top: 1px solid var(--gold-border);
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .journal-masthead-inner { padding: 64px 24px 56px; }
+  .journal-pub-title { letter-spacing: -1px; }
+  .journal-item { padding: 56px 0; gap: 0 24px; }
+}
+
+@media (max-width: 560px) {
+  .journal-list-inner { padding: 0 20px; }
+  .journal-item {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 44px 0;
+  }
+  .journal-item-num {
+    text-align: left;
+    margin-bottom: 16px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   JOURNAL ARTICLE PAGE
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Article masthead ── */
+.article-masthead {
+  background: var(--rail-black);
+}
+
+.article-masthead-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 56px 32px 64px;
+}
+
+.article-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Apercu', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(240, 217, 168, 0.45);
+  text-decoration: none;
+  margin-bottom: 48px;
+  transition: color 0.15s ease;
+}
+
+.article-back:hover {
+  color: var(--gold);
+}
+
+.article-masthead-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Apercu', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 0 22px;
+}
+
+.article-masthead-cat {
+  color: var(--oxide-red);
+}
+
+.article-masthead-sep {
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.35;
+  flex-shrink: 0;
+}
+
+.article-masthead-date {
+  color: rgba(240, 217, 168, 0.4);
+}
+
+.article-headline {
+  font-family: 'Tiempos Text', Georgia, serif;
+  font-size: clamp(28px, 4.5vw, 48px);
+  font-weight: 500;
+  color: var(--cream);
+  line-height: 1.18;
+  letter-spacing: -0.5px;
+  margin: 0 0 24px;
+}
+
+.article-dek {
+  font-family: 'Apercu', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(240, 217, 168, 0.55);
+  margin: 0;
+  max-width: 560px;
+}
+
+/* ── Article body ── */
+.article-body-section {
+  background: var(--cream);
+  padding: 72px 0 100px;
+}
+
+.article-body-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.article-lead {
+  font-family: 'Tiempos Text', Georgia, serif;
+  font-size: clamp(17px, 2vw, 19px);
+  line-height: 1.75;
+  color: var(--dark);
+  margin: 0 0 32px;
+  font-weight: 500;
+}
+
+.article-body-inner p {
+  font-family: 'Tiempos Text', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--body);
+  margin: 0 0 26px;
+}
+
+.article-section-head {
+  font-family: 'Apercu', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--dark);
+  margin: 52px 0 20px;
+  padding-left: 16px;
+  border-left: 2px solid var(--gold);
+}
+
+.article-callout {
+  border-left: 2px solid var(--gold-border);
+  margin: 40px 0;
+  padding: 4px 0 4px 28px;
+}
+
+.article-callout p {
+  font-family: 'Tiempos Text', Georgia, serif;
+  font-size: 19px !important;
+  line-height: 1.65 !important;
+  color: var(--dark) !important;
+  font-style: italic;
+  margin: 0 !important;
+}
+
+.article-rule {
+  border: none;
+  border-top: 1px solid var(--gold-border);
+  margin: 48px 0;
+}
+
+.article-footer-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 48px;
+  border-top: 1px solid var(--gold-border);
+  flex-wrap: wrap;
+}
+
+.article-back-bottom {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Apercu', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--dark);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.article-back-bottom:hover {
+  color: var(--oxide-red);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .article-masthead-inner { padding: 44px 24px 52px; }
+  .article-body-section { padding: 52px 0 72px; }
+}
+
+@media (max-width: 560px) {
+  .article-body-inner { padding: 0 20px; }
+}
