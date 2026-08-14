@@ -1,6 +1,4 @@
-# Doerr Street Rail Co
-User-agent: *
+﻿User-agent: *
 Allow: /
-Disallow: /_src/
 
 Sitemap: https://trackinspections.com/sitemap.xml

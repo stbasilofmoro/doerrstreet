@@ -1,0 +1,1666 @@
+/* ══════════════════════════════════════════════════════════════════
+   DOERR STREET RAIL CO — Concept C-3
+   Family: technical / industrial-illustrative.
+   A concrete studio, DIN-lineage type, and one hot accent that only
+   ever means "defect". Depth comes from tonal shift + grain, never
+   from cards or shadow. Every gap is a multiple of 8.
+   ══════════════════════════════════════════════════════════════════ */
+
+:root{
+  /* ══════════════════════════════════════════════════════════════
+     GREEN FORK — same structure as concept-c-3, retinted to match
+     Basil's own brand: trackinspections.app and his original site.
+     Sampled directly from trackinspections.app (computed styles):
+       page bg  #4B4F38 (bg-[#4b4f38])   button fill  #F0D9A8
+       link/border gold  #C9A46A         button text  #2A2C1E
+       footer / deep panel  #22211E      houndstooth.png: cream/olive
+     The site was built light-dominant with dark text (--con light,
+     --ink dark). His brand is dark-dominant with light text, so this
+     is a genuine role inversion, not a hex swap — --con is now the
+     dark olive ground and --ink is now the cream text that sits on
+     it. Every other rule in this file already reads through these
+     tokens, so no component rules needed to change, only what the
+     tokens resolve to.
+     ══════════════════════════════════════════════════════════════ */
+  /* ── dominant: olive, in three tones ── */
+  --con:      #4B4F38;
+  --con-hi:   #5A5E45;
+  --con-lo:   #3D4030;
+  /* ── neutral anchor: his footer/deep-panel near-black ── */
+  --gra:      #22211E;
+  --pale:     #F0D9A8;
+  /* ── the single sharp accent ──
+     His palette has no red at all — everything on trackinspections.app
+     is olive/cream/gold. A brick oxide on this olive measures 1.06:1,
+     functionally invisible, so the accent becomes his gold instead.
+     #DCC392 is a lightened step off his #C9A46A: the saturated gold
+     reads 3.64:1 on the olive (fine for a thick stroke or a button,
+     fails for small text); this tint clears 4.96:1, so eyebrow labels
+     and fine leaders stay AA at every size the accent is used for. */
+  --sig:      #DCC392;
+
+  --ink:      #F0D9A8;
+  --ink-dim:  rgba(240,217,168,.72);
+  --ink-mute: rgba(240,217,168,.48);
+  --pale-dim: rgba(240,217,168,.68);
+  --line:     rgba(240,217,168,.20);
+  --line-2:   rgba(240,217,168,.11);
+  --line-i:   rgba(240,217,168,.24);
+  --line-i2:  rgba(240,217,168,.13);
+
+  /* ── type ── */
+  --d: "Big Shoulders Display", "Haettenschweiler", Impact, sans-serif;
+  --b: "Barlow", sans-serif;
+  --c: "Barlow Condensed", "Barlow", sans-serif;
+  --serif: Georgia, "Times New Roman", serif;
+
+  /* ── 8px spacing scale — used for every gap in this file ── */
+  --s1:8px;  --s2:16px; --s3:24px;  --s4:32px;   --s5:40px;   --s6:48px;
+  --s7:64px; --s8:80px; --s9:96px;  --s10:128px; --s11:160px;
+  --gut: clamp(24px, 5vw, 80px);
+  --max: 1520px;
+
+  --e: cubic-bezier(.18,.85,.28,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+html.lock{overflow:hidden}
+
+body{
+  margin:0;background:var(--con);color:var(--ink);
+  font-family:var(--b);font-size:17px;line-height:1.5;font-weight:400;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+/* grain — texture, never gradient */
+body::after{
+  content:"";position:fixed;inset:0;z-index:400;pointer-events:none;opacity:.5;
+  mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='4'/><feColorMatrix type='saturate' values='0'/></filter><rect width='180' height='180' filter='url(%23n)' opacity='.42'/></svg>");
+}
+
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ol,ul{margin:0;padding:0;list-style:none}
+figure,blockquote,dl,dd,fieldset{margin:0}
+fieldset{border:0;padding:0;min-width:0}
+::selection{background:var(--sig);color:var(--gra)}
+
+/* one visible focus treatment everywhere — the accent reads on both grounds */
+:where(a,button,summary,input,[tabindex]):focus-visible{
+  outline:2px solid var(--sig);outline-offset:3px;border-radius:0;
+}
+.faq summary:focus-visible{outline-offset:-2px}
+
+/* ══ TYPE PRIMITIVES ══════════════════════════════════════════════ */
+.lbl{
+  margin:0 0 var(--s4);font-family:var(--c);font-size:13px;font-weight:600;
+  letter-spacing:.19em;text-transform:uppercase;line-height:1.2;color:var(--ink);
+}
+.lbl-inv{color:var(--pale)}
+.lbl span{white-space:nowrap}   /* a separator never opens a line */
+.lbl s,.pull-att s{
+  display:inline-block;text-decoration:none;width:16px;height:2px;
+  background:var(--sig);vertical-align:.28em;margin:0 var(--s2);
+}
+/* upright rule, not a dash — at display size a dash reads as a hyphen
+   joining the two terms rather than separating them */
+.ind-run s{
+  display:inline-block;text-decoration:none;width:2px;height:.54em;
+  background:var(--sig);vertical-align:-.02em;margin:0 var(--s3) 0 var(--s2);
+}
+.h2{
+  margin:0 0 var(--s4);font-family:var(--d);font-weight:800;
+  font-size:clamp(40px,5.6vw,92px);line-height:.9;letter-spacing:-.014em;
+  text-transform:uppercase;
+}
+.lede{
+  margin:0;font-size:clamp(17px,1.3vw,21px);line-height:1.45;
+  font-weight:300;color:var(--ink-dim);max-width:46ch;
+}
+
+/* ══ BUTTONS — square, no shadow, no pill ═════════════════════════ */
+.btn{
+  display:inline-flex;align-items:center;gap:var(--s2);
+  padding:var(--s2) var(--s3);background:var(--gra);color:var(--pale);
+  border:2px solid var(--gra);
+  font-family:var(--c);font-size:15px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;line-height:1;white-space:nowrap;
+  transition:background .3s var(--e),color .3s var(--e),border-color .3s var(--e);
+}
+/* the rule grows by transform, not width — animating width would resize the
+   button and shove its own label around on hover */
+.btn::after{content:"";width:28px;height:2px;background:currentColor;
+  transform:scaleX(.64);transform-origin:0 50%;
+  transition:transform .3s var(--e)}
+/* GREEN FORK: every one of these was a --sig fill paired with --pale
+   text, which worked when --sig was a dark oxide red and --pale was
+   cream. Both are light now, so each fill needs its text pinned to
+   --gra (always the dark neutral) instead of riding the old pairing.
+   .btn-hot's resting and hover states are swapped too, to land on
+   the reference's own convention — a cream button at rest, not gold —
+   which happens to fix the contrast and match the source in one move. */
+.btn:hover{background:var(--sig);border-color:var(--sig);color:var(--gra)}
+.btn:hover::after{transform:scaleX(1)}
+.btn-line{background:none;color:var(--ink);border-color:var(--line)}
+.btn-line:hover{background:var(--gra);border-color:var(--gra);color:var(--pale)}
+.btn-hot{background:var(--pale);border-color:var(--pale);color:var(--gra)}
+.btn-hot:hover{background:var(--sig);border-color:var(--sig);color:var(--gra)}
+
+/* ══ ONE ORCHESTRATED LOAD SEQUENCE — nothing else on entrance ════ */
+[data-seq]{opacity:0;transform:translateY(20px)}
+body.ready [data-seq]{opacity:1;transform:none;
+  transition:opacity .8s var(--e),transform .8s var(--e)}
+/* The mask needs overflow:hidden, but at line-height .82 the ink ascent
+   (107px) all but fills the 109px line box, so tall glyphs clip. Pad the
+   clip box out and pull it back with an equal negative margin — the
+   leading stays exactly as tight, nothing is cut. */
+.li{display:block;overflow:hidden;opacity:1;transform:none;
+  padding-top:.18em;margin-top:-.18em;
+  padding-bottom:.08em;margin-bottom:-.08em}
+.li > span{display:block;transform:translateY(112%)}
+body.ready .li > span{transform:none;transition:transform 1.05s var(--e)}
+body.ready [data-seq="1"]{transition-delay:.10s}
+body.ready [data-seq="2"] > span{transition-delay:.16s}
+body.ready [data-seq="3"] > span{transition-delay:.25s}
+body.ready [data-seq="4"] > span{transition-delay:.34s}
+body.ready [data-seq="5"] > span{transition-delay:.43s}
+body.ready [data-seq="6"]{transition-delay:.60s}
+body.ready [data-seq="7"]{transition-delay:.70s}
+body.ready [data-seq="8"]{transition-delay:.80s}
+body.ready [data-seq="9"]{transition-delay:.90s}
+
+/* ══ SCROLL REVEALS — one shared switch, per-element choreography ══
+   Every rule below is opt-in via [data-anim] and reveals rather than
+   hides: nothing withholds information for longer than ~600ms.        */
+
+/* 01b · credentials: figures rise, the "+" lands last */
+.creds-i{opacity:0;transform:translateY(18px)}
+.creds.in .creds-i{opacity:1;transform:none;transition:opacity .55s var(--e),transform .55s var(--e)}
+.creds.in .creds-i:nth-child(2){transition-delay:.07s}
+.creds.in .creds-i:nth-child(3){transition-delay:.14s}
+.creds.in .creds-i:nth-child(4){transition-delay:.21s}
+[data-count] i{opacity:0;transition:opacity .3s var(--e)}
+[data-count].counted i{opacity:1}
+
+/* 03b · turnaround: the one operational number worth setting in display size */
+.turn b,.turn span{opacity:0;transform:translateY(18px)}
+.turn.in b{opacity:1;transform:none;transition:opacity .55s var(--e),transform .55s var(--e)}
+.turn.in span{opacity:1;transform:none;
+  transition:opacity .55s var(--e) .1s,transform .55s var(--e) .1s}
+
+/* 04 · the argument: the sentence lands in two beats */
+.arg-h .a1,.arg-h .a2{display:inline-block;opacity:0;transform:translateY(16px)}
+.arg.in .arg-h .a1{opacity:1;transform:none;transition:opacity .6s var(--e),transform .6s var(--e) .05s}
+.arg.in .arg-h .a2{opacity:1;transform:none;transition:opacity .6s var(--e) .42s,transform .6s var(--e) .42s}
+.arg-l li{opacity:0;transform:translateY(14px)}
+.arg.in .arg-l li{opacity:1;transform:none;transition:opacity .5s var(--e),transform .5s var(--e)}
+.arg.in .arg-l li:nth-child(1){transition-delay:.62s}
+.arg.in .arg-l li:nth-child(2){transition-delay:.72s}
+.arg.in .arg-l li:nth-child(3){transition-delay:.82s}
+
+/* 05 · schedule of work: the group rule draws, then the rows */
+.grp{position:relative;border-top-color:transparent}
+.grp::before{content:"";position:absolute;left:0;right:0;top:-3px;height:3px;background:var(--gra);
+  transform:scaleX(0);transform-origin:0 50%;transition:transform .85s var(--e)}
+.grp.in::before{transform:scaleX(1)}
+.items .item{opacity:0;transform:translateY(16px)}
+.items.in .item{opacity:1;transform:none;transition:opacity .5s var(--e),transform .5s var(--e)}
+.items.in .item:nth-child(2){transition-delay:.09s}
+.items.in .item:nth-child(3){transition-delay:.18s}
+
+/* 06 · industries: each term arrives, its tick drawing just ahead */
+.ind-run span{display:inline-block;opacity:0;transform:translateY(16px)}
+.ind.in .ind-run span{opacity:1;transform:none;transition:opacity .5s var(--e),transform .5s var(--e)}
+.ind-run s{transform:scaleY(0);transform-origin:50% 100%}
+.ind.in .ind-run s{transform:scaleY(1);transition:transform .3s var(--e)}
+.ind.in .ind-run span:nth-child(1){transition-delay:.00s}
+.ind.in .ind-run span:nth-child(2){transition-delay:.07s}
+.ind.in .ind-run span:nth-child(3){transition-delay:.14s}
+.ind.in .ind-run span:nth-child(4){transition-delay:.21s}
+.ind.in .ind-run span:nth-child(5){transition-delay:.28s}
+.ind.in .ind-run span:nth-child(6){transition-delay:.35s}
+.ind.in .ind-run span:nth-child(7){transition-delay:.42s}
+.ind.in .ind-run span:nth-child(8){transition-delay:.49s}
+
+/* 07 · territory: coverage spreads outward from Weddington */
+.terr-map img{clip-path:circle(0% at 80.2% 50.4%);
+  transition:clip-path 1.5s cubic-bezier(.22,.72,.24,1)}
+.terr-map.in img{clip-path:circle(142% at 80.2% 50.4%)}
+.hq{opacity:0;transition:opacity .45s var(--e)}
+.terr-map.in .hq{opacity:1;transition-delay:.12s}
+
+/* 08 · the firm: a wipe, not a fade — fades are the default */
+.firm-fig img{clip-path:inset(0 100% 0 0);transition:clip-path .95s var(--e)}
+.firm-fig.in img{clip-path:inset(0 0 0 0)}
+.firm-fig figcaption{opacity:0;transform:translateY(10px)}
+.firm-fig.in figcaption{opacity:1;transform:none;
+  transition:opacity .45s var(--e) .55s,transform .45s var(--e) .55s}
+
+/* 09 · questions: answers open on a height, driven from script */
+.faq details p{overflow:hidden;transition:height .42s var(--e),opacity .3s var(--e)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  [data-seq],.li > span,.creds-i,.arg-h .a1,.arg-h .a2,.arg-l li,.items .item,
+  .ind-run span,.hq,.firm-fig figcaption{
+    opacity:1 !important;transform:none !important;transition:none !important}
+  .turn b,.turn span{opacity:1 !important;transform:none !important;transition:none !important}
+  [data-count] i{opacity:1 !important}
+  /* the finished diagram is the whole point; only the drawing of it is motion */
+  .cost-row svg .rule,.cost-row svg .run,.cost-row svg .repair-bar{
+    stroke-dashoffset:0 !important;transition:none !important}
+  /* a running transition outranks author !important in the cascade, so the
+     value alone is not enough — the transition has to be canceled too */
+  .cost-row svg .burst,.cost-row svg .found,.cost-row svg .head,
+  .cost-axis{opacity:1 !important;transition:none !important}
+  .cost-row svg .tick{opacity:.38 !important;transition:none !important}
+  .cost-row svg .origin,.cost-row svg .end-mark,.cost-row svg .repair-mark,
+  .cost-at,.cost-row strong{transform:none !important;opacity:1 !important;
+    transition:none !important}
+  .cost-at{transform:translateX(-50%) !important}
+  .grp::before{transform:scaleX(1) !important}
+  .ind-run s{transform:scaleY(1) !important}
+  .terr-map img{clip-path:circle(142% at 80.2% 50.4%) !important;transition:none !important}
+  .firm-fig img{clip-path:none !important;transition:none !important}
+  .faq details p{transition:none !important}
+}
+
+/* ══ MASTHEAD ═════════════════════════════════════════════════════ */
+.mast{
+  position:sticky;top:0;z-index:300;background:var(--gra);color:var(--pale);
+  display:flex;align-items:center;gap:var(--s5);
+  height:88px;padding:0 var(--gut);transition:height .3s var(--e);
+}
+.mast.tight{height:64px}
+.mast-logo img{height:48px;width:auto;transition:height .3s var(--e)}
+.mast.tight .mast-logo img{height:36px}
+/* the whole page is a mile of track — this says where on it you are */
+.mast-mp{font-family:var(--c);font-size:13px;font-weight:500;letter-spacing:.19em;
+  font-variant-numeric:tabular-nums;color:rgba(239,236,228,.42);
+  padding-left:var(--s3);border-left:1px solid var(--line-i2)}
+.mast-nav{display:flex;gap:var(--s4);margin-left:auto}
+.mast-nav a,.mast-tel{
+  font-family:var(--c);font-size:15px;font-weight:500;letter-spacing:.08em;
+  color:var(--pale-dim);transition:color .25s;position:relative;padding:var(--s1) 0;
+}
+.mast-nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
+  background:var(--sig);transform:scaleX(0);transform-origin:100% 50%;
+  transition:transform .35s var(--e)}
+.mast-nav a:hover,.mast-tel:hover{color:var(--pale)}
+.mast-nav a:hover::after{transform:scaleX(1);transform-origin:0 50%}
+/* the page you are on keeps the rule drawn */
+.mast-nav a[aria-current]{color:var(--pale)}
+.mast-nav a[aria-current]::after{transform:scaleX(1);transform-origin:0 50%}
+.mast-tel{letter-spacing:.12em}
+.mast-app{font-family:var(--c);font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--pale-dim);padding:var(--s1) 0;white-space:nowrap;transition:color .25s}
+.mast-app:hover{color:var(--sig)}
+.mast-cta{
+  font-family:var(--c);font-size:14px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;padding:var(--s1) var(--s2);
+  border:2px solid var(--line-i);color:var(--pale);
+  transition:background .3s var(--e),border-color .3s var(--e);
+}
+.mast-cta:hover{background:var(--sig);border-color:var(--sig);color:var(--gra)}
+.mast-burger{display:none;margin-left:auto;width:40px;padding:var(--s1) 0;
+  background:none;border:0;cursor:pointer}
+.mast-burger i{display:block;height:2px;background:var(--pale);margin:var(--s1) 0;
+  transition:transform .3s var(--e)}
+.mast-burger.on i:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.mast-burger.on i:nth-child(2){transform:translateY(-5px) rotate(-45deg)}
+
+/* Closed, the drawer must be genuinely gone rather than merely clipped.
+   clip-path hides it visually but leaves its links in the tab order and in
+   the accessibility tree — on every page, at every width, including desktop
+   where the burger is display:none and the drawer can never be opened at
+   all. visibility is what actually removes them; the 0s delay holds it
+   visible for the length of the close animation so the clip still plays. */
+.drawer{position:fixed;inset:88px 0 0;z-index:290;background:var(--gra);color:var(--pale);
+  display:flex;flex-direction:column;justify-content:center;padding:0 var(--gut);
+  clip-path:inset(0 0 100% 0);visibility:hidden;
+  transition:clip-path .5s var(--e),visibility 0s linear .5s}
+.drawer.on{clip-path:inset(0 0 0 0);visibility:visible;
+  transition:clip-path .5s var(--e),visibility 0s}
+.drawer a{font-family:var(--d);font-weight:700;text-transform:uppercase;
+  font-size:clamp(32px,8vw,48px);line-height:1;padding:var(--s2) 0;
+  border-bottom:2px solid var(--line-i2)}
+.drawer .drawer-tel{border:0;font-family:var(--c);font-size:17px;letter-spacing:.16em;
+  color:var(--sig);margin-top:var(--s4)}
+.drawer .drawer-app{border:0;font-family:var(--c);font-size:17px;letter-spacing:.16em;
+  color:var(--sig);margin-top:var(--s2)}
+
+/* ══ 01 · HERO ════════════════════════════════════════════════════ */
+.hero{
+  position:relative;
+  max-width:var(--max);margin:0 auto;padding:var(--s8) var(--gut) var(--s8);
+  display:grid;grid-template-columns:repeat(12,1fr);gap:0 var(--s3);
+}
+.hero-lbl{grid-column:1 / -1;margin-bottom:var(--s3)}
+.hero-h{
+  grid-column:1 / span 11;margin:0;
+  /* cancels the first line's negative top margin, so the headline sits
+     exactly where it did before the clip fix */
+  padding-top:.18em;
+  font-family:var(--d);font-weight:800;text-transform:uppercase;
+  font-size:clamp(54px,9.2vw,134px);line-height:.82;letter-spacing:-.016em;
+}
+.hero-h .thin{font-weight:200;letter-spacing:-.002em}
+.hero-lede{grid-column:7 / span 4;margin:var(--s6) 0 0;
+  font-size:clamp(17px,1.35vw,22px);line-height:1.45;font-weight:300;color:var(--ink-dim)}
+.hero-act{grid-column:1 / span 6;display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s6)}
+
+/* ── chainage tape ────────────────────────────────────────────────
+   A surveyor's scale running the height of the hero. It moves at a
+   walking pace — the one continuously moving thing on the page.     */
+.tape{
+  position:absolute;top:0;bottom:0;right:var(--gut);width:128px;
+  overflow:hidden;pointer-events:none;
+  /* fades out well before the band below, or labels collide with the edge */
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 14%,#000 72%,transparent);
+          mask-image:linear-gradient(180deg,transparent,#000 14%,#000 72%,transparent);
+}
+.tape-run{animation:tapeRun 78s linear infinite}
+@keyframes tapeRun{from{transform:translateY(0)}to{transform:translateY(-1200px)}}
+.tape .rule{stroke:rgba(25,25,23,.20);stroke-width:1}
+.tape .mn{stroke:rgba(25,25,23,.16);stroke-width:1}
+.tape .mj{stroke:rgba(25,25,23,.34);stroke-width:1}
+.tape text{font-family:var(--c);font-size:12px;font-weight:500;letter-spacing:.14em;
+  fill:rgba(25,25,23,.42)}
+.tape .hit line{stroke:var(--sig);stroke-width:2}
+.tape .hit rect{fill:var(--sig)}
+.tape .hit text{fill:var(--sig);font-weight:600}
+@media (prefers-reduced-motion:reduce){.tape-run{animation:none}}
+@media (max-width:1180px){.tape{display:none}}
+
+/* ══ 01b · CREDENTIALS — a tonal band, full bleed ═════════════════ */
+.creds{
+  background:var(--con-lo);border-top:2px solid var(--line);
+  padding:var(--s6) var(--gut);
+  display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s5) var(--s3);
+  align-items:end;
+}
+.creds-i{margin:0;display:flex;flex-direction:column;gap:var(--s2)}
+.creds-i b{font-family:var(--d);font-weight:800;line-height:.82;letter-spacing:-.02em;
+  text-transform:uppercase;font-size:clamp(46px,5.4vw,86px)}
+.creds-i:nth-child(1) b,.creds-i:nth-child(4) b{font-weight:200;font-size:clamp(38px,4.2vw,66px)}
+.creds-i b i{font-style:normal;color:var(--sig);font-size:.44em;vertical-align:.8em;margin-left:.06em}
+/* three labels wrap to two lines and one doesn't; without a floor the
+   bottom-aligned figures sit at four different heights */
+.creds-i span{font-family:var(--c);font-size:14px;font-weight:500;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-dim);line-height:1.3;max-width:20ch;
+  min-height:2.6em}
+
+/* ══ 02 · THE PANEL — the piece to obsess over ════════════════════ */
+.panel{background:var(--con-hi);border-top:2px solid var(--line)}
+.panel-track{height:460vh;position:relative}
+.panel-pin{
+  position:sticky;top:0;height:100svh;overflow:hidden;
+  /* minmax(0,1fr) — stops the drawing's intrinsic size inflating the row */
+  display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:auto auto minmax(0,1fr) auto;
+  /* the sticky masthead is 64px tall once condensed and sits over the pin,
+     so the plate label needs to clear it */
+  gap:0 var(--s3);padding:var(--s9) var(--gut) var(--s6);
+}
+.panel-lbl{grid-column:1 / -1;grid-row:1;margin-bottom:var(--s2)}
+.panel-h{grid-column:1 / span 6;grid-row:2;margin:0;font-family:var(--d);font-weight:800;
+  text-transform:uppercase;font-size:clamp(30px,3.6vw,60px);line-height:.9;letter-spacing:-.014em}
+.axo{grid-column:1 / -1;grid-row:3;width:100%;height:100%;min-height:0;display:block}
+.panel-step{
+  grid-column:1 / span 8;grid-row:4;margin:0;display:flex;align-items:baseline;gap:var(--s3);
+  border-top:2px solid var(--line);padding-top:var(--s2);
+}
+.panel-step b{font-family:var(--d);font-weight:800;font-size:34px;line-height:1;color:var(--sig)}
+.panel-step span{font-family:var(--d);font-weight:700;font-size:28px;line-height:1;
+  text-transform:uppercase;letter-spacing:-.01em}
+.panel-step i{font-family:var(--c);font-style:normal;font-size:14px;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);margin-left:auto}
+.panel-hint{grid-column:11 / -1;grid-row:4;margin:0;align-self:end;justify-self:end;
+  font-family:var(--c);font-size:13px;font-weight:600;letter-spacing:.19em;
+  text-transform:uppercase;color:var(--ink-mute);transition:opacity .4s}
+.panel-hint.gone{opacity:0}
+
+/* the drawing
+   GREEN FORK: this whole illustration was built assuming a light page —
+   grey neutral faces, near-black hairline strokes at low opacity, a
+   near-black grit texture, near-black leader lines and small captions.
+   All of that is dark-on-light; on this fork's dark olive ground every
+   one of those hairlines and the grit texture would vanish outright,
+   not just read poorly, so this isn't a retint, it's a light/dark flip.
+   The neutral rail goes to an olive 3-tone (matching --con/--con-hi/
+   --con-lo) rather than cream, so the untouched rail still reads as
+   "the same material as the page, modeled as an object" the way the
+   original grey-on-concrete did — cream would make the whole rail
+   pop, stealing the attention the defect is supposed to get. The
+   defect itself moves to a gold 3-tone (see the ratio derivation two
+   lines down) rather than staying oxide, so the site's one moving
+   marquee illustration follows the same digital-chrome-is-gold rule
+   as the plates and buttons; oxide is reserved for the two literal
+   printed-paper components (.doc/.note) elsewhere in this file. */
+.axo .f-top{fill:var(--con-hi)}
+.axo .f-side{fill:var(--con)}
+.axo .f-front{fill:var(--con-lo)}
+.axo .f-top,.axo .f-side,.axo .f-front{stroke:rgba(240,217,168,.5);stroke-width:1.1;
+  stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.axo .grit{fill:url(#grit);opacity:.35;stroke:none}
+.axo #grit circle{fill:rgba(240,217,168,.55)}
+/* the defect rises out of its own layer once that layer is in focus */
+.axo .hot-lift{transition:transform .9s var(--e)}
+.axo .layer.focus .hot-lift{transform:translateY(-38px)}
+@media (prefers-reduced-motion:reduce){.axo .hot-lift{transition:none}}
+/* a gold 3-tone derived from the original oxide ramp's own light/mid/dark
+   ratios, so the shading direction (top lightest, front darkest) matches
+   exactly — only the hue changed, not the modelling logic */
+.axo .hot .f-top{fill:#FFF6BF}
+.axo .hot .f-side{fill:var(--sig)}
+.axo .hot .f-front{fill:#A49374}
+.axo .layer{transition:opacity .35s var(--e)}
+.axo .dim{opacity:.3}
+.axo .lead{stroke:rgba(240,217,168,.45);stroke-width:1.1;vector-effect:non-scaling-stroke;fill:none}
+.axo .cap{font-family:"Barlow Condensed",sans-serif;font-size:18px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;fill:var(--ink)}
+.axo .cap-s{font-family:"Barlow Condensed",sans-serif;font-size:14px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;fill:var(--ink-dim)}
+.axo .flag line{stroke:var(--sig);stroke-width:2;vector-effect:non-scaling-stroke}
+.axo .flag rect{fill:var(--sig)}
+/* GREEN FORK: same bug as the buttons — a --sig fill with --pale text.
+   Both are light now, so the flag label needs the fixed-dark --gra. */
+.axo .flag text{font-family:"Barlow Condensed",sans-serif;font-size:13px;font-weight:600;
+  letter-spacing:.1em;fill:var(--gra);text-transform:uppercase}
+.axo .flag{opacity:0;transition:opacity .4s var(--e)}
+.axo .flag.on{opacity:1}
+/* no room for side captions or flags on a phone — the readout carries them */
+@media (max-width:900px){.axo .cap-g,.axo .flag{display:none}}
+
+/* ══ 03 · THE REPORT ══════════════════════════════════════════════ */
+.rep{
+  max-width:var(--max);margin:0 auto;padding:var(--s10) var(--gut);
+  display:grid;grid-template-columns:repeat(12,1fr);gap:0 var(--s3);
+}
+.rep .lbl{grid-column:1 / -1}
+.rep-h{grid-column:1 / span 6}
+.rep-lede{grid-column:8 / span 5;align-self:end;padding-bottom:var(--s2)}
+/* the right column runs out below the lede; the turnaround figure fills it
+   and stops the fact list repeating the claim in 9pt */
+.turn{grid-column:8 / span 5;margin:var(--s6) 0 0;align-self:start;
+  display:flex;flex-direction:column;gap:var(--s2);
+  border-top:2px solid var(--line);padding-top:var(--s4)}
+.turn b{font-family:var(--d);font-weight:800;line-height:.82;letter-spacing:-.02em;
+  font-size:clamp(88px,11.4vw,178px)}
+.turn b i{font-style:normal;color:var(--sig);font-size:.24em;vertical-align:.9em;
+  margin-left:.1em;font-family:var(--c);font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase}
+.turn span{font-family:var(--c);font-size:14px;font-weight:500;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-dim);line-height:1.3;max-width:30ch}
+.facts{grid-column:1 / span 7;margin-top:var(--s6);
+  display:grid;grid-template-columns:auto 1fr;border-top:2px solid var(--line)}
+.facts dt{font-family:var(--c);font-size:14px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;padding:var(--s2) var(--s5) var(--s2) 0;
+  border-bottom:1px solid var(--line-2)}
+.facts dd{font-size:16px;line-height:1.4;color:var(--ink-dim);
+  padding:var(--s2) 0;border-bottom:1px solid var(--line-2)}
+/* the specimen as a sheet of paper laid on the concrete */
+.doc{
+  /* GREEN FORK: this is literal paper — a cream sheet with dark ink,
+     laid on whatever ground the page has. The rest of the fork inverts
+     --ink to cream-on-olive, but that inversion is a page-level theme,
+     not a property of paper; redefining the tokens here keeps this
+     component's own contrast correct regardless of the surrounding
+     theme, the same way it would if you printed it out. --sig goes
+     back to his original oxide red rather than the brand gold — a
+     printed inspection report flags a defect in red ink or a red
+     stamp, not a gold one; the gold is reserved for the digital
+     chrome (nav, buttons, plate leaders) elsewhere in this fork. */
+  --ink:#203A2D; --ink-dim:rgba(32,58,45,.68); --ink-mute:rgba(32,58,45,.46);
+  --sig:#7C3F32; color:var(--ink);
+  grid-column:1 / -1;margin-top:var(--s9);
+  background:#F1EEE6;padding:var(--s6);
+  border:1px solid rgba(25,25,23,.16);
+  box-shadow:0 24px 48px -36px rgba(25,25,23,.5);
+  position:relative;
+  transform:rotate(-.35deg);
+}
+.doc::after{           /* the cut edge of the sheet */
+  content:"";position:absolute;left:0;right:0;bottom:-3px;height:3px;
+  background:rgba(25,25,23,.10);
+}
+.doc-head{
+  margin:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--s3);
+  padding-bottom:var(--s2);border-bottom:3px solid transparent;
+}
+.doc-head b{font-family:var(--d);font-weight:800;font-size:clamp(24px,2.4vw,38px);
+  line-height:1;text-transform:uppercase;letter-spacing:-.01em}
+.doc-head span{font-family:var(--c);font-size:14px;font-weight:500;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-dim)}
+.doc-head i{margin-left:auto;font-family:var(--c);font-style:normal;font-size:14px;
+  font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim)}
+.doc-head .paper-stamp{display:block;width:100%;margin-top:var(--s2);font-family:var(--c);font-style:normal;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--sig)}
+.doc-t{width:100%;border-collapse:collapse;text-align:left}
+.doc-t th{font-family:var(--c);font-size:13px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-dim);padding:var(--s2) var(--s3) var(--s2) 0;
+  border-bottom:1px solid var(--line)}
+.doc-t td{padding:var(--s2) var(--s3) var(--s2) 0;border-bottom:1px solid var(--line-2);
+  font-size:16px;line-height:1.35;vertical-align:baseline}
+.doc-t td:first-child{font-family:var(--c);font-weight:600;letter-spacing:.06em;
+  white-space:nowrap;width:1%}
+.doc-t td:nth-child(3),.doc-t td:nth-child(4),
+.doc-t th:nth-child(3),.doc-t th:nth-child(4){font-variant-numeric:tabular-nums;width:1%;white-space:nowrap}
+.doc-t .r{text-align:right;padding-right:0}
+.doc-t .hot td{color:var(--sig);font-weight:500}
+.row-note{display:inline-block;margin-left:.8em;font-family:var(--c);font-size:10px;font-weight:600;letter-spacing:.12em;color:var(--sig);vertical-align:.12em}
+.doc figcaption{margin-top:var(--s3);font-family:var(--c);font-size:13px;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute)}
+.doc figcaption{position:relative}
+.report-stamp{position:absolute;right:var(--s6);bottom:var(--s6);padding:7px 10px 6px;border:2px solid var(--sig);outline:1px solid var(--sig);outline-offset:-5px;color:var(--sig);font-family:var(--c);font-size:12px;font-weight:600;line-height:1.05;letter-spacing:.13em;text-align:center;transform:rotate(-7deg);opacity:.62}
+.report-stamp b{font-size:9px;font-weight:600;letter-spacing:.1em}
+
+/* The commercial argument is drawn like a routing sketch: one defect has
+   two possible journeys, and the measured one is the shorter one. */
+.cost-argument{grid-column:1 / -1;margin-top:var(--s10);padding-top:var(--s4);border-top:2px solid var(--sig);display:grid;grid-template-columns:minmax(120px,.6fr) minmax(280px,1.4fr) minmax(250px,1.2fr);gap:var(--s4);align-items:start}
+.cost-label{font-family:var(--c);font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--sig)}
+.cost-copy h3{margin:0;font-family:var(--serif);font-size:clamp(30px,3.3vw,52px);font-weight:400;line-height:.98;letter-spacing:-.025em}
+.cost-copy h3 em{font-style:italic;color:var(--sig)}
+.cost-copy p{margin:var(--s3) 0 0;max-width:32ch;font-size:16px;line-height:1.4;color:var(--ink-dim)}
+/* Two outcomes on one timeline. Both rows share an identical opening —
+   same origin, same defect at the same moment, same first ripple — so the
+   only thing that differs is what happens after. Color carries the verdict
+   before any word is read: gold for the path left alone, ink green for the
+   path that gets walked. Everything inside a row draws in currentColor, so
+   one declaration per row sets the whole outcome.                        */
+.cost-diagram{min-width:0;border-top:1px solid var(--line);align-self:center}
+/* The scenario name sits above its own line rather than beside it: a side
+   column would cost the plot a third of its width, and the plot is where the
+   argument actually happens. The outcome column is a fixed width, not auto,
+   so the axis rule below can share the track sizes and stop exactly where
+   the arrows do.                                                          */
+.cost-row{display:grid;grid-template-columns:minmax(0,1fr) 104px;
+  column-gap:var(--s3);row-gap:1px;padding:var(--s2) 0;
+  border-bottom:1px solid var(--line-2)}
+.cost-row-label{grid-column:1;grid-row:1;
+  font-family:var(--c);font-size:11px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-mute)}
+.cost-plot{grid-column:1;grid-row:2;position:relative;min-width:0;padding-bottom:15px}
+.cost-row svg{display:block;width:100%;height:auto;overflow:visible}
+.cost-row svg path{fill:none;stroke:currentColor;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round}
+.cost-row svg circle{fill:none;stroke:currentColor;stroke-width:2}
+/* the moment the defect starts — same x on both rows, so the two are legible
+   as one comparison rather than two unrelated diagrams */
+.cost-row svg .tick{stroke-width:1.5}
+/* an event caption is positioned from its own marker's x, so it cannot
+   drift away from the thing it names */
+.cost-at{position:absolute;bottom:0;transform:translateX(-50%);
+  font-family:var(--c);font-size:10px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;white-space:nowrap;color:var(--ink-mute)}
+/* the outcome sits end-on with its own arrow, not floating under the row */
+/* the plot box carries 15px of caption padding below the line, so centring on
+   it would sit the outcome half that distance low — the margin cancels it */
+.cost-row strong{grid-column:2;grid-row:2;align-self:center;margin-bottom:15px;
+  font-family:var(--c);font-size:11px;font-weight:600;letter-spacing:.13em;
+  text-transform:uppercase;white-space:nowrap;color:currentColor}
+
+.cost-row.failure{color:var(--sig)}
+.cost-row.failure .end-mark{fill:currentColor}
+.cost-row.failure .burst{stroke:var(--pale);stroke-width:2.4}
+.cost-row.inspection{color:var(--ink)}
+/* GREEN FORK: same fix as .w-fix — this was fill:currentColor riding
+   on --ink, paired with a --pale checkmark. Now that --ink and --pale
+   are both cream, the mark needs its own fixed dark fill instead of
+   inheriting the row's (now light) identity color. */
+.cost-row.inspection .repair-mark{fill:var(--gra);stroke:var(--gra)}
+.cost-row.inspection .repair-bar{stroke:var(--pale);stroke-width:2.4}
+
+.cost-axis{display:grid;grid-template-columns:minmax(0,1fr) 104px;gap:0 var(--s3);
+  margin:var(--s2) 0 0}
+.cost-axis span{grid-column:1;display:flex;align-items:center;gap:10px;
+  font-family:var(--c);font-size:10px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-mute)}
+.cost-axis span::before{content:"";flex:1;height:1px;background:currentColor;opacity:.35}
+.cost-axis span::after{content:"";width:0;height:0;border-left:5px solid currentColor;
+  border-top:3.5px solid transparent;border-bottom:3.5px solid transparent}
+
+/* ── the diagram draws itself ──────────────────────────────────────
+   Both rows open on identical timing — same rule, same defect tick, same
+   first ripple — so the eye reads one premise, not two diagrams. They part
+   after that: the inspected line is resolved and still by 1.8s while the
+   neglected one is still deteriorating, and only reaches its stop at 2.1s.
+   That gap is the argument, so it is timed rather than decorative.
+   Every element carries its own --t (start) and --dur in the markup, next
+   to the geometry it belongs to.                                        */
+.cost-row svg .rule,.cost-row svg .run,.cost-row svg .repair-bar{
+  stroke-dasharray:1;stroke-dashoffset:1;
+  transition:stroke-dashoffset var(--dur,.4s) linear var(--t,0s)}
+.cost-argument.in .cost-row svg .rule,
+.cost-argument.in .cost-row svg .run,
+.cost-argument.in .cost-row svg .repair-bar{stroke-dashoffset:0}
+
+/* multi-stroke marks (the burst, the survey cross) would draw one subpath
+   after another, which reads as a stutter — they arrive instead */
+.cost-row svg .tick,.cost-row svg .burst,.cost-row svg .found,.cost-row svg .head{
+  opacity:0;transition:opacity .26s var(--e) var(--t,0s)}
+.cost-argument.in .cost-row svg .tick{opacity:.38}
+.cost-argument.in .cost-row svg .burst,
+.cost-argument.in .cost-row svg .found,
+.cost-argument.in .cost-row svg .head{opacity:1}
+
+.cost-row svg .origin,.cost-row svg .end-mark,.cost-row svg .repair-mark{
+  transform:scale(0);transform-origin:center;transform-box:fill-box;
+  transition:transform .34s var(--e) var(--t,0s)}
+.cost-argument.in .cost-row svg .origin,
+.cost-argument.in .cost-row svg .end-mark,
+.cost-argument.in .cost-row svg .repair-mark{transform:scale(1)}
+
+.cost-at{opacity:0;transform:translateX(-50%) translateY(6px)}
+.cost-argument.in .cost-at{opacity:1;transform:translateX(-50%);
+  transition:opacity .34s var(--e) var(--t,0s),transform .34s var(--e) var(--t,0s)}
+.cost-row strong{opacity:0;transform:translateY(6px)}
+.cost-argument.in .cost-row strong{opacity:1;transform:none;
+  transition:opacity .38s var(--e) var(--t,0s),transform .38s var(--e) var(--t,0s)}
+.cost-axis{opacity:0}
+.cost-argument.in .cost-axis{opacity:1;transition:opacity .4s var(--e) 2.35s}
+
+/* the findings print in, line by line, once the sheet is on screen */
+.doc-t tbody tr{opacity:0;transform:translateY(10px)}
+.doc.printed tbody tr{opacity:1;transform:none;
+  transition:opacity .5s var(--e),transform .5s var(--e)}
+.doc.printed tbody tr:nth-child(1){transition-delay:.10s}
+.doc.printed tbody tr:nth-child(2){transition-delay:.40s}   /* the priority 1 lands late */
+.doc.printed tbody tr:nth-child(3){transition-delay:.22s}
+.doc.printed tbody tr:nth-child(4){transition-delay:.28s}
+.doc.printed tbody tr:nth-child(5){transition-delay:.34s}
+.doc-head{position:relative}
+.doc-head::after{content:"";position:absolute;left:0;bottom:-3px;width:100%;height:3px;
+  background:var(--gra);transform:scaleX(0);transform-origin:0 50%;
+  transition:transform .8s var(--e)}
+.doc.printed .doc-head::after{transform:scaleX(1)}
+@media (prefers-reduced-motion:reduce){
+  .doc-t tbody tr{opacity:1;transform:none}
+  .doc-head::after{transform:scaleX(1)}
+}
+
+/* ══ 04 · THE ARGUMENT ════════════════════════════════════════════ */
+.arg{
+  background:var(--gra);color:var(--pale);padding:var(--s11) var(--gut);
+  display:grid;grid-template-columns:repeat(12,1fr);gap:0 var(--s3);
+}
+.arg .lbl{grid-column:1 / -1}
+.arg-h{grid-column:1 / span 7;margin:0;font-family:var(--d);font-weight:800;
+  text-transform:uppercase;font-size:clamp(36px,4.6vw,74px);line-height:.88;letter-spacing:-.014em}
+.arg-h em{font-style:normal;font-weight:200;color:var(--sig)}
+.arg-l{grid-column:8 / span 5;align-self:end;border-top:2px solid var(--line-i)}
+.arg-l li{display:grid;grid-template-columns:var(--s6) 1fr;gap:var(--s2);
+  padding:var(--s3) 0;border-bottom:1px solid var(--line-i2)}
+.arg-l b{font-family:var(--c);font-size:14px;font-weight:600;letter-spacing:.14em;color:var(--sig)}
+.arg-l span{font-size:17px;line-height:1.45;font-weight:300;color:var(--pale-dim)}
+.arg .btn-hot{grid-column:8;justify-self:start;margin-top:var(--s5)}
+
+/* ══ 05 · SCHEDULE OF WORK ════════════════════════════════════════ */
+.work{
+  max-width:var(--max);margin:0 auto;padding:var(--s10) var(--gut) var(--s8);
+  display:grid;grid-template-columns:repeat(12,1fr);gap:0 var(--s3);
+}
+.work .lbl{grid-column:1 / -1}
+.work-h{grid-column:1 / span 5}
+.work-lede{grid-column:7 / span 5;align-self:end;padding-bottom:var(--s2)}
+.grp{grid-column:1 / -1;margin:var(--s8) 0 0;padding-top:var(--s2);
+  border-top:3px solid var(--gra);
+  font-family:var(--c);font-size:14px;font-weight:600;letter-spacing:.19em;
+  text-transform:uppercase;color:var(--ink-dim)}
+.items{grid-column:1 / -1}
+/* the group rule below closes the list — a trailing hairline plus 80px of
+   air read as an empty row */
+.items .item:last-child{border-bottom:0}
+.work .items:last-of-type{border-bottom:1px solid var(--line)}
+.item{
+  display:grid;grid-template-columns:var(--s8) minmax(0,1fr) minmax(0,1fr);
+  gap:var(--s2) var(--s6);align-items:baseline;
+  padding:var(--s4) 0;border-bottom:1px solid var(--line);
+  transition:padding-left .4s var(--e);
+}
+.item.in{padding-left:clamp(0px,7vw,112px)}
+.item:hover{padding-left:var(--s3)}
+.item.in:hover{padding-left:clamp(24px,8.4vw,136px)}
+.item b{font-family:var(--c);font-size:15px;font-weight:600;letter-spacing:.14em;
+  color:var(--ink-mute);transition:color .3s}
+.item:hover b{color:var(--sig)}
+.item h3{margin:0;font-family:var(--d);font-weight:700;text-transform:uppercase;
+  font-size:clamp(26px,3.2vw,52px);line-height:.92;letter-spacing:-.014em}
+.item p{margin:0;font-size:16px;line-height:1.45;font-weight:300;color:var(--ink-dim)}
+
+/* ── the cost of waiting: a commercial argument drawn as two track routes */
+.risk{background:var(--gra);color:var(--pale);border-top:2px solid var(--sig);padding:var(--s10) var(--gut) var(--s9)}
+.risk-in{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:repeat(12,1fr);gap:0 var(--s3)}
+.risk .lbl{grid-column:1 / -1;color:var(--sig)}
+.risk-head{grid-column:1 / span 7;margin-top:var(--s3)}
+.risk-head h2{margin:0;font-family:var(--serif);font-size:clamp(38px,5vw,76px);font-weight:400;line-height:.95;letter-spacing:-.035em}
+.risk-head h2 em{font-style:italic;color:var(--sig)}
+.risk-head p{max-width:49ch;margin:var(--s5) 0 0;font-size:18px;line-height:1.5;color:var(--pale-dim)}
+.risk-stat{grid-column:10 / -1;align-self:end;margin-top:var(--s3);padding-top:var(--s3);border-top:2px solid var(--sig)}
+.risk-stat strong{display:block;font-family:var(--d);font-size:clamp(62px,7vw,112px);font-weight:800;line-height:.8;letter-spacing:-.03em;color:var(--pale)}
+.risk-stat strong span{color:var(--sig)}
+.risk-stat > span{display:block;margin-top:var(--s3);font-family:var(--c);font-size:13px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--sig)}
+.risk-stat small{display:block;margin-top:var(--s2);font-size:13px;line-height:1.4;color:var(--pale-dim)}
+.risk-figure{grid-column:1 / -1;margin:var(--s9) 0 0;padding:var(--s5) 0 0;border-top:1px solid var(--line-i)}
+.risk-route{display:grid;grid-template-columns:150px minmax(0,1fr) 260px;gap:var(--s4);align-items:center;padding:var(--s4) 0;border-bottom:1px solid var(--line-i2)}
+.risk-route-label{font-family:var(--c);font-size:12px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--pale-dim)}
+.risk-route-line{display:flex;align-items:center;min-width:0}
+.risk-route-line i{font-family:var(--c);font-style:normal;font-size:11px;font-weight:600;letter-spacing:.12em;white-space:nowrap;color:var(--pale)}
+.risk-route-line b{display:block;flex:1;height:2px;min-width:18px;margin:0 var(--s2);background:var(--pale-dim);position:relative}
+.risk-route-line b::after{content:"";position:absolute;right:0;top:-4px;width:8px;height:8px;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg)}
+.risk-route-bad .risk-route-line b{background:var(--sig);color:var(--sig)}
+.risk-route-bad .risk-route-line i:first-child{color:var(--sig)}
+.risk-route-bad .risk-end{color:var(--sig)!important;border:1px solid var(--sig);padding:7px 9px}
+.risk-route-good .risk-route-line i:first-child,.risk-route-good .risk-end{color:var(--pale)}
+.risk-route-good .risk-route-line b{color:var(--pale-dim)}
+.risk-route p{margin:0;font-size:15px;line-height:1.4;color:var(--pale-dim)}
+.risk-figure figcaption{margin-top:var(--s4);font-family:var(--serif);font-size:19px;font-style:italic;color:var(--pale-dim)}
+.risk-figure .risk-route{opacity:0;transform:translateY(10px)}
+.risk-figure.in .risk-route{opacity:1;transform:none;transition:opacity .5s var(--e),transform .5s var(--e)}
+.risk-figure.in .risk-route:nth-child(2){transition-delay:.16s}
+.risk-route-line b{transform:scaleX(0);transform-origin:left center;transition:transform .65s var(--e)}
+.risk-figure.in .risk-route-line b{transform:scaleX(1)}
+.risk-figure.in .risk-route-bad .risk-route-line b:nth-of-type(1){transition-delay:.32s}
+.risk-figure.in .risk-route-bad .risk-route-line b:nth-of-type(2){transition-delay:.55s}
+.risk-figure.in .risk-route-good .risk-route-line b:nth-of-type(1){transition-delay:.5s}
+.risk-figure.in .risk-route-good .risk-route-line b:nth-of-type(2){transition-delay:.73s}
+.risk-figure figcaption{opacity:0;transform:translateY(8px)}
+.risk-figure.in figcaption{opacity:1;transform:none;transition:opacity .45s var(--e) .92s,transform .45s var(--e) .92s}
+.risk-factors{grid-column:1 / span 8;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4);margin-top:var(--s8)}
+.risk-factors div{border-top:2px solid var(--line-i);padding-top:var(--s2)}
+.risk-factors b{display:block;font-family:var(--d);font-size:28px;font-weight:200;color:var(--sig)}
+.risk-factors strong{display:block;margin-top:var(--s2);font-family:var(--c);font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.risk-factors span{display:block;margin-top:var(--s1);font-size:14px;line-height:1.4;color:var(--pale-dim)}
+.risk-cta{grid-column:10 / -1;align-self:end;justify-self:start;margin-top:var(--s8)}
+.risk[data-anim],.risk-stat[data-anim],.risk-figure[data-anim]{opacity:1}
+@media (max-width:1080px){
+  .risk-head{grid-column:1 / span 8}
+  .risk-stat{grid-column:10 / -1}
+  .risk-route{grid-template-columns:130px minmax(0,1fr);gap:var(--s3)}
+  .risk-route p{grid-column:2}
+  .risk-cta{grid-column:9 / -1}
+}
+@media (max-width:760px){
+  .risk{padding:var(--s8) var(--gut) var(--s7)}
+  .risk-head,.risk-stat{grid-column:1 / -1}
+  .risk-stat{margin-top:var(--s7)}
+  .risk-figure{margin-top:var(--s7)}
+  .risk-route{display:block;padding:var(--s4) 0}
+  /* the end label is nowrap and the bordered padding pushed it past the
+     viewport at 375; wrapping the row lets it drop instead of overflow */
+  .risk-route-line{margin:var(--s3) 0;flex-wrap:wrap;row-gap:var(--s2)}
+  .risk-route-line .risk-end{white-space:normal}
+  .risk-route p{margin-top:var(--s2)}
+  .risk-factors{grid-column:1 / -1;grid-template-columns:1fr;margin-top:var(--s7);gap:var(--s4)}
+  .risk-cta{grid-column:1 / -1;margin-top:var(--s6)}
+}
+@media (prefers-reduced-motion:reduce){
+  .risk-figure .risk-route,.risk-route-line b,.risk-figure figcaption{opacity:1 !important;transform:none !important;transition:none !important}
+}
+
+/* ══ 06 · INDUSTRIES ══════════════════════════════════════════════ */
+.ind{background:var(--con-hi);border-top:2px solid var(--line);
+  padding:var(--s9) var(--gut);
+  display:grid;grid-template-columns:repeat(12,1fr);gap:0 var(--s3)}
+.ind .lbl{grid-column:1 / -1}
+.ind-run{grid-column:1 / span 8;margin:0;font-family:var(--d);font-weight:200;
+  text-transform:uppercase;font-size:clamp(34px,4.8vw,78px);line-height:1;letter-spacing:-.008em}
+.ind-run span{white-space:nowrap}
+.ind-note{grid-column:10 / span 3;align-self:end;margin:var(--s5) 0 0;
+  font-size:16px;line-height:1.45;font-weight:300;color:var(--ink-dim)}
+
+/* ══ 06b · TWEED ══════════════════════════════════════════════════
+   Basil's houndstooth, rebuilt from his own asset's geometry. His
+   /houndstooth.png is 40×40 tiled at 18px, and it is drafted the way
+   dogtooth is actually woven: a 2×2 arrangement of 20px quadrants —
+   one solid dark, one solid light, and two filled with 45° bands in
+   opposite phase. Sampling it, dark is exactly
+
+     top-left      (x+y) mod 20 >= 10
+     bottom-right  (x+y) mod 20 <  10
+     bottom-left   solid          top-right  empty
+
+   which is what the path below draws, as vector rather than pixels.
+   Long clean diagonals are the whole point: the earlier version derived
+   the pattern cell by cell on an 8×8 grid, so every diagonal came out as
+   a staircase two pixels wide and the band read as blocky. Shapes bleed
+   .06 into their neighbours so tiling leaves no hairline.
+   The weave is a MASK, not a background image, so the light cells are the
+   page's own ground showing through and the dark cells take one tunable
+   ink. Black-on-cream reads as a foreign swatch laid on the page; a tonal
+   ink one step off the concrete reads as texture in the surface itself.  */
+.tweed{
+  /* GREEN FORK: his actual houndstooth.png is cream teeth on olive,
+     not a tonal weave — sampled pixel-for-pixel at #F2DBAC / #4E513D,
+     which is almost exactly our --pale / --con. Using --pale here
+     instead of a tonal ink makes this match the reference asset
+     directly rather than approximate it. */
+  --tweed-ink:var(--pale);
+  height:var(--s5);width:100%;margin-bottom:var(--s9);
+  background-color:var(--tweed-ink);
+  --tweed-weave:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath fill='%23fff' d='M-.06 19.94H20.06V40.06H-.06ZM9.94-.06H20.06L-.06 20.06V9.94ZM20.06 9.94V20.06H9.94ZM20.06 20.06H30.06L20.06 30.06ZM40.06 19.94V30.06L30.06 40.06H19.94Z'/%3E%3C/svg%3E");
+  -webkit-mask-image:var(--tweed-weave);mask-image:var(--tweed-weave);
+  -webkit-mask-size:18px 18px;mask-size:18px 18px;
+  -webkit-mask-repeat:repeat;mask-repeat:repeat;
+  /* 40px band over an 18px tile is 2.2 rows; centring crops the weave
+     evenly top and bottom instead of shearing only the last row */
+  -webkit-mask-position:center;mask-position:center;
+}
+/* the band draws itself open from the center, like a bolt of cloth
+   unrolled across the page — one beat, then it holds */
+.tweed{transform:scaleY(0);transform-origin:50% 50%}
+.tweed.in{transform:none;transition:transform .7s var(--e)}
+.tweed-team{height:var(--s6);margin-bottom:var(--s7)}
+@media (prefers-reduced-motion:reduce){.tweed{transform:none !important;transition:none !important}}
+
+/* ══ 07 · TERRITORY ═══════════════════════════════════════════════ */
+.terr{
+  max-width:var(--max);margin:0 auto;padding:var(--s10) var(--gut) var(--s9);
+  display:grid;grid-template-columns:repeat(12,1fr);gap:0 var(--s3);align-items:center;
+}
+.terr-map{grid-column:1 / span 6;grid-row:1 / span 4;position:relative}
+/* The source art fills the served states light and everything else dark.
+   Inverting flips that: the eight states go solid, the rest of the country
+   drops back to an outline. */
+.terr-map img{width:100%;
+  filter:grayscale(1) invert(1) brightness(1.14) contrast(1.3);
+  mix-blend-mode:multiply;opacity:.92}
+.hq{position:absolute;left:80.2%;top:50.4%;display:flex;align-items:center;gap:var(--s1);
+  font-family:var(--c);font-size:13px;font-weight:600;letter-spacing:.13em;
+  text-transform:uppercase;white-space:nowrap}
+.hq i{width:12px;height:12px;background:var(--sig);outline:2px solid var(--gra);flex:none}
+.terr-lbl{grid-column:8 / span 5;grid-row:1;align-self:end}
+.terr-h{grid-column:8 / span 5;grid-row:2;margin:0 0 var(--s3)}
+.terr-lede{grid-column:8 / span 5;grid-row:3}
+.terr-t{grid-column:8 / span 5;grid-row:4;margin-top:var(--s5);align-self:start;
+  display:grid;grid-template-columns:auto 1fr;border-top:2px solid var(--line)}
+.terr-t dt{font-family:var(--d);font-weight:800;text-transform:uppercase;
+  font-size:clamp(28px,2.8vw,44px);line-height:1;padding:var(--s2) var(--s4) var(--s2) 0;
+  border-bottom:1px solid var(--line-2)}
+.terr-t dd{align-self:center;font-size:15px;line-height:1.35;color:var(--ink-dim);
+  padding:var(--s2) 0;border-bottom:1px solid var(--line-2)}
+
+/* ══ 08 · THE FIRM ════════════════════════════════════════════════ */
+.firm{
+  max-width:var(--max);margin:0 auto;padding:0 var(--gut) var(--s9);
+  display:grid;grid-template-columns:repeat(12,1fr);gap:0 var(--s3);align-items:end;
+}
+.firm-fig{grid-column:1 / span 5;grid-row:1 / span 5}
+.firm-fig img{width:100%;filter:grayscale(1) contrast(1.06) brightness(.99)}
+.firm-fig figcaption{margin-top:var(--s2);font-family:var(--c);font-size:13px;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute)}
+.firm-lbl{grid-column:7 / span 5;grid-row:1;align-self:end}
+.firm-h{grid-column:7 / span 5;grid-row:2;margin:0 0 var(--s3)}
+.firm-lede{grid-column:7 / span 5;grid-row:3}
+/* the one place the page drops its voice — a person, not a poster */
+.pull{grid-column:7 / span 5;grid-row:4;margin:var(--s6) 0 0;
+  padding-top:var(--s3);border-top:3px solid var(--sig);
+  font-family:var(--serif);font-weight:400;font-style:italic;text-transform:none;
+  font-size:clamp(23px,2.5vw,37px);line-height:1.22;letter-spacing:-.014em}
+.pull-att{grid-column:7 / span 5;grid-row:5;margin:var(--s2) 0 0;
+  font-family:var(--c);font-size:13px;font-weight:500;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-mute)}
+
+/* ══ 09 · QUESTIONS ═══════════════════════════════════════════════ */
+.faq{
+  max-width:var(--max);margin:0 auto;padding:0 var(--gut) var(--s10);
+  display:grid;grid-template-columns:repeat(12,1fr);gap:0 var(--s3);
+}
+.faq .lbl{grid-column:1 / -1}
+.faq-h{grid-column:1 / span 7;margin-bottom:var(--s6)}
+.faq details{grid-column:1 / -1;border-top:1px solid var(--line)}
+.faq details:last-of-type{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:grid;
+  grid-template-columns:var(--s8) 1fr var(--s3);gap:var(--s3);align-items:baseline;
+  padding:var(--s4) 0}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary b{font-family:var(--c);font-size:15px;font-weight:600;letter-spacing:.14em;
+  color:var(--ink-mute);transition:color .3s}
+/* a customer asking a fair question shouldn't be shouted at */
+.faq summary span{font-family:var(--b);font-weight:400;text-transform:none;
+  font-size:clamp(19px,1.9vw,29px);line-height:1.22;letter-spacing:-.014em}
+.faq summary i{position:relative;width:16px;height:16px;align-self:center;justify-self:end}
+.faq summary i::before,.faq summary i::after{content:"";position:absolute;background:var(--ink);
+  transition:transform .35s var(--e)}
+.faq summary i::before{left:0;top:7px;width:16px;height:2px}
+.faq summary i::after{left:7px;top:0;width:2px;height:16px}
+.faq details[open] summary i::after{transform:scaleY(0)}
+.faq details[open] summary b{color:var(--sig)}
+.faq details p{margin:0;padding:0 var(--s8) var(--s5) calc(var(--s8) + var(--s3));
+  max-width:74ch;font-size:17px;line-height:1.55;font-weight:300;color:var(--ink-dim)}
+
+/* ══ 10 · REQUEST — the stepped quote ═════════════════════════════ */
+.req{
+  background:var(--gra);color:var(--pale);padding:var(--s11) var(--gut) var(--s10);
+  display:grid;grid-template-columns:repeat(12,1fr);gap:0 var(--s3);
+}
+.req .lbl{grid-column:1 / -1}
+.req-h{grid-column:1 / span 8;margin:0 0 var(--s8);font-family:var(--d);font-weight:800;
+  text-transform:uppercase;font-size:clamp(40px,6vw,104px);line-height:.86;letter-spacing:-.018em}
+.q{grid-column:1 / -1;display:grid;grid-template-columns:repeat(12,1fr);gap:0 var(--s3)}
+.q-step{grid-column:span 4;border-top:2px solid var(--line-i);padding-top:var(--s2)}
+.q-step legend{display:flex;gap:var(--s2);padding:0;margin-bottom:var(--s3);
+  font-family:var(--c);font-size:15px;font-weight:600;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--pale)}
+.q-step legend b{color:var(--sig)}
+.q-step label{display:block;cursor:pointer;margin-bottom:var(--s1)}
+.q-step input{position:absolute;opacity:0;width:0;height:0}
+.q-step span{display:block;padding:var(--s2);border:2px solid var(--line-i2);
+  font-family:var(--c);font-size:16px;font-weight:500;letter-spacing:.06em;color:var(--pale-dim);
+  transition:border-color .25s var(--e),color .25s var(--e),background .25s var(--e)}
+.q-step label:hover span{border-color:var(--line-i);color:var(--pale)}
+.q-step input:checked + span{border-color:var(--sig);color:var(--pale);background:rgba(143,61,49,.14)}
+.q-step input:focus-visible + span{outline:2px solid var(--sig);outline-offset:2px}
+
+.q-out{grid-column:1 / -1;margin-top:var(--s7);padding-top:var(--s3);
+  border-top:3px solid var(--sig);display:flex;flex-direction:column;gap:var(--s2)}
+.q-out-l{font-family:var(--c);font-size:13px;font-weight:600;letter-spacing:.19em;
+  text-transform:uppercase;color:var(--sig)}
+.q-out b{font-family:var(--d);font-weight:800;text-transform:uppercase;
+  font-size:clamp(30px,4.2vw,68px);line-height:.9;letter-spacing:-.014em}
+.q-out-n{font-size:16px;font-weight:300;color:var(--pale-dim)}
+
+.q-f{grid-column:span 4;margin:var(--s7) 0 0;display:flex;flex-direction:column;gap:var(--s1);
+  border-bottom:2px solid var(--line-i);padding-bottom:var(--s2)}
+.q-f label{font-family:var(--c);font-size:13px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--pale-dim)}
+.q-f input{background:none;border:0;padding:0;color:var(--pale);
+  font-family:var(--b);font-size:19px;font-weight:300}
+.q-f input::placeholder{color:rgba(239,236,228,.28)}
+.q-f input:focus{outline:none}
+.q-f:focus-within{border-bottom-color:var(--sig)}
+.q-send{grid-column:1 / span 4;margin-top:var(--s6);justify-self:start}
+.q-fine{grid-column:6 / span 6;align-self:end;margin:var(--s6) 0 0;
+  font-family:var(--c);font-size:13px;font-weight:500;letter-spacing:.13em;
+  text-transform:uppercase;color:rgba(239,236,228,.42)}
+.q-fine a{color:var(--sig)}
+
+/* ══ FOOTER ═══════════════════════════════════════════════════════ */
+.foot{
+  background:var(--gra);color:var(--pale);padding:var(--s8) var(--gut) var(--s4);
+  display:grid;grid-template-columns:repeat(12,1fr);gap:var(--s6) var(--s3);
+  border-top:1px solid var(--line-i2);
+}
+.foot-logo{grid-column:1 / span 3}
+.foot-logo img{height:60px;width:auto}
+.foot-c{grid-column:span 3;display:flex;flex-direction:column;align-items:flex-start;gap:var(--s1);
+  font-size:15px;font-weight:300;color:var(--pale-dim);line-height:1.5}
+.foot-c address{font-style:normal;margin-bottom:var(--s1)}
+.foot-c a{transition:color .25s}
+.foot-c a:hover{color:var(--sig)}
+.foot-app{color:var(--sig)}
+.foot-l{margin:0 0 var(--s2);font-family:var(--c);font-size:13px;font-weight:600;
+  letter-spacing:.19em;text-transform:uppercase;color:var(--pale)}
+.foot-t{margin:0;font-variant-numeric:tabular-nums}
+.foot-bar{grid-column:1 / -1;margin:0;padding-top:var(--s3);border-top:1px solid var(--line-i2);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--s2);
+  font-family:var(--c);font-size:13px;font-weight:500;letter-spacing:.14em;
+  text-transform:uppercase;color:rgba(239,236,228,.42)}
+.foot-bar a:hover{color:var(--sig)}
+
+/* ══ RESPONSIVE ═══════════════════════════════════════════════════ */
+@media (max-width:1180px){
+  .mast-nav,.mast-tel,.mast-app,.mast-cta{display:none}
+  .mast-burger{display:block}
+  .hero-h,.hero-lede,.hero-act{grid-column:1 / -1}
+  .hero-lede{margin-top:var(--s6)}
+  .rep-h,.rep-lede,.facts,.turn{grid-column:1 / -1}
+  .rep-lede{margin-top:var(--s3);padding-bottom:0}
+  .arg-h,.arg-l{grid-column:1 / -1}
+  .arg-l{margin-top:var(--s6)}
+  .arg .btn-hot{grid-column:1}
+  .work-h,.work-lede{grid-column:1 / -1}
+  .work-lede{margin-top:var(--s3);padding-bottom:0}
+  .ind-run,.ind-note{grid-column:1 / -1}
+  .terr-map{grid-column:1 / -1;grid-row:auto;margin-bottom:var(--s6)}
+  .terr-lbl,.terr-h,.terr-lede,.terr-t{grid-column:1 / -1;grid-row:auto}
+  .firm-fig{grid-column:1 / -1;grid-row:auto;margin-bottom:var(--s6)}
+  .firm-lbl,.firm-h,.firm-lede,.pull,.pull-att{grid-column:1 / -1;grid-row:auto}
+  .faq-h{grid-column:1 / -1}
+  .req-h{grid-column:1 / -1}
+  .q-step{grid-column:1 / -1;margin-bottom:var(--s6)}
+  .q-f{grid-column:1 / -1;margin-top:var(--s5)}
+  .q-send{grid-column:1 / -1}
+  .q-fine{grid-column:1 / -1;margin-top:var(--s3)}
+  .panel-h,.panel-step{grid-column:1 / -1}
+  .panel-hint{display:none}
+  .foot-logo,.foot-c{grid-column:span 6}
+  .foot-c a,.foot-bar a{display:inline-block;padding:12px 0;margin:-12px 0}
+}
+@media (max-width:720px){
+  body{font-size:16px}
+  .mast{height:72px}
+  .mast-mp{display:none}
+  .drawer{inset:72px 0 0}
+  .mast-logo img{height:38px}
+  .hero{padding-top:var(--s8);padding-bottom:var(--s7)}
+  /* Keep the four-line proposition inside the phone canvas. The desktop
+     mask is intentionally tight; on mobile the headline needs a little
+     more air so long words never disappear behind the clip edge. */
+  .hero-h{font-size:clamp(42px,12.4vw,80px);line-height:.86;letter-spacing:-.012em}
+  .hero-h .li{padding-right:.08em}
+  .creds{grid-template-columns:1fr 1fr;gap:var(--s4) var(--s3)}
+  .item{grid-template-columns:var(--s6) 1fr;gap:var(--s1) var(--s3)}
+  .item p{grid-column:2}
+  .item.in{padding-left:var(--s2)}
+  .facts{grid-template-columns:1fr}
+  .facts dt{border-bottom:0;padding-bottom:0}
+  .doc-t td:nth-child(3),.doc-t th:nth-child(3){display:none}
+  .doc-t caption i{margin-left:0;width:100%}
+  .faq summary{grid-template-columns:var(--s5) 1fr var(--s3);gap:var(--s2)}
+  .faq details p{padding-left:0;padding-right:0}
+  .panel-track{height:400vh}
+  .panel-pin{padding-top:var(--s8)}
+  .panel-step{flex-wrap:wrap;gap:var(--s2)}
+  .panel-step i{margin-left:0;width:100%}
+  .doc{transform:rotate(-.15deg)}
+  .report-stamp{right:var(--s3);bottom:var(--s4);font-size:10px}
+  .cost-argument{display:block;margin-top:var(--s8)}
+  .cost-copy{margin:var(--s4) 0 var(--s6)}
+  .cost-copy h3{font-size:clamp(34px,9vw,52px)}
+  /* no room for an end-on outcome at this width, so it drops under the plot
+     and stays right-aligned — still reading off the end of its own arrow */
+  .cost-row{grid-template-columns:minmax(0,1fr)}
+  .cost-row strong{grid-column:1;grid-row:3;justify-self:end}
+  .cost-axis{grid-template-columns:minmax(0,1fr)}
+  .cost-row-label{font-size:9px}
+  .cost-row strong{font-size:9px}
+  .cost-at{font-size:8px;letter-spacing:.06em}
+  .foot-logo,.foot-c{grid-column:1 / -1}
+  /* Collapse the argument's 12-column desktop grid before it can create a
+     min-content width larger than the viewport. */
+  .arg{display:block}
+  .arg .lbl,.arg-h,.arg-l,.arg .btn-hot{display:block;width:auto}
+  .arg-l{margin-top:var(--s6)}
+  .hq{left:auto;right:0;font-size:10px}
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   INTERIOR PAGES
+   The home page opens on cream. Every other page opens on graphite,
+   continuing the masthead into one solid dark block before the content
+   drops to the light ground — so you always know, before reading a
+   word, whether you are on the front or inside.
+   ══════════════════════════════════════════════════════════════════ */
+
+.phead{background:var(--gra);color:var(--pale);padding:var(--s8) var(--gut) var(--s9)}
+.phead-in{max-width:var(--max);margin:0 auto;
+  display:grid;grid-template-columns:repeat(12,1fr);gap:0 var(--s3)}
+.phead .lbl{grid-column:1 / -1;color:var(--sig)}
+.phead h1{grid-column:1 / span 8;margin:0;
+  font-family:var(--d);font-weight:800;text-transform:uppercase;
+  font-size:clamp(44px,6.4vw,104px);line-height:.88;letter-spacing:-.008em}
+.phead-cost{font-family:var(--serif) !important;font-weight:400 !important;text-transform:none !important;font-size:clamp(48px,6vw,96px) !important;line-height:.91 !important;letter-spacing:-.035em !important}
+.phead-cost em{font-style:italic;color:var(--sig)}
+.phead .lede{grid-column:1 / span 6;margin-top:var(--s4);color:var(--pale-dim)}
+/* a standing fact set against the title — volume number, count, date */
+.phead-meta{grid-column:10 / span 3;align-self:end;margin:var(--s4) 0 0;
+  font-family:var(--c);font-size:13px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--pale-dim);
+  padding-top:var(--s2);border-top:2px solid var(--sig)}
+
+.sec{max-width:var(--max);margin:0 auto;padding:var(--s10) var(--gut)}
+.sec-tight{padding-top:var(--s8)}
+.sec-h{grid-column:1 / -1}
+
+/* ── services: a schedule, numbered, not a grid of equal cards ───── */
+.schematic-sec{display:grid;grid-template-columns:repeat(12,1fr);gap:0 var(--s3)}
+.schematic-head{grid-column:1 / -1}
+.schematic-head .h2{margin:var(--s3) 0 0}
+.schematic-figure{margin:var(--s7) 0 0;padding-top:var(--s3);border-top:2px solid var(--line);min-width:0}
+.schematic-figure svg{display:block;width:100%;height:auto;overflow:visible}
+.schematic-kicker{margin:0 0 var(--s3);font-family:var(--c);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--sig)}
+.schematic-kicker s{display:inline-block;width:22px;height:1px;margin:0 var(--s2);vertical-align:middle;background:currentColor;text-decoration:none}
+.schematic-figure figcaption{margin-top:var(--s3);max-width:48ch;font-family:var(--serif);font-size:17px;line-height:1.4;color:var(--ink-dim)}
+/* A drafted annotation should be the same size on every plate. An SVG
+   scales with its container, so an uncapped plate was rendering its 12px
+   labels at 24.8px on a wide screen while another rendered 12 — a 4.5x
+   spread across drawings that belong to one set. Capping the drawing
+   holds every plate's type at roughly page scale. */
+.switch-plate{grid-column:1 / -1;max-width:720px}
+.svc-intro-plate{max-width:720px}
+.workflow-plate{grid-column:7 / -1}
+.svc-intro-plate{grid-column:1 / -1 !important;margin-top:var(--s7);border-top:1px solid var(--line);padding-top:var(--s3)}
+.schematic-figure{opacity:0;transform:translateY(16px)}
+.schematic-figure.in{opacity:1;transform:none;transition:opacity .6s var(--e),transform .6s var(--e)}
+.workflow-plate.in{transition-delay:.12s}
+.s-rail,.s-point,.s-guard,.s-frog,.s-lead{fill:none;stroke:var(--ink);stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round}
+/* ── Plate IV · turnout ──────────────────────────────────────────
+   Rails all carry the same weight because they are one structure; the
+   gold is spent only on the two castings that actually wear out — the
+   frog and the guard rail — which is what the section is about.      */
+.s-rail{stroke:var(--ink);stroke-width:2.5;stroke-linecap:round}
+.s-point{stroke:var(--ink);stroke-width:5;stroke-linecap:round}
+.s-frog,.s-guard{stroke:var(--sig);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.s-lead{stroke:var(--ink-mute);stroke-width:1}
+.s-label,.s-note{font-family:var(--c);font-size:11px;font-weight:600;
+  letter-spacing:.13em;fill:var(--ink);stroke:none}
+.s-label{fill:var(--sig)}
+.s-label .s-dim{fill:var(--ink-mute)}
+.s-note{fill:var(--ink-mute);font-weight:500;letter-spacing:.08em}
+/* ── Plate V · finding to fix ────────────────────────────────────
+   Three drafted annotations on one measured run, not three icons in
+   bubbles. The gold is the defect itself: it appears at the tape,
+   becomes a cited row, and is gone by the third mark.                */
+.w-ink{fill:none;stroke:var(--ink);stroke-width:2.5;stroke-linecap:round}
+.w-dim{fill:none;stroke:var(--ink-mute);stroke-width:1.4;stroke-linejoin:round}
+.w-hot{fill:none;stroke:var(--sig);stroke-width:3.5;stroke-linecap:round}
+.w-hot-fill{fill:var(--sig);stroke:none}
+.w-sheet{fill:none;stroke:var(--ink);stroke-width:2}
+/* GREEN FORK: this mark is a filled square with a light tick punched
+   through it — it needs its own fill and mark to stay two different
+   tones. It used to get that for free from --ink/--pale being dark
+   and light; now both are cream, so it's routed through --gra, the
+   token that's always the dark neutral, so the tick stays visible. */
+.w-fix{fill:var(--gra);stroke:var(--gra);stroke-width:2}
+.w-tick{fill:none;stroke:var(--pale);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.w-arrow{fill:none;stroke:var(--ink-mute);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.w-rule{fill:none;stroke:var(--line);stroke-width:2}
+.w-mark{fill:var(--con);stroke:var(--ink);stroke-width:2}
+.w-mark-end{fill:var(--sig);stroke:var(--sig)}
+.w-ann{font-family:var(--c);font-size:11px;font-weight:600;letter-spacing:.14em;
+  fill:var(--ink-mute);text-anchor:middle}
+.w-num{font-family:var(--c);font-size:12px;font-weight:600;letter-spacing:.16em;
+  fill:var(--sig);text-anchor:middle}
+.w-label{font-family:var(--c);font-size:12px;font-weight:600;letter-spacing:.13em;
+  fill:var(--ink);text-anchor:middle}
+@media (prefers-reduced-motion:reduce){.schematic-figure{opacity:1 !important;transform:none !important;transition:none !important}}
+.svc-intro{display:grid;grid-template-columns:repeat(12,1fr);gap:0 var(--s3);margin-bottom:var(--s7)}
+.svc-intro .lbl{grid-column:1 / -1}
+.svc-intro h2{grid-column:1 / span 7;margin:var(--s3) 0 0;font-family:var(--d);font-weight:800;text-transform:uppercase;font-size:clamp(38px,4.8vw,76px);line-height:.9;letter-spacing:-.014em}
+.svc-intro .lede{grid-column:9 / span 4;align-self:end;margin:var(--s3) 0 0;max-width:34ch}
+.svc{margin:0;padding:0;list-style:none;border-top:2px solid var(--line)}
+.svc-i{display:grid;grid-template-columns:88px minmax(0,1.15fr) minmax(0,1fr);
+  gap:0 var(--s5);padding:var(--s6) 0;border-bottom:1px solid var(--line-2)}
+.svc-n{margin:0;font-family:var(--d);font-weight:200;font-size:clamp(34px,3.4vw,56px);
+  line-height:.9;color:var(--ink-mute)}
+.svc-b h2{margin:0 0 var(--s2);font-family:var(--d);font-weight:700;
+  text-transform:uppercase;font-size:clamp(24px,2.6vw,40px);
+  line-height:.96;letter-spacing:-.014em}
+.svc-b p{margin:0;font-size:17px;line-height:1.45;font-weight:300;color:var(--ink-dim);
+  max-width:40ch}
+.svc-l{margin:0;padding:0;list-style:none;align-self:start;
+  columns:2;column-gap:var(--s5)}
+.svc-l li{break-inside:avoid;margin:0 0 var(--s2);padding-left:var(--s3);
+  position:relative;font-size:15px;line-height:1.35;color:var(--ink-dim)}
+.svc-l li::before{content:"";position:absolute;left:0;top:.52em;
+  width:8px;height:2px;background:var(--sig)}
+
+/* ── process / values / credentials: a four-across measured band ─── */
+.band{background:var(--con-hi);border-top:2px solid var(--line);
+  border-bottom:2px solid var(--line);padding:var(--s9) var(--gut)}
+.band-in{max-width:var(--max);margin:0 auto;
+  display:grid;grid-template-columns:repeat(12,1fr);gap:0 var(--s3)}
+.band-in .lbl,.band-in .h2{grid-column:1 / -1}
+.steps{grid-column:1 / -1;margin:var(--s6) 0 0;padding:0;list-style:none;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s5) var(--s3)}
+/* the same drawn run as the timeline: a measured set, marked off */
+.steps{position:relative;padding-top:2px}
+.steps::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--line);transform:scaleX(0);transform-origin:0 50%}
+.steps.in::before{transform:scaleX(1);transition:transform 1s var(--e)}
+.steps li{position:relative;padding-top:var(--s4)}
+.steps li::before{content:"";position:absolute;top:-7px;left:0;
+  width:12px;height:12px;background:var(--con);border:2px solid var(--ink);
+  transform:scale(0);transition:transform .38s var(--e)}
+.steps li:last-child::before{background:var(--sig);border-color:var(--sig)}
+.steps.in li::before{transform:scale(1)}
+.steps.in li:nth-child(1)::before{transition-delay:.06s}
+.steps.in li:nth-child(2)::before{transition-delay:.3s}
+.steps.in li:nth-child(3)::before{transition-delay:.54s}
+.steps.in li:nth-child(4)::before{transition-delay:.78s}
+.steps b{display:block;margin:var(--s2) 0 var(--s1);
+  font-family:var(--c);font-size:12px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--sig)}
+.steps h3{margin:0 0 var(--s2);font-family:var(--d);font-weight:700;
+  text-transform:uppercase;font-size:clamp(20px,2vw,30px);line-height:1;
+  letter-spacing:-.01em}
+.steps p{margin:0;font-size:15px;line-height:1.4;color:var(--ink-dim)}
+
+/* ── the timeline: sixty years read left to right, like chainage ─── */
+.tl{grid-column:1 / -1;position:relative;margin:var(--s7) 0 0;padding:2px 0 0;
+  list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:0 var(--s3)}
+/* the rule is a pseudo-element, not a border, so it can be drawn left to
+   right — sixty years read the way chainage does */
+.tl::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--line);transform:scaleX(0);transform-origin:0 50%}
+.tl.in::before{transform:scaleX(1);transition:transform 1.15s var(--e)}
+.tl li{position:relative;padding:var(--s5) var(--s3) 0 0}
+/* the marker sits on the rule itself, so the row reads as one run */
+.tl li::before{content:"";position:absolute;top:-7px;left:0;
+  width:12px;height:12px;background:var(--con);
+  border:2px solid var(--ink)}
+.tl li:last-child::before{background:var(--sig);border-color:var(--sig)}
+.tl b{display:block;font-family:var(--d);font-weight:800;text-transform:uppercase;
+  font-size:clamp(22px,2.2vw,34px);line-height:1;letter-spacing:-.01em}
+.tl span{display:block;margin:var(--s1) 0 var(--s2);
+  font-family:var(--c);font-size:12px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--sig)}
+.tl p{margin:0;font-size:15px;line-height:1.4;color:var(--ink-dim)}
+
+/* ── team ───────────────────────────────────────────────────────── */
+.crew{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--s7) var(--s3)}
+.crew-i{grid-column:span 6;display:grid;grid-template-columns:auto minmax(0,1fr);
+  gap:0 var(--s4);align-items:start;
+  padding-top:var(--s4);border-top:2px solid var(--line)}
+.crew-n{margin:0;font-family:var(--d);font-weight:200;font-size:clamp(30px,3vw,48px);
+  line-height:.9;color:var(--ink-mute)}
+.crew-i h2{margin:0;font-family:var(--d);font-weight:700;text-transform:uppercase;
+  font-size:clamp(23px,2.3vw,34px);line-height:.98;letter-spacing:-.012em}
+.crew-r{display:block;margin:var(--s1) 0 var(--s3);
+  font-family:var(--c);font-size:12px;font-weight:600;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--sig)}
+.crew-i p{margin:0;font-size:16px;line-height:1.5;font-weight:300;color:var(--ink-dim)}
+
+/* ── field notes: sheets of paper, not rows in a list ────────────
+   Each note takes the same material as the report specimen on the front
+   page — cream stock on the concrete ground, a cut edge, and the faint
+   off-square of something set down by hand rather than placed by a grid.
+   The ledger rule down the left is what makes it read as a note.       */
+.notes{display:flex;flex-direction:column;gap:var(--s5)}
+.note{
+  /* GREEN FORK: same paper logic as .doc — see the comment there. */
+  --ink:#203A2D; --ink-dim:rgba(32,58,45,.68); --ink-mute:rgba(32,58,45,.46);
+  --sig:#7C3F32;
+  position:relative;display:grid;
+  grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) auto;
+  gap:0 var(--s5);align-items:baseline;color:var(--ink);
+  background:#F1EEE6;border:1px solid rgba(25,25,23,.16);
+  box-shadow:0 20px 40px -34px rgba(25,25,23,.5);
+  padding:var(--s5) var(--s6) var(--s5) var(--s8);
+  transition:transform .4s var(--e),box-shadow .4s var(--e)}
+.note::after{           /* the cut edge of the sheet */
+  content:"";position:absolute;left:0;right:0;bottom:-3px;height:3px;
+  background:rgba(25,25,23,.10)}
+/* the ledger margin, and the note's number sitting in it */
+.note::before{
+  content:"";position:absolute;left:var(--s6);top:0;bottom:0;width:1px;
+  background:rgba(143,61,49,.34)}
+.note:nth-child(odd){transform:rotate(-.22deg)}
+.note:nth-child(even){transform:rotate(.16deg)}
+.note:hover{transform:rotate(0deg) translateY(-3px);
+  box-shadow:0 28px 54px -34px rgba(25,25,23,.55)}
+.note-n{position:absolute;left:0;top:var(--s5);width:var(--s6);
+  margin:0;text-align:center;
+  font-family:var(--d);font-weight:200;font-size:26px;line-height:1;
+  color:var(--ink-mute)}
+.note h2{margin:0;font-family:var(--d);font-weight:700;text-transform:uppercase;
+  font-size:clamp(22px,2.1vw,33px);line-height:.98;letter-spacing:-.012em}
+.note-x{margin:var(--s2) 0 0;font-family:var(--serif);font-size:17px;line-height:1.45;
+  color:var(--ink-dim)}
+.note-m{margin:0;font-family:var(--c);font-size:12px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-mute)}
+/* the category reads as a stamp on the sheet, like FIELD COPY on the report */
+.note-m i{display:inline-block;font-style:normal;color:var(--sig);
+  margin-bottom:var(--s1);padding:4px 7px 3px;border:1.5px solid var(--sig);
+  font-size:10px;letter-spacing:.16em;opacity:.72}
+.note-m b{display:block;font-weight:500}
+.note-go{margin:0;font-family:var(--c);font-size:12px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--sig);white-space:nowrap}
+
+/* ── article prose: the one place the page reads as a document ──── */
+.art{max-width:var(--max);margin:0 auto;padding:var(--s9) var(--gut) var(--s10);
+  display:grid;grid-template-columns:repeat(12,1fr);gap:0 var(--s3)}
+.prose{grid-column:3 / span 7}
+.prose > *{max-width:34em}
+.prose p{margin:0 0 var(--s4);font-family:var(--serif);font-size:19px;line-height:1.62;
+  color:var(--ink)}
+.prose p.stand{font-size:24px;line-height:1.42;color:var(--ink-dim);font-style:italic;
+  margin-bottom:var(--s6)}
+.prose h2{margin:var(--s7) 0 var(--s3);font-family:var(--d);font-weight:700;
+  text-transform:uppercase;font-size:clamp(24px,2.4vw,36px);line-height:1;
+  letter-spacing:-.012em}
+.prose ul{margin:0 0 var(--s4);padding:0;list-style:none}
+.prose li{position:relative;margin:0 0 var(--s2);padding-left:var(--s4);
+  font-family:var(--serif);font-size:18px;line-height:1.5;color:var(--ink-dim)}
+.prose li::before{content:"";position:absolute;left:0;top:.62em;
+  width:10px;height:2px;background:var(--sig)}
+.prose blockquote{margin:var(--s6) 0;padding-top:var(--s3);
+  border-top:3px solid var(--sig);font-family:var(--serif);font-style:italic;
+  font-size:clamp(21px,2.1vw,30px);line-height:1.3;color:var(--ink)}
+.prose .cite{margin:0;font-family:var(--c);font-size:12px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute)}
+.art-side{grid-column:11 / span 2;align-self:start;position:sticky;top:120px}
+.art-side p{margin:0 0 var(--s2);font-family:var(--c);font-size:12px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute)}
+.art-side a{display:block;margin-top:var(--s3);font-family:var(--c);font-size:13px;
+  font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--sig)}
+
+/* ── contact ────────────────────────────────────────────────────── */
+.cx{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--s7) var(--s3)}
+.cx-form{grid-column:1 / span 5}
+/* five stacked blocks against a three-line intro left a hole under the
+   headline; two columns halves the side's height and closes it */
+.cx-side{grid-column:7 / -1;display:grid;grid-template-columns:1fr 1fr;
+  gap:0 var(--s5);align-content:start}
+.cx-b{margin:0 0 var(--s5);padding-top:var(--s3);border-top:2px solid var(--line)}
+.cx-b p.lbl{margin-bottom:var(--s2)}
+.cx-b a,.cx-b address{display:block;font-style:normal;font-size:17px;line-height:1.45;
+  color:var(--ink-dim)}
+.cx-b a{color:var(--ink);transition:color .25s}
+.cx-b a:hover{color:var(--sig)}
+.cx-b b{display:block;font-family:var(--d);font-weight:800;text-transform:uppercase;
+  font-size:clamp(26px,2.6vw,40px);line-height:1;letter-spacing:-.012em}
+
+/* ── closing call, used at the foot of every interior page ──────── */
+.close{background:var(--gra);color:var(--pale);padding:var(--s9) var(--gut)}
+.close-in{max-width:var(--max);margin:0 auto;
+  display:grid;grid-template-columns:repeat(12,1fr);gap:0 var(--s3);align-items:end}
+.close .lbl{grid-column:1 / -1;color:var(--sig)}
+.close h2{grid-column:1 / span 7;margin:0;
+  font-family:var(--d);font-weight:800;text-transform:uppercase;
+  font-size:clamp(34px,4.4vw,72px);line-height:.9;letter-spacing:-.016em}
+.close-a{grid-column:9 / span 4;justify-self:start;display:flex;
+  flex-direction:column;gap:var(--s3);align-items:flex-start}
+.close-a .mast-tel{font-size:17px}
+
+@media (max-width:1080px){
+  .svc-i{grid-template-columns:56px minmax(0,1fr);gap:0 var(--s3)}
+  .svc-l{grid-column:2;margin-top:var(--s3);columns:2}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .tl{grid-template-columns:repeat(2,1fr);gap:var(--s5) var(--s3);border-top:0}
+  .tl li{padding:var(--s4) 0 0;border-top:2px solid var(--line)}
+  .crew-i{grid-column:1 / -1}
+  .prose{grid-column:1 / -1}
+  .art-side{grid-column:1 / -1;position:static;margin-top:var(--s6)}
+  .cx-form,.cx-side{grid-column:1 / -1}
+  .cx-side{grid-template-columns:1fr}
+  .close h2,.close-a{grid-column:1 / -1}
+  .close-a{margin-top:var(--s5)}
+  .phead h1{grid-column:1 / -1}
+  .phead .lede{grid-column:1 / span 9}
+  .phead-meta{grid-column:1 / -1;justify-self:start}
+}
+@media (max-width:760px){
+  .svc-intro{display:block;margin-bottom:var(--s6)}
+  .svc-intro h2{font-size:clamp(40px,11vw,66px)}
+  .svc-intro .lede{margin-top:var(--s4)}
+  .switch-plate,.workflow-plate{grid-column:1 / -1}
+  .svc-intro-plate{margin-top:var(--s6)}
+  .schematic-figure{margin-top:var(--s6)}
+  .schematic-figure figcaption{font-size:16px}
+  .schematic-figure svg{max-width:100%}
+  .phead{padding:var(--s6) var(--gut) var(--s7)}
+  .sec{padding:var(--s8) var(--gut)}
+  .svc-i{grid-template-columns:1fr;gap:var(--s2)}
+  /* the tablet rule pins this to column 2; left set, it conjures an implicit
+     second track and the single-column template never takes effect */
+  .svc-l{grid-column:auto;columns:1;margin-top:var(--s2)}
+  .steps{grid-template-columns:1fr}
+  .tl{grid-template-columns:1fr}
+  .crew-i{grid-template-columns:1fr;gap:var(--s2)}
+  .note{grid-template-columns:1fr;gap:var(--s2)}
+  .note-go{display:none}
+  .prose p{font-size:17px}
+}
+
+
+/* ══════════════════════════════════════════════════════════════════
+   INTERIOR PAGE REVEALS
+   The [data-anim] attributes were already on these elements but nothing
+   was listening for the .in class, so the new pages arrived static while
+   the home page moved. Same shared observer, same restraint: one beat
+   per element, nothing withheld for longer than it takes to read.
+   ══════════════════════════════════════════════════════════════════ */
+
+.svc-i,.crew-i,.prose,.cls,.plate{opacity:0;transform:translateY(18px)}
+.svc-i.in,.crew-i.in,.prose.in,.cls.in,.plate.in{
+  opacity:1;transform:none;transition:opacity .6s var(--e),transform .6s var(--e)}
+/* a sheet keeps its resting angle, so it fades and lifts rather than
+   animating transform — which would flatten the rotation on the way in */
+.note{opacity:0}
+.note.in{opacity:1;transition:opacity .6s var(--e),transform .4s var(--e),box-shadow .4s var(--e)}
+
+.steps li{opacity:0;transform:translateY(16px)}
+.steps.in li{opacity:1;transform:none;
+  transition:opacity .55s var(--e),transform .55s var(--e)}
+.steps.in li:nth-child(2){transition-delay:.08s}
+.steps.in li:nth-child(3){transition-delay:.16s}
+.steps.in li:nth-child(4){transition-delay:.24s}
+
+/* the marker lands as the drawn rule reaches it, then its text rises */
+.tl li::before{transform:scale(0);transition:transform .4s var(--e)}
+.tl li b,.tl li span,.tl li p{opacity:0;transform:translateY(12px)}
+.tl.in li::before{transform:scale(1)}
+.tl.in li b,.tl.in li span,.tl.in li p{opacity:1;transform:none;
+  transition:opacity .5s var(--e),transform .5s var(--e)}
+.tl.in li:nth-child(1)::before{transition-delay:.05s}
+.tl.in li:nth-child(2)::before{transition-delay:.26s}
+.tl.in li:nth-child(3)::before{transition-delay:.47s}
+.tl.in li:nth-child(4)::before{transition-delay:.68s}
+.tl.in li:nth-child(5)::before{transition-delay:.89s}
+.tl.in li:nth-child(1) b,.tl.in li:nth-child(1) span,.tl.in li:nth-child(1) p{transition-delay:.18s}
+.tl.in li:nth-child(2) b,.tl.in li:nth-child(2) span,.tl.in li:nth-child(2) p{transition-delay:.39s}
+.tl.in li:nth-child(3) b,.tl.in li:nth-child(3) span,.tl.in li:nth-child(3) p{transition-delay:.60s}
+.tl.in li:nth-child(4) b,.tl.in li:nth-child(4) span,.tl.in li:nth-child(4) p{transition-delay:.81s}
+.tl.in li:nth-child(5) b,.tl.in li:nth-child(5) span,.tl.in li:nth-child(5) p{transition-delay:1.02s}
+
+@media (prefers-reduced-motion:reduce){
+  .svc-i,.crew-i,.prose,.cls,.plate,.steps li,
+  .tl li b,.tl li span,.tl li p{
+    opacity:1 !important;transform:none !important;transition:none !important}
+  /* a sheet's resting angle is design, not motion — keep it, drop the fade */
+  .note{opacity:1 !important;transition:none !important}
+  .tl::before,.tl li::before{transform:scaleX(1) scale(1) !important;transition:none !important}
+  /* the plate is the illustration itself; without this it renders as an
+     empty box, since the drawn state is what carries the artwork */
+  .plate .p-sec{stroke-dashoffset:0 !important;fill-opacity:1 !important;
+    transition:none !important}
+  .plate .p-dim,.plate .p-lead,.plate .p-t{
+    opacity:1 !important;transition:none !important}
+}
+
+/* ── copy beside a figure ────────────────────────────────────────── */
+.split{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--s6) var(--s3);
+  align-items:start}
+.split-c{grid-column:1 / span 6}
+.split-c .lede + .lede{margin-top:var(--s4)}
+
+/* ── Plate II · rail section ─────────────────────────────────────
+   Drawn to the same convention as the panel on the front page: a cut
+   section is hatched, dimensions sit outside the object on witness
+   lines, and leaders are the only thing allowed to be the signal
+   color. It draws itself the way the timeline does.               */
+.plate{grid-column:8 / span 5;margin:0}
+.plate svg{display:block;width:100%;max-width:440px;overflow:visible}
+/* GREEN FORK: the hatch pattern's diagonal was a hardcoded #203A2D —
+   the base site's original --ink, which happened to equal --ink there
+   so nobody noticed it wasn't token-driven. On this fork's dark ground
+   that hex reads as almost-invisible dark-on-dark; routed through the
+   token instead so it tracks whichever ink the page is actually using. */
+.p-hatch-line{stroke:var(--ink);opacity:.3}
+.plate .p-sec{fill:url(#hatch);stroke:var(--ink);stroke-width:2.5;
+  stroke-linejoin:round;stroke-linecap:round}
+.plate .p-dim path{fill:none;stroke:var(--ink-mute);stroke-width:1.2;
+  stroke-linecap:round;stroke-linejoin:round}
+.plate .p-lead path{fill:none;stroke:var(--sig);stroke-width:1.2}
+.plate .p-lead circle{fill:var(--sig);stroke:none}
+.plate text{font-family:var(--c);font-size:11px;font-weight:600;
+  letter-spacing:.15em;fill:var(--ink-mute)}
+.plate .p-l text{fill:var(--sig)}
+.plate figcaption{margin-top:var(--s4);padding-top:var(--s2);
+  border-top:1px solid var(--line-2);
+  font-size:14px;line-height:1.45;color:var(--ink-mute);max-width:40ch}
+/* the section is inked first, then measured, then labeled */
+.plate .p-sec{stroke-dasharray:1;stroke-dashoffset:1;fill-opacity:0}
+.plate.in .p-sec{stroke-dashoffset:0;fill-opacity:1;
+  transition:stroke-dashoffset 1.1s var(--e) .1s,fill-opacity .7s var(--e) .9s}
+.plate .p-dim,.plate .p-lead{opacity:0}
+.plate.in .p-dim{opacity:1;transition:opacity .5s var(--e) 1.05s}
+.plate.in .p-lead{opacity:1;transition:opacity .5s var(--e) 1.3s}
+.plate .p-t{opacity:0}
+.plate.in .p-t{opacity:1;transition:opacity .5s var(--e) 1.45s}
+
+/* ── track classes ──────────────────────────────────────────────── */
+.split > .cls{grid-column:8 / span 5;width:100%;border-collapse:collapse;
+  text-align:left}
+.cls caption{text-align:left;padding-bottom:var(--s2);
+  font-family:var(--c);font-size:12px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-mute);
+  border-bottom:2px solid var(--line)}
+.cls th{font-family:var(--d);font-weight:800;text-transform:uppercase;
+  font-size:clamp(17px,1.6vw,25px);line-height:1;white-space:nowrap;
+  padding:var(--s2) var(--s3) var(--s2) 0;border-bottom:1px solid var(--line-2)}
+.cls td{font-size:15px;line-height:1.35;color:var(--ink-mute);vertical-align:baseline;
+  padding:var(--s2) var(--s3) var(--s2) 0;border-bottom:1px solid var(--line-2)}
+.cls td:first-of-type{font-family:var(--c);font-weight:600;letter-spacing:.1em;
+  white-space:nowrap;color:var(--ink-dim)}
+/* the three classes industrial track actually falls in */
+.cls tr.on th{color:var(--sig)}
+.cls tr.on td{color:var(--ink-dim)}
+.cls tr.on td:first-of-type{color:var(--ink)}
+.split > .cls-n{grid-column:8 / span 5;margin:0;font-size:15px;line-height:1.45;
+  color:var(--ink-mute);max-width:46ch}
+
+@media (max-width:1080px){
+  .split-c,.plate,.split > .cls,.split > .cls-n{grid-column:1 / -1}
+  .plate svg{max-width:360px}
+}
+
+/* the process band sits on con-hi, so its markers take that ground instead */
+.band .steps li::before{background:var(--con-hi)}
+.band .steps li:last-child::before{background:var(--sig)}
+@media (prefers-reduced-motion:reduce){
+  .steps::before{transform:scaleX(1) !important;transition:none !important}
+  .steps li::before{transform:scale(1) !important;transition:none !important}
+}
+
+/* ── the tweed as a section rule ─────────────────────────────────
+   When the band closes a section it sits tight against it and lets the
+   next section's own top padding carry the space below, so it reads as
+   a separator rather than something floating in the gap. */
+.sec-close{padding-bottom:var(--s7)}
+.tweed-end{margin-bottom:0}
+
+/* ── Plate III · plan of a plant lead ────────────────────────────
+   Same drafting language as the cost diagram: single strokes, one
+   signal color, and the only heavy line is the one that matters. */
+/* the plan is much shorter than the copy beside it; centring closes the
+   void that top-alignment leaves under it */
+.plan{align-self:center}
+.plan svg{max-width:none}
+.plan .q-main,.plan .q-spur{fill:none;stroke:var(--ink);stroke-width:2.5;
+  stroke-linecap:round;stroke-linejoin:round}
+.plan .q-sw{fill:none;stroke:var(--ink);stroke-width:2.5;stroke-linecap:round}
+.plan .q-own{fill:none;stroke:var(--sig);stroke-width:5;stroke-linecap:round}
+.plan .q-prop{fill:none;stroke:var(--sig);stroke-width:1.5;
+  stroke-dasharray:7 6;opacity:.7}
+.plan .q-plant{fill:none;stroke:var(--ink);stroke-width:2;opacity:.45}
+.plan text{font-family:var(--c);font-size:12px;font-weight:600;
+  letter-spacing:.15em;fill:var(--ink-mute)}
+.plan .q-hot{fill:var(--sig)}
+
+/* the carrier's road first, then the switch, then the length that is
+   yours — the gold run lands last because it is the point */
+.plan .q-main,.plan .q-spur,.plan .q-own,.plan .q-prop{
+  stroke-dasharray:1;stroke-dashoffset:1}
+.plan.in .q-main{stroke-dashoffset:0;transition:stroke-dashoffset .7s var(--e) .1s}
+.plan.in .q-spur{stroke-dashoffset:0;transition:stroke-dashoffset .55s var(--e) .85s}
+.plan.in .q-prop{stroke-dashoffset:0;transition:stroke-dashoffset .45s var(--e) 1.35s}
+.plan.in .q-own{stroke-dashoffset:0;transition:stroke-dashoffset .6s var(--e) 1.6s}
+.plan .q-sw,.plan .q-plant{opacity:0}
+.plan.in .q-sw{opacity:1;transition:opacity .3s var(--e) .8s}
+.plan.in .q-plant{opacity:.45;transition:opacity .4s var(--e) 1.45s}
+.plan .q-t{opacity:0}
+.plan.in .q-t{opacity:1;transition:opacity .5s var(--e) 2.05s}
+
+/* ── numbered headings inside an article ────────────────────────── */
+.prose h2 i{font-style:normal;color:var(--sig);margin-right:var(--s2);
+  font-weight:200}
+.prose .colophon{margin-top:var(--s7);padding-top:var(--s3);
+  border-top:2px solid var(--line);font-family:var(--b);font-size:15px;
+  line-height:1.5;color:var(--ink-mute);font-style:normal}
+
+@media (prefers-reduced-motion:reduce){
+  .plan .q-main,.plan .q-spur,.plan .q-own,.plan .q-prop{
+    stroke-dashoffset:0 !important;transition:none !important}
+  .plan .q-sw,.plan .q-t{opacity:1 !important;transition:none !important}
+  .plan .q-plant{opacity:.45 !important;transition:none !important}
+}
+
+/* ══ PLATES IV & V — drawn, not faded ══════════════════════════════
+   Both build in the order the thing itself is built or read: the
+   turnout lays its stock rails, swings the points, then sets the
+   castings that wear; the sequence measures, writes, then closes.
+   pathLength normalises every path to 1 so timings are declared
+   rather than measured.                                            */
+.switch-plate .s-rail,.switch-plate .s-point,
+.switch-plate .s-frog,.switch-plate .s-guard,
+.switch-plate .s-lead path,
+.workflow-plate .w-ink,.workflow-plate .w-dim,.workflow-plate .w-hot,
+.workflow-plate .w-arrow,.workflow-plate .w-rule,.workflow-plate .w-tick{
+  stroke-dasharray:1;stroke-dashoffset:1;
+  transition:stroke-dashoffset var(--dur,.5s) linear var(--t,0s)}
+.switch-plate.in .s-rail,.switch-plate.in .s-point,
+.switch-plate.in .s-frog,.switch-plate.in .s-guard,
+.switch-plate.in .s-lead path,
+.workflow-plate.in .w-ink,.workflow-plate.in .w-dim,.workflow-plate.in .w-hot,
+.workflow-plate.in .w-arrow,.workflow-plate.in .w-rule,.workflow-plate.in .w-tick{
+  stroke-dashoffset:0}
+
+/* Plate IV timings */
+.switch-plate .s-rail:nth-of-type(1){--t:.10s;--dur:.75s}
+.switch-plate .s-rail:nth-of-type(2){--t:.18s;--dur:.75s}
+.switch-plate .s-div:nth-of-type(3){--t:.80s;--dur:.65s}
+.switch-plate .s-div:nth-of-type(4){--t:.88s;--dur:.65s}
+.switch-plate .s-point{--t:1.42s;--dur:.30s}
+.switch-plate .s-guard{--t:1.66s;--dur:.30s}
+.switch-plate .s-frog{--t:1.82s;--dur:.32s}
+.switch-plate .s-lead path{--t:2.10s;--dur:.28s}
+.switch-plate .s-label,.switch-plate .s-note{opacity:0}
+.switch-plate.in .s-label{opacity:1;transition:opacity .45s var(--e) 2.30s}
+.switch-plate.in .s-note{opacity:1;transition:opacity .45s var(--e) 2.50s}
+
+/* Plate V timings */
+.workflow-plate .w-rule{--t:.10s;--dur:.70s}
+.workflow-plate .w-mark{transform:scale(0);transform-origin:center;transform-box:fill-box;
+  transition:transform .34s var(--e) var(--t,0s)}
+.workflow-plate.in .w-mark{transform:scale(1)}
+.workflow-plate .w-mark:nth-of-type(1){--t:.30s}
+.workflow-plate .w-mark:nth-of-type(2){--t:.52s}
+.workflow-plate .w-mark:nth-of-type(3){--t:.74s}
+.workflow-plate .w-g:nth-of-type(1) .w-ink{--t:.42s;--dur:.34s}
+.workflow-plate .w-g:nth-of-type(1) .w-dim{--t:.72s;--dur:.30s}
+.workflow-plate .w-g:nth-of-type(1) .w-hot{--t:1.00s;--dur:.24s}
+.workflow-plate .w-arrow:nth-of-type(1){--t:1.20s;--dur:.28s}
+.workflow-plate .w-g:nth-of-type(2) .w-ink{--t:1.62s;--dur:.30s}
+.workflow-plate .w-g:nth-of-type(2) .w-hot{--t:1.86s;--dur:.26s}
+.workflow-plate .w-arrow:nth-of-type(2){--t:2.06s;--dur:.28s}
+.workflow-plate .w-g:nth-of-type(3) .w-ink{--t:2.34s;--dur:.28s}
+.workflow-plate .w-tick{--t:2.76s;--dur:.26s}
+.workflow-plate .w-sheet,.workflow-plate .w-hot-fill,.workflow-plate .w-fix{opacity:0}
+.workflow-plate.in .w-sheet{opacity:1;transition:opacity .34s var(--e) 1.48s}
+.workflow-plate.in .w-hot-fill{opacity:1;transition:opacity .3s var(--e) 1.90s}
+.workflow-plate.in .w-fix{opacity:1;transition:opacity .34s var(--e) 2.58s}
+.workflow-plate .w-ann,.workflow-plate .w-t{opacity:0}
+.workflow-plate.in .w-ann{opacity:1;transition:opacity .45s var(--e) 3.00s}
+.workflow-plate.in .w-t{opacity:1;transition:opacity .45s var(--e) 2.90s}
+
+@media (prefers-reduced-motion:reduce){
+  /* the drawn state is the artwork — without this both plates render blank */
+  .switch-plate .s-rail,.switch-plate .s-point,.switch-plate .s-frog,
+  .switch-plate .s-guard,.switch-plate .s-lead path,
+  .workflow-plate .w-ink,.workflow-plate .w-dim,.workflow-plate .w-hot,
+  .workflow-plate .w-arrow,.workflow-plate .w-rule,.workflow-plate .w-tick{
+    stroke-dashoffset:0 !important;transition:none !important}
+  .switch-plate .s-label,.switch-plate .s-note,
+  .workflow-plate .w-sheet,.workflow-plate .w-hot-fill,.workflow-plate .w-fix,
+  .workflow-plate .w-ann,.workflow-plate .w-t{
+    opacity:1 !important;transition:none !important}
+  .workflow-plate .w-mark{transform:scale(1) !important;transition:none !important}
+}
+
+/* On a phone the same cap would shrink a dimensioned drawing to 5.5px
+   type, which is not a drawing any more. Each plate scrolls inside its
+   own box instead, sized so the annotations stay near page scale — the
+   kicker and caption sit outside it and stay put, and the page itself
+   never scrolls sideways. */
+.plate-scroll{min-width:0}
+@media (max-width:760px){
+  .plate-scroll{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch}
+  /* min-width tracks each drawing's own viewBox so every plate lands at
+     roughly the same rendered type size */
+  .workflow-plate .plate-scroll svg,
+  .switch-plate .plate-scroll svg{min-width:560px}
+  .plan .plate-scroll svg{min-width:470px}
+  .plate:not(.plan) .plate-scroll svg{min-width:360px;max-width:none}
+}

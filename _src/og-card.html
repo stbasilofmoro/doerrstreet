@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- Source for assets/og.png. Edit, then re-render at 1200x630:
+     "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+       --headless=new --window-size=1200,630 --force-device-scale-factor=1 \
+       --screenshot=../assets/og.png "file://$PWD/og-card.html"            -->
+<link rel="stylesheet" href="../fonts/fonts.inline.css">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1200px;height:630px;overflow:hidden}
+  body{
+    background:#4B4F38;color:#F0D9A8;
+    font-family:"Barlow Condensed",sans-serif;
+    padding:58px 84px 0;position:relative;
+  }
+  img{width:270px;height:auto;display:block}
+  .kick{
+    margin-top:44px;color:#DCC392;
+    font-size:21px;font-weight:600;letter-spacing:4px;text-transform:uppercase;
+  }
+  h1{
+    margin-top:14px;
+    font-family:"Big Shoulders Display",sans-serif;
+    font-weight:800;font-size:82px;line-height:.9;
+    letter-spacing:-.01em;text-transform:uppercase;
+  }
+  .foot{
+    position:absolute;left:84px;bottom:96px;
+    font-size:22px;font-weight:500;letter-spacing:3px;
+    text-transform:uppercase;color:rgba(240,217,168,.62);
+  }
+  .rule{position:absolute;left:0;right:0;bottom:54px;height:4px;background:#DCC392}
+  .weave{
+    position:absolute;left:0;right:0;bottom:0;height:54px;
+    background-color:rgba(240,217,168,.42);
+    -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath fill='%23fff' d='M-.06 19.94H20.06V40.06H-.06ZM9.94-.06H20.06L-.06 20.06V9.94ZM20.06 9.94V20.06H9.94ZM20.06 20.06H30.06L20.06 30.06ZM40.06 19.94V30.06L30.06 40.06H19.94Z'/%3E%3C/svg%3E");
+    -webkit-mask-size:40px 40px;-webkit-mask-repeat:repeat;
+  }
+</style>
+</head>
+<body>
+  <img src="../assets/logo.png" alt="">
+  <p class="kick">FRA Part 213 · Independent track inspection</p>
+  <h1>Track that isn’t<br>documented is track<br>that gets shut down.</h1>
+  <p class="foot">Weddington, N.C. &nbsp; · &nbsp; Eight southeastern states &nbsp; · &nbsp; 704 321 0802</p>
+  <div class="rule"></div>
+  <div class="weave"></div>
+</body>
+</html>
