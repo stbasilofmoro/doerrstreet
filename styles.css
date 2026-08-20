@@ -853,7 +853,8 @@ body.ready [data-seq="9"]{transition-delay:.90s}
    unrolled across the page — one beat, then it holds */
 .tweed{transform:scaleY(0);transform-origin:50% 50%}
 .tweed.in{transform:none;transition:transform .7s var(--e)}
-.tweed-team{height:var(--s6);margin-bottom:var(--s7)}
+.tweed-contact,.tweed-team{margin-bottom:0}
+.tweed-team{height:var(--s5)}
 @media (prefers-reduced-motion:reduce){.tweed{transform:none !important;transition:none !important}}
 
 /* ══ 07 · TERRITORY ═══════════════════════════════════════════════ */
