@@ -337,16 +337,18 @@ body.ready [data-seq="9"]{transition-delay:.90s}
 /* ══ 01 · HERO ════════════════════════════════════════════════════ */
 .hero{
   position:relative;
-  max-width:var(--max);margin:0 auto;padding:var(--s8) var(--gut) var(--s8);
+  max-width:none;margin:0;
+  padding:var(--s8) max(var(--gut),calc((100vw - var(--max)) / 2 + var(--gut))) var(--s8);
   display:grid;grid-template-columns:repeat(12,1fr);gap:0 var(--s3);
   isolation:isolate;overflow:hidden;background:var(--con);
 }
-.hero::before{content:"";position:absolute;inset:0;z-index:-1;
+.hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
   background:linear-gradient(90deg,rgba(25,25,23,.88) 0%,rgba(25,25,23,.68) 48%,rgba(25,25,23,.50) 100%);
 }
-.hero-video{position:absolute;inset:0;z-index:-2;width:100%;height:100%;
+.hero-video{position:absolute;inset:0;z-index:0;width:100%;height:100%;
   object-fit:cover;object-position:center;opacity:.72;filter:saturate(.72) contrast(.96)}
-.hero > :not(.hero-video){position:relative;z-index:1}
+.hero > :not(.hero-video):not(.tape){position:relative;z-index:2}
+.hero > .tape{z-index:2}
 .hero-lbl{grid-column:1 / -1;margin-bottom:var(--s3)}
 .hero-h{
   grid-column:1 / span 11;margin:0;
@@ -365,7 +367,9 @@ body.ready [data-seq="9"]{transition-delay:.90s}
    A surveyor's scale running the height of the hero. It moves at a
    walking pace — the one continuously moving thing on the page.     */
 .tape{
-  position:absolute;top:0;bottom:0;right:var(--gut);width:128px;
+  position:absolute;top:0;bottom:0;
+  right:max(var(--gut),calc((100vw - var(--max)) / 2 + var(--gut)));
+  width:128px;
   overflow:hidden;pointer-events:none;
   /* fades out well before the band below, or labels collide with the edge */
   -webkit-mask-image:linear-gradient(180deg,transparent,#000 14%,#000 72%,transparent);
