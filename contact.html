@@ -26,7 +26,7 @@
 <link rel="stylesheet" href="fonts/fonts.inline.css">
 <link rel="stylesheet" href="styles.css?v=12">
 </head>
-<body class="preload">
+<body class="preload page-contact">
 
 <header class="mast" id="mast">
   <a class="mast-logo" href="index.html" aria-label="Doerr Street Rail Co — home"><img src="assets/logo.png" alt="Doerr Street Rail Co"></a>
@@ -66,9 +66,9 @@
   </div>
 </section>
 
-<div class="tweed" data-anim aria-hidden="true"></div>
+<div class="tweed tweed-contact" data-anim aria-hidden="true"></div>
 
-<section class="sec">
+<section class="sec contact-details">
   <div class="cx">
     <div class="cx-form">
       <p class="lbl">Reach us directly</p>
@@ -143,6 +143,17 @@
     <button class="btn btn-hot q-send" type="submit">Send request</button>
     <p class="q-fine" id="qFine">We reply within one business day. For anything urgent, call <a href="tel:+17043210802">704 321 0802</a>.</p>
   </form>
+
+  <div class="form-success" id="formSuccess" hidden role="dialog" aria-modal="true" aria-labelledby="formSuccessTitle">
+    <div class="form-success-card">
+      <p class="lbl lbl-inv">Transmission received</p>
+      <p class="form-success-mark" aria-hidden="true">✓</p>
+      <h2 id="formSuccessTitle">Thank you.<br>We have your request.</h2>
+      <p>We’ll review the details and reply within one business day. If the track is restricted or there has been a derailment, call us directly.</p>
+      <a class="form-success-tel" href="tel:+17043210802">704 321 0802</a>
+      <button class="btn btn-line form-success-close" type="button">Close</button>
+    </div>
+  </div>
 </section>
 
 

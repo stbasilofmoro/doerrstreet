@@ -29,6 +29,11 @@
   /* ── neutral anchor: his footer/deep-panel near-black ── */
   --gra:      #22211E;
   --pale:     #F0D9A8;
+  --paper:    #F8F6EF;
+  --paper-ink: #2A2C1E;
+  --paper-dim: rgba(42,44,30,.70);
+  --paper-mute: rgba(42,44,30,.48);
+  --paper-line: rgba(42,44,30,.20);
   /* ── the single sharp accent ──
      His palette has no red at all — everything on trackinspections.app
      is olive/cream/gold. A brick oxide on this olive measures 1.06:1,
@@ -332,9 +337,18 @@ body.ready [data-seq="9"]{transition-delay:.90s}
 /* ══ 01 · HERO ════════════════════════════════════════════════════ */
 .hero{
   position:relative;
-  max-width:var(--max);margin:0 auto;padding:var(--s8) var(--gut) var(--s8);
+  max-width:none;margin:0;
+  padding:var(--s8) max(var(--gut),calc((100vw - var(--max)) / 2 + var(--gut))) var(--s8);
   display:grid;grid-template-columns:repeat(12,1fr);gap:0 var(--s3);
+  isolation:isolate;overflow:hidden;background:var(--con);
 }
+.hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,rgba(25,25,23,.88) 0%,rgba(25,25,23,.68) 48%,rgba(25,25,23,.50) 100%);
+}
+.hero-video{position:absolute;inset:0;z-index:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;opacity:.72;filter:saturate(.72) contrast(.96)}
+.hero > :not(.hero-video):not(.tape){position:relative;z-index:2}
+.hero > .tape{z-index:2}
 .hero-lbl{grid-column:1 / -1;margin-bottom:var(--s3)}
 .hero-h{
   grid-column:1 / span 11;margin:0;
@@ -353,7 +367,9 @@ body.ready [data-seq="9"]{transition-delay:.90s}
    A surveyor's scale running the height of the hero. It moves at a
    walking pace — the one continuously moving thing on the page.     */
 .tape{
-  position:absolute;top:0;bottom:0;right:var(--gut);width:128px;
+  position:absolute;top:0;bottom:0;
+  right:max(var(--gut),calc((100vw - var(--max)) / 2 + var(--gut)));
+  width:128px;
   overflow:hidden;pointer-events:none;
   /* fades out well before the band below, or labels collide with the edge */
   -webkit-mask-image:linear-gradient(180deg,transparent,#000 14%,#000 72%,transparent);
@@ -370,6 +386,7 @@ body.ready [data-seq="9"]{transition-delay:.90s}
 .tape .hit rect{fill:var(--sig)}
 .tape .hit text{fill:var(--sig);font-weight:600}
 @media (prefers-reduced-motion:reduce){.tape-run{animation:none}}
+@media (prefers-reduced-motion:reduce){.hero-video{visibility:hidden}}
 @media (max-width:1180px){.tape{display:none}}
 
 /* ══ 01b · CREDENTIALS — a tonal band, full bleed ═════════════════ */
@@ -848,7 +865,8 @@ body.ready [data-seq="9"]{transition-delay:.90s}
    unrolled across the page — one beat, then it holds */
 .tweed{transform:scaleY(0);transform-origin:50% 50%}
 .tweed.in{transform:none;transition:transform .7s var(--e)}
-.tweed-team{height:var(--s6);margin-bottom:var(--s7)}
+.tweed-contact,.tweed-team{margin-bottom:0}
+.tweed-team{height:var(--s5)}
 @media (prefers-reduced-motion:reduce){.tweed{transform:none !important;transition:none !important}}
 
 /* ══ 07 · TERRITORY ═══════════════════════════════════════════════ */
@@ -972,6 +990,47 @@ body.ready [data-seq="9"]{transition-delay:.90s}
   font-family:var(--c);font-size:13px;font-weight:500;letter-spacing:.13em;
   text-transform:uppercase;color:rgba(239,236,228,.42)}
 .q-fine a{color:var(--sig)}
+
+/* A clear acknowledgement after a request is sent. It behaves like a
+   stamped field notice: decisive enough to be seen, still part of the same
+   paper-and-ink system as the form beneath it. */
+.success-open{overflow:hidden}
+.form-success{position:fixed;inset:0;z-index:500;display:grid;place-items:center;padding:var(--gut);background:rgba(23,49,39,.82);opacity:0;visibility:hidden;transition:opacity .28s var(--e),visibility 0s linear .28s}
+.form-success.is-open{opacity:1;visibility:visible;transition:opacity .28s var(--e),visibility 0s}
+.form-success-card{position:relative;width:min(560px,100%);padding:var(--s7) var(--s7) var(--s6);background:var(--pale);color:var(--ink);border:2px solid var(--sig);outline:1px solid var(--sig);outline-offset:-9px;transform:translateY(14px);transition:transform .38s var(--e)}
+.form-success.is-open .form-success-card{transform:none}
+.form-success-card .lbl{color:var(--sig);margin:0 0 var(--s3)}
+.form-success-mark{margin:0 0 var(--s2);font-family:var(--d);font-size:34px;line-height:1;color:var(--sig)}
+.form-success-card h2{margin:0;font-family:var(--serif);font-size:clamp(38px,5vw,64px);font-weight:400;line-height:.95;letter-spacing:-.035em}
+.form-success-card > p:not(.lbl):not(.form-success-mark){max-width:39ch;margin:var(--s4) 0 var(--s3);font-size:17px;line-height:1.45;color:var(--ink-dim)}
+.form-success-tel{display:inline-block;margin-bottom:var(--s5);font-family:var(--d);font-size:28px;font-weight:800;line-height:1;color:var(--ink)}
+.form-success-close{display:block;color:var(--ink);border-color:var(--line);background:transparent}
+.form-success-close:hover{color:var(--pale);border-color:var(--gra);background:var(--gra)}
+@media (max-width:720px){
+  .form-success{padding:var(--s3)}
+  .form-success-card{padding:var(--s6) var(--s4) var(--s5)}
+}
+@media (prefers-reduced-motion:reduce){
+  .form-success,.form-success-card{transition:none !important}
+}
+
+/* Pale document panels break up the green pages without turning the site
+   into a collection of cards. Each one carries a complete piece of work:
+   the service register, the people, the contact details, or the family story. */
+.services-list,.team-list,.contact-details,.about-intro{--ink:var(--paper-ink);--ink-dim:var(--paper-dim);--ink-mute:var(--paper-mute);--line:var(--paper-line);--line-2:rgba(42,44,30,.11);--con:var(--paper);--con-hi:var(--paper);--pale:var(--paper);max-width:none;border-top:2px solid var(--paper-line);border-bottom:2px solid var(--paper-line);background:var(--paper);color:var(--paper-ink)}
+.services-list > *,.team-list > *,.contact-details > *,.about-intro > *{max-width:var(--max);margin-left:auto;margin-right:auto}
+.services-list .svc-intro,.team-list .crew,.contact-details .cx,.about-intro .split-c,.about-intro .plate{width:100%}
+.services-list .svc-intro{margin-bottom:var(--s7)}
+.services-list .svc{margin-bottom:0}
+.services-list .svc-intro-plate{max-width:720px}
+.team-list .crew{padding:0}
+.contact-details .cx{padding:0}
+.about-intro .split-c,.about-intro .plate{max-width:none}
+
+@media (max-width:760px){
+  .services-list,.team-list,.contact-details,.about-intro{padding-left:var(--gut);padding-right:var(--gut)}
+  .services-list > *,.team-list > *,.contact-details > *,.about-intro > *{max-width:none}
+}
 
 /* ══ FOOTER ═══════════════════════════════════════════════════════ */
 .foot{
