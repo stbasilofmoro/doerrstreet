@@ -29,6 +29,11 @@
   /* ── neutral anchor: his footer/deep-panel near-black ── */
   --gra:      #22211E;
   --pale:     #F0D9A8;
+  --paper:    #F8F6EF;
+  --paper-ink: #2A2C1E;
+  --paper-dim: rgba(42,44,30,.70);
+  --paper-mute: rgba(42,44,30,.48);
+  --paper-line: rgba(42,44,30,.20);
   /* ── the single sharp accent ──
      His palette has no red at all — everything on trackinspections.app
      is olive/cream/gold. A brick oxide on this olive measures 1.06:1,
@@ -994,6 +999,24 @@ body.ready [data-seq="9"]{transition-delay:.90s}
 }
 @media (prefers-reduced-motion:reduce){
   .form-success,.form-success-card{transition:none !important}
+}
+
+/* Pale document panels break up the green pages without turning the site
+   into a collection of cards. Each one carries a complete piece of work:
+   the service register, the people, the contact details, or the family story. */
+.services-list,.team-list,.contact-details,.about-intro{--ink:var(--paper-ink);--ink-dim:var(--paper-dim);--ink-mute:var(--paper-mute);--line:var(--paper-line);--line-2:rgba(42,44,30,.11);--con:var(--paper);--con-hi:var(--paper);--pale:var(--paper);max-width:none;border-top:2px solid var(--paper-line);border-bottom:2px solid var(--paper-line);background:var(--paper);color:var(--paper-ink)}
+.services-list > *,.team-list > *,.contact-details > *,.about-intro > *{max-width:var(--max);margin-left:auto;margin-right:auto}
+.services-list .svc-intro,.team-list .crew,.contact-details .cx,.about-intro .split-c,.about-intro .plate{width:100%}
+.services-list .svc-intro{margin-bottom:var(--s7)}
+.services-list .svc{margin-bottom:0}
+.services-list .svc-intro-plate{max-width:720px}
+.team-list .crew{padding:0}
+.contact-details .cx{padding:0}
+.about-intro .split-c,.about-intro .plate{max-width:none}
+
+@media (max-width:760px){
+  .services-list,.team-list,.contact-details,.about-intro{padding-left:var(--gut);padding-right:var(--gut)}
+  .services-list > *,.team-list > *,.contact-details > *,.about-intro > *{max-width:none}
 }
 
 /* ══ FOOTER ═══════════════════════════════════════════════════════ */
