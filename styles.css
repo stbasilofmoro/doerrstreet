@@ -973,6 +973,29 @@ body.ready [data-seq="9"]{transition-delay:.90s}
   text-transform:uppercase;color:rgba(239,236,228,.42)}
 .q-fine a{color:var(--sig)}
 
+/* A clear acknowledgement after a request is sent. It behaves like a
+   stamped field notice: decisive enough to be seen, still part of the same
+   paper-and-ink system as the form beneath it. */
+.success-open{overflow:hidden}
+.form-success{position:fixed;inset:0;z-index:500;display:grid;place-items:center;padding:var(--gut);background:rgba(23,49,39,.82);opacity:0;visibility:hidden;transition:opacity .28s var(--e),visibility 0s linear .28s}
+.form-success.is-open{opacity:1;visibility:visible;transition:opacity .28s var(--e),visibility 0s}
+.form-success-card{position:relative;width:min(560px,100%);padding:var(--s7) var(--s7) var(--s6);background:var(--pale);color:var(--ink);border:2px solid var(--sig);outline:1px solid var(--sig);outline-offset:-9px;transform:translateY(14px);transition:transform .38s var(--e)}
+.form-success.is-open .form-success-card{transform:none}
+.form-success-card .lbl{color:var(--sig);margin:0 0 var(--s3)}
+.form-success-mark{margin:0 0 var(--s2);font-family:var(--d);font-size:34px;line-height:1;color:var(--sig)}
+.form-success-card h2{margin:0;font-family:var(--serif);font-size:clamp(38px,5vw,64px);font-weight:400;line-height:.95;letter-spacing:-.035em}
+.form-success-card > p:not(.lbl):not(.form-success-mark){max-width:39ch;margin:var(--s4) 0 var(--s3);font-size:17px;line-height:1.45;color:var(--ink-dim)}
+.form-success-tel{display:inline-block;margin-bottom:var(--s5);font-family:var(--d);font-size:28px;font-weight:800;line-height:1;color:var(--ink)}
+.form-success-close{display:block;color:var(--ink);border-color:var(--line);background:transparent}
+.form-success-close:hover{color:var(--pale);border-color:var(--gra);background:var(--gra)}
+@media (max-width:720px){
+  .form-success{padding:var(--s3)}
+  .form-success-card{padding:var(--s6) var(--s4) var(--s5)}
+}
+@media (prefers-reduced-motion:reduce){
+  .form-success,.form-success-card{transition:none !important}
+}
+
 /* ══ FOOTER ═══════════════════════════════════════════════════════ */
 .foot{
   background:var(--gra);color:var(--pale);padding:var(--s8) var(--gut) var(--s4);

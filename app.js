@@ -430,6 +430,25 @@
     const FORM_ENDPOINT = 'https://formspree.io/f/mrpzlqab';
     const fine = $('#qFine');
     const fineWas = fine ? fine.innerHTML : '';
+    const success = $('#formSuccess');
+    const successClose = success ? $('.form-success-close', success) : null;
+    let lastFocus = null;
+
+    const closeSuccess = () => {
+      if (!success) return;
+      success.classList.remove('is-open');
+      document.body.classList.remove('success-open');
+      setTimeout(() => { success.hidden = true; }, 280);
+      if (lastFocus) lastFocus.focus();
+    };
+
+    successClose?.addEventListener('click', closeSuccess);
+    success?.addEventListener('click', (e) => {
+      if (e.target === success) closeSuccess();
+    });
+    success?.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeSuccess();
+    });
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -453,6 +472,16 @@
         b.textContent = 'Request sent';
         if (fine) fine.textContent = 'We reply within one business day. Thank you.';
         form.reset(); update();
+
+        if (success) {
+          lastFocus = document.activeElement;
+          success.hidden = false;
+          document.body.classList.add('success-open');
+          requestAnimationFrame(() => {
+            success.classList.add('is-open');
+            successClose?.focus();
+          });
+        }
 
         // stays visible until they act again, rather than reverting on a timer
         let revertTimer;
