@@ -469,6 +469,16 @@
         });
         if (!res.ok) throw new Error('submission rejected');
 
+        // Record a conversion only after Formspree confirms the enquiry was received.
+        // The dataLayer event also lets Google Tag Manager / GA4 use the same signal.
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'inspection_form_submit' });
+        window.gtag?.('event', 'conversion', {
+          send_to: 'AW-17661110744/tYzICNDbzf0bENjTvOVB',
+          value: 0.0,
+          currency: 'USD',
+        });
+
         b.textContent = 'Request sent';
         if (fine) fine.textContent = 'We reply within one business day. Thank you.';
         form.reset(); update();
